@@ -4,6 +4,9 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Checkup from './components/checkup';
 import Analisi from './components/Analisi';
+import Carousel from './components/carousel';
+
+
 export default function Home() {
   return (
     <div className='page'>
@@ -23,6 +26,9 @@ export default function Home() {
 </div>
 <div>
   <Analisi/>
+</div>
+<div>
+  <Carousel/>
 </div>
 
       </div>

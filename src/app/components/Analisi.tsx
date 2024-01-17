@@ -33,8 +33,8 @@ function Analisi() {
         
 
 
-           <div className='columns-2 columns-md-1 flex justify-end'>
-           <div className=' sticky content-start '>
+           <div className='columns-2 columns-md-1 flex flex-wrap justify-end'>
+           <div className=' '>
             
             <img src="\hand-made-green-click.jpg" className='pt-8 min-h-2 max-w-md ' alt="" />
             </div>
