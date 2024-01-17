@@ -25,3 +25,20 @@ body {
 .fontHead{
   font-family: 'Courier Prime', monospace;
 }
+
+
+.colorDiveder{
+
+  color: aqua;
+}
+
+.imgTeam{
+  height: auto;
+    max-width: 100%;
+    border: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+

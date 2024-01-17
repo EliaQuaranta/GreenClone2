@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Main from './components/Main';
+import Checkup from './components/checkup';
 export default function Home() {
   return (
     <div className='page'>
@@ -16,7 +17,9 @@ export default function Home() {
     <div>
       <Main/>
     </div>
-
+<div>
+  <Checkup/>
+</div>
       </div>
       )
 }
