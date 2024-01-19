@@ -39,10 +39,15 @@ function Carousel() {
   </div>
 </div> 
 <div className="flex justify-center w-full py-2 gap-2">
+  
   <a href="#item1" className="btn btn-xs rounded-full bg-slate-600">1</a> 
   <a href="#item2" className="btn btn-xs rounded-full bg-slate-600">2</a> 
   <a href="#item3" className="btn btn-xs rounded-full bg-slate-600">3</a> 
   <a href="#item4" className="btn btn-xs rounded-full bg-slate-600">4</a>
+  <a href="#item1" className="btn btn-xs rounded-full bg-slate-600"></a> 
+  <a href="#item2" className="btn btn-xs rounded-full bg-slate-600"></a> 
+  <a href="#item3" className="btn btn-xs rounded-full bg-slate-600"></a> 
+  <a href="#item4" className="btn btn-xs rounded-full bg-slate-600"></a>
 </div>
             </div>
         </div>
