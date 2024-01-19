@@ -16,7 +16,6 @@ function Carousel() {
           <h4 className="font-bold text-xl text-start pl-10 pt-7">
             Giornalmente veniamo a contatto e ascoltiamo tante storie, progetti,
             idee. Ci occupiamo dello sviluppo di strategie con tante
-            caratteristiche diverse.
             <br />
             Siamo convinti che per ogni business online si possa trovare la
             strada giusta per crescere. <br /> In questo spazio ti proponiamo
