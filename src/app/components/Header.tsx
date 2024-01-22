@@ -5,11 +5,11 @@ function Header () {
 
 return(
 
-   <div className='columns-2 columns-md-1 flex flex-wrap justify-evenly'>
+   <div className='columns-2 columns-md-1 flex flex-wrap justify-evenly lg:pl-32 lg:pt-10 '>
 <div>
-    <h1 className=' pl-7 font-bold text-7xl pt-10'>Click to</h1>
-    <h2 className=' pl-7 font-bold text-6xl text-cyan-400'>GROW</h2>
-    <h4 className=' pl-7 fontHead text-xl text-clip pt-8'>Esperienza, competenza, metodo per il tuo business </h4>
+    <h1 className=' pl-7 font-bold text-9xl pt-10'>Click to</h1>
+    <h2 className=' pl-7 font-bold text-9xl text-cyan-400'>Grow</h2>
+    <h3 className=' pl-7 fontHead1 text-xl gap-8 space-x-2 pt-8 '>Esperienza, competenza, metodo per il <br /> tuo business online. </h3>
     
     
     <button className="btn btn-circle ml-7">
@@ -37,8 +37,9 @@ return(
 </button>
 </div>
 <div className=' flex'>
-<img src="\GCM_Rosa.gif" className='pt-8 min-h-2 max-w-md ' alt="" />
+<img src="\GCM_Rosa.gif" className='pt-8 min-h-2 max-w-3xl lg:pb-24 lg:mb-6 ' alt="" />
 </div>
+<div className=''></div>
    </div>
 
 

@@ -13,15 +13,13 @@ function Navbar() {
     {/* Navbar */}
     <div className="w-full navbar ">
       <div className="flex">
-        <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </label>
+        
       </div> 
       <div className="text-center px-2 mx-2 py-4 fontnav text-2xl md:text-3xl p-10  lg:text-6xl pl-10">Alsafi <img src="\simbolo-alsafi.png" className=' w-8 ' alt="" /></div>
       
       
-      <div className="flex-none hidden w-full text-center lg:block">
-        <ul className="menu menu-horizontal fontnav items-center lg:gap-6 pr-52 ">
+      <div className="flex-none hidden  text-center lg:block">
+        <ul className="menu menu-horizontal fontnav items-center lg:pl-56 lg:gap-8 pr-52 ">
           {/* Navbar menu content here */}
           <li><a>GOOGLE ADS</a></li>
           <li><a>SEO</a></li>
@@ -29,8 +27,19 @@ function Navbar() {
           <li><a>TUTTI I SERVIZI</a></li>
           <li><a>ANALISI GRATUITA</a></li>
           <li><a>CONTATTI</a></li>
+         
+         
+         
           
+          
+        
+        
+        
+        
         </ul>
+        <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn size-32 border-0 rounded-bl-full bg-cyan-400  ml-24 p-0 m-0 ">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </label>
       </div>
     </div>
     {/* Page content here */}
