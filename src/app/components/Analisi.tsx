@@ -26,7 +26,7 @@ function Analisi() {
             Seguiamo il tuo business lungo tutto il percorso di crescita online!
           </h4>
 
-          <button className="bg-cyan-400 p-6 mb-16 border-cyan-900 text-white font-bold rounded-md  mt-7">
+          <button className="bg-cyan-400 p-6 mb-16 border-cyan-900 text-white font-bold  mt-7">
             TUTTI I SERVIZI
           </button>
         </div>
@@ -39,7 +39,6 @@ function Analisi() {
           />
         </div>
       </div>
-
       <div className="flex flex-wrap-reverse lg:flex-nowrap justify-center max-w-5xl p-10 xl:p-0 mx-auto gap-10">
         <div className="lg:w-1/2 flex items-center">
           <img
@@ -70,46 +69,63 @@ function Analisi() {
             Seguiamo il tuo business lungo tutto il percorso di crescita online!
           </h4>
 
-          <button className="bg-cyan-400 p-6 mb-16 border-cyan-900 text-white font-bold rounded-md  mt-7">
+          <button className="bg-cyan-400 p-6 mb-16 border-cyan-900 text-white font-bold  mt-7">
             TUTTI I SERVIZI
           </button>
         </div>
       </div>
 
-      <div className="main">
-        <div className=" bg-[#F5F1EE] ">
-          <h1 className="text-center pt-10 font-extrabold text-3xl ">
-            Dicono di noi...{" "}
-          </h1>
-        </div>
-        <div className="flex w-full h-64 bg-[#F5F1EE] pt-10">
-          <div className="grid w-1/3 h-20 flex-grow card rounded-box place-items-center">
-            <h1 className="text-2xl font-bold fontHead">
-              Sulla Crescita del Progetto Affidato
-            </h1>
-            {/* <h3 className=' text-center font-bold'>Troviamo la strategia online più efficace per ogni business e la rendiamo scalabile.</h3>
-    <h3 className=' text-center'>Il tuo obiettivo è il nostro obiettivo.</h3> */}
-          </div>
-
-          <div className="divider divider-horizontal colorDiveder"></div>
-
-          <div className="grid w-1/3 h-20 flex-grow card  rounded-box place-items-center">
-            <h1 className="text-2xl font-bold fontHead">Sui Risultati</h1>
-            {/* <h3 className=' text-center font-bold'>Formazione, aggiornamento ed esperienza sono nel nostro DNA.</h3>
-    <h3 className=' text-center'>Non sono i settori di mercato o le piattaforme pubblicitarie a fare la differenza ma la nostra competenza.</h3> */}
-          </div>
-          <div className="divider divider-horizontal"></div>
-          <div className="grid w-1/3 h-20 flex-grow card  rounded-box place-items-center">
-            <h1 className="text-2xl font-bold fontHead">
-              Sulla Cura del cliente
-            </h1>
-
-            {/* <h3 className=' text-center font-bold'>Crediamo nella trasparenza,
-        in un rapporto di confronto
-        e collaborazione continua con il cliente.</h3> */}
-
-            {/* <h3>Ad ogni progetto diamo presenza, attenzione e cura.</h3>
-    <h3>Da noi trovi sempre qualcuno che ti risponde quando chiami!</h3> */}
+      <div>
+        <h3 className="text-center pt-3 font-bold text-md text-4xl pl-4 pr-4 bg-[#F5F1EE]">
+          “Dicono di noi...
+        </h3>
+        <div className="bg-[#F5F1EE] flex justify-center">
+          <div className="container-fluid flex md:flex-row flex-col gap-20 pt-20 pb-32 max-w-[1100px] ">
+            <div className=" md:flex flex-wrap border-l-2  border-cyan-400 ml-6 pb-8">
+              <div className="pl-7 fontHead font-bold text-xl">
+                Sulla Crescita del Progetto Affidato
+              </div>
+              <div className="pl-7 pt-6">
+                “Abbiamo iniziato la collaborazione con Green.Click con le
+                campagne su Google. Visti gli ottimi risultati, ci siamo
+                affidati a loro anche per l’attività SEO. Anche qui abbiamo
+                avuto degli esiti più che positivi. Professionali, competenti e
+                sempre disponibili, li consigliamo vivamente per far crescere
+                un’attività. Direi indispensabili.
+              </div>
+              <div className="pl-7 pt-6">RCOPrinting</div>
+            </div>
+            <div className=" md:flex flex-wrap border-l-2 border-cyan-400  ml-6 pb-8">
+              <div className="pl-7 fontHead font-bold text-xl ;">
+                Sui Risultati
+              </div>
+              <div className="pl-7 pt-6 font-bold">
+                “Ormai da 1 anno collaboriamo con GCM. Affidabili, veloci,
+                versatili. Ottimo supporto per la gestione delle campagne
+                Google. Risultati evidenti, molto soddisfatti.”. TheWladurner
+              </div>
+              <div className="pl-7 pt-6">
+                “Affidabili, puntuali, preparati. In loro abbiamo trovato un
+                ottimo supporto per il SEO e per la gestione delle campagne
+                online. Risultati in crescita, siamo molto soddisfatti”. Zereau
+                Acqua Impatto Zero
+              </div>
+            </div>
+            <div className=" md:flex flex-wrap border-l-2 border-cyan-400 ml-6 pb-8">
+              <div className="pl-7 fontHead font-bold text-xl">
+                Sulla Cura del cliente
+              </div>
+              <div className="pl-7 pt-6">
+                “Green Click? … una garanzia: le campagne vengono gestite con
+                personale qualificato… molto cordiale e affabile, disponibile
+                all’ascolto e che riesce a soddisfare completamente le richieste
+                del cliente.Ci si sente seguiti e compresi nelle varie esigenze
+                che subentrano nel tempo. Di conseguenza i risultati sono
+                costantemente in crescita!Consiglio caldamente di affidarsi a
+                questa azienda: io la sceglierei nuovamente!
+              </div>
+              <div className="pl-7 pt-6">Maria Cristina Bonamigo</div>
+            </div>
           </div>
         </div>
       </div>

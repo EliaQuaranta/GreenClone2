@@ -28,13 +28,13 @@ function Carousel() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   className="w-6 h-6"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
                   />
                 </svg>
@@ -42,29 +42,19 @@ function Carousel() {
             </button>
           </h4>
 
-                
-                
-                <div className="carousel w-full h-96 pt-20">
-  <div id="item1" className="carousel-item w-full">
-    <img src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
-  </div> 
-  <div id="item2" className="carousel-item w-full">
-    <img src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-  </div> 
-  <div id="item3" className="carousel-item w-full">
-    <img src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-  </div> 
-  <div id="item4" className="carousel-item w-full">
-    <img src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
-  </div>
-</div> 
-<div className="flex justify-center w-full py-2 gap-2">
-  
-  
-  
-</div>
+          <div className="carousel w-full h-96 pt-20">
+            <div id="item1" className="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+                className="w-full"
+              />
             </div>
-            
+            <div id="item2" className="carousel-item w-full">
+              <img
+                src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+                className="w-full"
+              />
+            </div>
             <div id="item3" className="carousel-item w-full">
               <img
                 src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
@@ -78,28 +68,36 @@ function Carousel() {
               />
             </div>
           </div>
-          <div className="flex justify-center w-full py-2 gap-2">
-            <a
-              href="#item1"
-              className="h-8 w-8 border border-black flex items-center justify-center rounded-full"
-            >
-              <div className="h-2 w-2 bg-black rounded-full"></div>
-            </a>
-            <a
-              href="#item2"
-              className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
-            >
-              <div className="h-2 w-2 bg-black rounded-full"></div>
-            </a>
-            <a href="#item3" className="btn btn-xs rounded-full bg-slate-600">
-              3
-            </a>
-            <a href="#item4" className="btn btn-xs rounded-full bg-slate-600">
-              4
-            </a>
-          </div>
+          <div className="flex justify-center w-full py-2 gap-2"></div>
         </div>
-      
+        <div className="flex justify-center w-full py-2 gap-2">
+          <a
+            href="#item1"
+            className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
+          >
+            <div className="h-2 w-2 bg-black rounded-full"></div>
+          </a>
+          <a
+            href="#item2"
+            className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
+          >
+            <div className="h-2 w-2 bg-black rounded-full"></div>
+          </a>
+          <a
+            href="#item3"
+            className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
+          >
+            <div className="h-2 w-2 bg-black rounded-full"></div>
+          </a>
+          <a
+            href="#item4"
+            className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
+          >
+            <div className="h-2 w-2 bg-black rounded-full"></div>
+          </a>
+        </div>
+      </div>
+    </div>
   );
 }
 
