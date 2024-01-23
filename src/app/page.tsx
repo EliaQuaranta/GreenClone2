@@ -1,36 +1,38 @@
-import Image from 'next/image'
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import Main from './components/Main';
-import Checkup from './components/checkup';
-import Analisi from './components/Analisi';
-import Carousel from './components/carousel';
-
+import Image from "next/image";
+import Navbar from "./components/Navbar";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Checkup from "./components/checkup";
+import Analisi from "./components/Analisi";
+import Carousel from "./components/carousel";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className='page'>
-    <div className='nav '>
-      <Navbar/>
-      </div>
-     
-     <div>
-      <Header/>
+    <div className="page">
+      <div className="nav ">
+        <Navbar />
       </div>
 
-    <div>
-      <Main/>
+      <div>
+        <Header />
+      </div>
+
+      <div>
+        <Main />
+      </div>
+      <div>
+        <Checkup />
+      </div>
+      <div>
+        <Analisi />
+      </div>
+      <div>
+        <Carousel />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
-<div>
-  <Checkup/>
-</div>
-<div>
-  <Analisi/>
-</div>
-<div>
-  <Carousel/>
-</div>
-
-      </div>
-      )
+  );
 }
