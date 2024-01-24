@@ -2,75 +2,44 @@ import React, { Component } from "react";
 
 function Carousel() {
   return (
-    <div>
-      <div className="columns-2 columns-md-1">
-        <div>
-          <h1 className="font-bold text-6xl text-start pl-10  pt-20">
-            Casi di <span className="text-cyan-400">successo</span>
-          </h1>
+    <div className="">
+      <div className="lg:columns-2 ">
+        <h2 className="font-bold text-4xl lg:pl-96 pl-10 pt-20">
+          Casi di <span className="text-cyan-400">successo</span>
+        </h2>
+        <h2 className="pl-10 lg:pl-96 pt-7 fontHead">
+          Ti raccontiamo come è andata con la gestione Green.Click
+        </h2>
+        <h2 className="pl-10 lg:pl-96 pt-7">
+          Giornalmente veniamo a contatto e ascoltiamo tante storie, progetti,
+          idee. Ci occupiamo dello sviluppo di strategie con tante
+          caratteristiche diverse. Siamo convinti che per ogni business online
+          si possa trovare la strada giusta per crescere. In questo spazio ti
+          proponiamo alcuni casi studio per mostrarti come lavoriamo.
+          <button className="mt-7  p-4 bg-cyan-400 flex">scopri di più!</button>
+        </h2>
 
-          <h2 className="font-bold text-xl text-start pl-10 fontHead pt-7">
-            Ti raccontiamo come è andata con la gestione Green.Click
-          </h2>
-
-          <h4 className="font-bold text-xl text-start pl-10 pt-7">
-            Giornalmente veniamo a contatto e ascoltiamo tante storie, progetti,
-            idee. Ci occupiamo dello sviluppo di strategie con tante
-            <br />
-            Siamo convinti che per ogni business online si possa trovare la
-            strada giusta per crescere. <br /> In questo spazio ti proponiamo
-            alcuni casi studio per mostrarti come lavoriamo.
-            <button className="bg-cyan-400 p-6 mb-16 border-cyan-900 text-white font-bold rounded-md mt-3">
-              {" "}
-              <h1 className="flex pl-4 items-center">
-                Scopri di più
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                  />
-                </svg>
-              </h1>{" "}
-            </button>
-          </h4>
-
-          <div className="carousel w-full h-96 pt-20">
-            <div id="item1" className="carousel-item w-full">
-              <img
-                src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
-                className="w-full"
-              />
-            </div>
-            <div id="item2" className="carousel-item w-full">
-              <img
-                src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
-                className="w-full"
-              />
-            </div>
-            <div id="item3" className="carousel-item w-full">
-              <img
-                src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
-                className="w-full"
-              />
-            </div>
-            <div id="item4" className="carousel-item w-full">
-              <img
-                src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
-                className="w-full"
-              />
-            </div>
+        <div className="carousel m-7  lg:max-w-[500px] max-h-[500px]  pt-14">
+          <div id="item1" className="carousel-item ">
+            <img
+              src="/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg"
+              className=""
+            />
           </div>
-          <div className="flex justify-center w-full py-2 gap-2"></div>
+          <div id="item2" className="carousel-item ">
+            <img
+              src="/green-click-case-history-brand-lusso-2-800x600.jpg"
+              className=""
+            />
+          </div>
+          <div id="item3" className="carousel-item ">
+            <img
+              src="/greenclick-ecommerce-sneakers2-800x600.jpg"
+              className=""
+            />
+          </div>
         </div>
-        <div className="flex justify-center w-full py-2 gap-2">
+        <div className="flex justify-start pl-5 w-full py-2 gap-2">
           <a
             href="#item1"
             className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
@@ -85,12 +54,6 @@ function Carousel() {
           </a>
           <a
             href="#item3"
-            className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
-          >
-            <div className="h-2 w-2 bg-black rounded-full"></div>
-          </a>
-          <a
-            href="#item4"
             className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full"
           >
             <div className="h-2 w-2 bg-black rounded-full"></div>

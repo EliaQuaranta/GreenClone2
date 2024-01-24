@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 function Header() {
   return (
-    <div className="columns-2 columns-md-1 flex flex-wrap justify-evenly lg:pl-32 lg:pt-10 ">
+    <div className="columns-2 columns-md-1 flex flex-wrap justify-evenly lg:pl-32 lg:pt-10 lg:pt-52">
       <div>
         <h1 className=" pl-7 font-bold text-9xl pt-10">Click to</h1>
         <h2 className=" pl-7 font-bold text-9xl text-cyan-400">Grow</h2>
