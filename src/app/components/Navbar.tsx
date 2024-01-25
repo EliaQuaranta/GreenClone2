@@ -6,14 +6,13 @@ function Navbar() {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar lg:pb-0 lg:pr-0 lg:pt-0 lg:fixed top-0 z-50 bg-white">
-          <div className="flex"></div>
-          <div className="text-center px-2 mx-2 py-4 fontnav text-2xl md:text-3xl p-10  lg:text-6xl pl-10">
+        <div className="w-full navbar  lg:fixed flex justify-between top-0 z-50 bg-white">
+          <div className="text-center fontnav text-2xl md:text-xl  lg:text-6xl pl-0">
             Alsafi <img src="\simbolo-alsafi.png" className=" w-8 " alt="" />
           </div>
 
-          <div className="flex-no hidden  text-center lg:block">
-            <ul className="menu menu-horizontal fontnav items-center lg:pl-56 lg:gap-8  md:shrink-0  ">
+          <div className="flex   text-center ">
+            <ul className="menu menu-horizontal hidden md:flex  menu-sm  fontnav items-center  lg:gap-4 text-xs  md:shrink-0  ">
               {/* Navbar menu content here */}
               <li>
                 <a>GOOGLE ADS</a>
@@ -57,7 +56,7 @@ function Navbar() {
         </div>
         {/* Page content here */}
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side z-[51]">
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"

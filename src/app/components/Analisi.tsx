@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TextBoxesSection from "./TextBoxesSection";
 
 function Analisi() {
   return (
@@ -75,6 +76,7 @@ function Analisi() {
         </div>
       </div>
 
+      {/**
       <div>
         <h3 className="text-center pt-32 font-bold text-md text-4xl pl-4 pr-4 bg-[#F5F1EE]">
           “Dicono di noi...
@@ -128,7 +130,51 @@ function Analisi() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <TextBoxesSection
+        title={<>Dicono di noi...</>}
+        subtitle=""
+        textBoxes={[
+          {
+            title: "Sulla Crescita del Progetto Affidato",
+            description: (
+              <>
+                “Abbiamo iniziato la collaborazione con Green.Click con le
+                campagne su Google. Visti gli ottimi risultati, ci siamo
+                affidati a loro anche per l’attività SEO. Anche qui abbiamo
+                avuto degli esiti più che positivi. Professionali, competenti e
+                sempre disponibili, li consigliamo vivamente per far crescere
+                un’attività. Direi indispensabili.
+              </>
+            ),
+          },
+          {
+            title: "Sui Risultati",
+            description: (
+              <>
+                “Ormai da 1 anno collaboriamo con GCM. Affidabili, veloci,
+                versatili. Ottimo supporto per la gestione delle campagne
+                Google. Risultati evidenti, molto soddisfatti.”. TheWladurner
+              </>
+            ),
+          },
+          {
+            title: "Sulla Cura del cliente",
+            description: (
+              <>
+                “Green Click? … una garanzia: le campagne vengono gestite con
+                personale qualificato… molto cordiale e affabile, disponibile
+                all’ascolto e che riesce a soddisfare completamente le richieste
+                del cliente.Ci si sente seguiti e compresi nelle varie esigenze
+                che subentrano nel tempo. Di conseguenza i risultati sono
+                costantemente in crescita!Consiglio caldamente di affidarsi a
+                questa azienda: io la sceglierei nuovamente!
+              </>
+            ),
+          },
+        ]}
+      />
     </div>
   );
 }
