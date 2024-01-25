@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 function Header() {
   return (
-    <div className="columns-2 columns-md-1 flex flex-wrap justify-evenly lg:pl-32 lg:pt-10 lg:pt-52">
+    <div className="columns-2 columns-md-1 flex flex-wrap justify-evenly pb-28 lg:pl-32   pt-10 lg:pt-52">
       <div>
-        <h1 className=" pl-7 font-bold text-9xl pt-10">Click to</h1>
-        <h2 className=" pl-7 font-bold text-9xl text-cyan-400">Grow</h2>
-        <h3 className=" pl-7 fontHead1 text-xl gap-8 space-x-2 pt-8 ">
-          Esperienza, competenza, metodo per il <br /> tuo business online.{" "}
+        <h1 className=" font-bold lg:text-9xl text-6xl pt-10">Click to</h1>
+        <h2 className=" font-bold lg:text-9xl text-6xl text-cyan-400">Grow</h2>
+        <h3 className=" fontHead lg:text-xl gap-8 space-x-2 pt-8 ">
+          Esperienza, competenza, metodo <br /> per il tuo business online.{" "}
         </h3>
 
-        <button className="btn btn-circle ml-7">
+        <button className="btn btn-circle ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -63,7 +63,7 @@ function Header() {
       <div className=" flex">
         <img
           src="\GCM_Rosa.gif"
-          className="pt-8 min-h-2 w-full max-w-3xl lg:pb-24 lg:mb-6 "
+          className="pt-8 min-h-2 w-full max-w-3xl pt-2 pb-9 lg:pb-24 lg:mb-6 "
           alt=""
         />
       </div>

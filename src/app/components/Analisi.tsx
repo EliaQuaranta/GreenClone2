@@ -76,7 +76,7 @@ function Analisi() {
       </div>
 
       <div>
-        <h3 className="text-center pt-3 font-bold text-md text-4xl pl-4 pr-4 bg-[#F5F1EE]">
+        <h3 className="text-center pt-32 font-bold text-md text-4xl pl-4 pr-4 bg-[#F5F1EE]">
           “Dicono di noi...
         </h3>
         <div className="bg-[#F5F1EE] flex justify-center">

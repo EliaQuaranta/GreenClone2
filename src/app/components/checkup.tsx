@@ -2,22 +2,21 @@ import React, { Component } from "react";
 
 function Checkup() {
   return (
-    <div className=" columns-1 columns-md-1 ">
-      <div className="bg-[#E3DCD7] text-center  ">
-        <h1 className=" p-16 font-bold text-5xl items-center  ">
-          Contattaci per un CheckUp{" "}
-          <span className="text-cyan-400 ">Gratuito</span>
-          <button className="bg-cyan-400 p-3 aling-center border-cyan-900 text-white font-bold ">
-            {" "}
-            <h1 className="flex items-center text-lg ">
+    <div>
+      <div className="bg-[#E3DCD7] flex justify-center">
+        <div className="container md:flex-row  max-w-5xl ">
+          <div className="font-bold text-3xl items-center pt-20 pb-20 pl-7 lg:pl-0  lg:flex aling-items lg:py-11 ">
+            Contattaci per un CheckUp{" "}
+            <span className="text-cyan-400 p-2 "> Gratuito</span>
+            <button className="blocked lg:ml-[350px] p-3 px-6  bg-cyan-400 text-lg flex lg:mt-0 mt-4  ">
               Scrivici{" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth="1.5"
+                strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6 "
+                className="w-6 h-6 m-0 pt-1"
               >
                 <path
                   strokeLinecap="round"
@@ -25,12 +24,13 @@ function Checkup() {
                   d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
                 />
               </svg>
-            </h1>{" "}
-          </button>
-        </h1>
+            </button>
+          </div>
+        </div>
       </div>
-
-      <img src="\foto-def-logo.jpg" className="imgTeam" alt="" />
+      <div>
+        <img src="\foto-def-logo.jpg" className="imgTeam" alt="" />
+      </div>
     </div>
   );
 }

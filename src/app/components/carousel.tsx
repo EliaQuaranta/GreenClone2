@@ -4,7 +4,7 @@ function Carousel() {
   return (
     <div className="">
       <div className="lg:columns-2 ">
-        <h2 className="font-bold text-4xl lg:pl-96 pl-10 pt-20">
+        <h2 className="font-bold text-4xl lg:pl-96 pl-10 pt-48">
           Casi di <span className="text-cyan-400">successo</span>
         </h2>
         <h2 className="pl-10 lg:pl-96 pt-7 fontHead">
@@ -19,7 +19,7 @@ function Carousel() {
           <button className="mt-7  p-4 bg-cyan-400 flex">scopri di più!</button>
         </h2>
 
-        <div className="carousel m-7  lg:max-w-[500px] max-h-[500px]  pt-14">
+        <div className="carousel m-7  lg:max-w-[500px] max-h-[500px]  pt-32">
           <div id="item1" className="carousel-item ">
             <img
               src="/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg"

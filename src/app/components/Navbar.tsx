@@ -34,10 +34,10 @@ function Navbar() {
                 <a>CONTATTI</a>
               </li>
             </ul>
-            {/*<label
+            <label
               htmlFor="my-drawer-3"
               aria-label="open sidebar"
-              className="btn size-32 border-0 rounded-bl-full bg-cyan-400 "
+              className="btn "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ function Navbar() {
                   d="M4 6h16M4 12h16M4 18h16"
                 ></path>
               </svg>
-            </label>*/}
+            </label>
           </div>
         </div>
         {/* Page content here */}
@@ -63,7 +63,7 @@ function Navbar() {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 fontnav ">
+        <ul className="menu p-4 w-80 min-h-full bg-base-200 ">
           {/* Sidebar content here */}
           <li>
             <a>Sidebar Item 1</a>

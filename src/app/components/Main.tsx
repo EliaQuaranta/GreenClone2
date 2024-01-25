@@ -7,14 +7,13 @@ function Main() {
         <h1 className="text-center pt-40 font-extrabold text-4xl ">
           La Tua{" "}
           <span className="text-cyan-400 font-bold text-4xl">
-            Digital <br /> Performance
+            Digital Performance
           </span>{" "}
-          <br />
           Agency{" "}
         </h1>
         <h3 className="text-center pt-3 text-md fontHead pl-4 pr-4">
-          “Siamo quello che facciamo ripetutamente. L’eccellenza <br /> dunque
-          non è un atto ma un’abitudine” (Aristotele)
+          “Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
+          atto ma un’abitudine” (Aristotele)
         </h3>
       </div>
       <div className="bg-[#F5F1EE] flex justify-center">
