@@ -7,16 +7,18 @@ function Navbar() {
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <div className="w-full navbar  lg:fixed flex justify-between top-0 z-50 bg-white">
-          <div className="text-center fontnav text-2xl md:text-xl  lg:text-6xl pl-0">
-            Alsafi <img src="\simbolo-alsafi.png" className=" w-8 " alt="" />
-          </div>
+          <a href="">
+            <img
+              src="/logo-alsafi-payoff.png"
+              className=" w-full pl-7 py-3"
+              alt=""
+            />
+          </a>
 
-          <div className="flex   text-center ">
+          <div className="flex  justify-center  text-center ">
             <ul className="menu menu-horizontal hidden md:flex  menu-sm  fontnav items-center  lg:gap-4 text-xs  md:shrink-0  ">
               {/* Navbar menu content here */}
-              <li>
-                <a>GOOGLE ADS</a>
-              </li>
+
               <li>
                 <a>SEO</a>
               </li>
@@ -24,19 +26,16 @@ function Navbar() {
                 <a>FACEBOOK</a>
               </li>
               <li>
-                <a>TUTTI I SERVIZI</a>
+                <a>SERVIZI</a>
               </li>
               <li>
-                <a>ANALISI GRATUITA</a>
-              </li>
-              <li>
-                <a>CONTATTI</a>
+                <a>ANALISI</a>
               </li>
             </ul>
             <label
               htmlFor="my-drawer-3"
               aria-label="open sidebar"
-              className="btn "
+              className="btn bg-cyan-400 py-3 h-20 w-20  rounded-bl-full"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,10 +64,19 @@ function Navbar() {
         <ul className="menu p-4 w-80 min-h-full bg-base-200 ">
           {/* Sidebar content here */}
           <li>
-            <a>Sidebar Item 1</a>
+            <a href="">
+              <img
+                src="/logo-alsafi-payoff.png"
+                className=" px-3 py-3"
+                alt=""
+              />
+            </a>
           </li>
           <li>
-            <a>Sidebar Item 2</a>
+            <a className=" px-7 py-3">AskToAI</a>
+          </li>
+          <li>
+            <a className=" px-7 py-3">GitHub</a>
           </li>
         </ul>
       </div>
