@@ -6,33 +6,21 @@ import Checkup from "./components/checkup";
 import Analisi from "./components/Analisi";
 import Carousel from "./components/carousel";
 import Footer from "./components/Footer";
+import { CheckUpForm } from "./components/CheckUpForm";
 
 export default function Home() {
   return (
     <div className="page">
-      <div className="nav ">
-        <Navbar />
-      </div>
+      <Navbar />
 
-      <div>
-        <Header />
-      </div>
+      <Header />
+      <Main />
+      <Checkup />
+      <Analisi />
+      <Carousel />
+      <CheckUpForm />
 
-      <div>
-        <Main />
-      </div>
-      <div>
-        <Checkup />
-      </div>
-      <div>
-        <Analisi />
-      </div>
-      <div>
-        <Carousel />
-      </div>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
