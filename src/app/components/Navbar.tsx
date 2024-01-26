@@ -6,17 +6,17 @@ function Navbar() {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar  lg:fixed flex justify-between top-0 z-50 bg-white">
+        <div className="w-full navbar pt-0 pr-0 lg:fixed flex justify-between top-0 z-50 bg-white">
           <a href="">
             <img
               src="/logo-alsafi-payoff.png"
-              className=" w-full pl-7 py-3"
+              className=" w-full pl-7 pb-3"
               alt=""
             />
           </a>
 
-          <div className="flex  justify-center  text-center ">
-            <ul className="menu menu-horizontal hidden md:flex  menu-sm  fontnav items-center  lg:gap-4 text-xs  md:shrink-0  ">
+          <div className="flex   text-center ">
+            <ul className="menu menu-horizontal  hidden md:flex  menu-sm  fontnav items-center  lg:gap-4 text-xs  md:shrink-0  ">
               {/* Navbar menu content here */}
 
               <li>

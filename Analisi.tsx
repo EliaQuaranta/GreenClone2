@@ -16,17 +16,6 @@ function Analisi() {
             investito{" "}
           </h4>
 
-          <h4 className="  text-lg pt-10">
-            Hai scelto i canali giusti per la tua pubblicità? Sei consapevole di
-            come viene speso il tuo budget pubblicitario? Stai ottenendo i
-            risultati attesi?
-          </h4>
-
-          <h4 className="   text-lg pt-2">
-            Green.Click costruisce la strategia più adeguata per la tua azienda.
-            Seguiamo il tuo business lungo tutto il percorso di crescita online!
-          </h4>
-
           <button className="bg-cyan-400 p-6 mb-16 border-cyan-900 text-white font-bold  mt-7">
             TUTTI I SERVIZI
           </button>

@@ -3,16 +3,15 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import TextBoxesSection from "./components/TextBoxesSection";
 import Checkup from "./components/checkup";
-import Analisi from "./components/Analisi";
 import Footer from "./components/Footer";
 import { CheckUpForm } from "./components/CheckUpForm";
-import Carousel from "./components/Carousel";
+
+import TextImgcomponent from "./components/TextImgcomponent";
 
 export default function Home() {
   return (
     <div className="page">
       <Navbar />
-
       <Header />
       <TextBoxesSection
         title={
@@ -71,10 +70,33 @@ export default function Home() {
         ]}
       />
       <Checkup />
-      <Analisi />
-      <Carousel />
-      <CheckUpForm />
+      <TextImgcomponent
+        title="titolo1"
+        subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
+          atto ma un’abitudine” (Aristotele)"
+        imagePosition=""
+        images={["hand-made-green-click.jpg"]}
+      />
+      <TextImgcomponent
+        title="titolo2 left"
+        subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
+          atto ma un’abitudine” (Aristotele)"
+        imagePosition="left"
+        images={["hand-made-green-click.jpg"]}
+      />
+      <TextImgcomponent
+        title="titolo3 carosello"
+        subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
+          atto ma un’abitudine” (Aristotele)"
+        imagePosition=""
+        images={[
+          "hand-made-green-click.jpg",
+          "greenclick-ecommerce-sneakers2-800x600.jpg",
+          "greenclick-ecommerce-sneakers2-800x600.jpg",
+        ]}
+      />
 
+      <CheckUpForm />
       <Footer />
     </div>
   );
