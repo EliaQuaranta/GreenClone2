@@ -34,8 +34,8 @@ function TextImgcomponent({
           )}
 
           {images && images.length > 1 && (
-            <div className="h-8 w-8 hover:border transition-all border-transparent hover:border-black duration-300 flex items-center justify-center rounded-full">
-              <div className="carousel  lg:max-w-[500px] max-h-[500px]  pt-32 gap-">
+            <div className=" w-full flex justify-center">
+              <div className="carousel lg:max-w-[500px] max-h-[500px] pt-32 gap-2">
                 {images.map((src: any, index: number) => (
                   <div
                     key={index}
@@ -47,19 +47,17 @@ function TextImgcomponent({
                   </div>
                 ))}
               </div>
-              <div className="flex justify-start pl-5 w-full py-2 gap-2">
+              <div className=" justify-start flex w-full py-2 gap-3">
                 <a>
                   {images.map((src: any, index: number) => (
                     <div
                       key={index}
                       id={"#item" + index}
-                      className="carousel-item"
+                      className="carousel-item h-2 w-2 bg-black rounded-full"
                     >
                       {" "}
-                      <img src={src} alt="" />
                     </div>
                   ))}
-                  <div className="h-2 w-2 bg-black rounded-full"></div>
                 </a>
               </div>
             </div>

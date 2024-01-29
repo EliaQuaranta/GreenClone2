@@ -90,9 +90,8 @@ export default function Home() {
           atto ma un’abitudine” (Aristotele)"
         imagePosition=""
         images={[
-          "hand-made-green-click.jpg",
-          "greenclick-ecommerce-sneakers2-800x600.jpg",
-          "greenclick-ecommerce-sneakers2-800x600.jpg",
+          "/green-click-case-history-brand-lusso-2-800x600.jpg",
+          "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
         ]}
       />
 

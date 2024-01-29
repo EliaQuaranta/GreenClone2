@@ -24,7 +24,7 @@ function Carousel() {
         </div>
 
         <div>
-          <div className="carousel  lg:max-w-[500px] max-h-[500px]  pt-32 gap-">
+          <div className="carousel  lg:max-w-[500px] max-h-[500px]  pt-32 gap-3">
             <div id="item1" className="carousel-item ">
               <img
                 src="/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg"

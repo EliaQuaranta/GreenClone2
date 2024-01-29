@@ -29,6 +29,7 @@ function Analisi() {
           />
         </div>
       </div>
+
       <div className="flex flex-wrap-reverse lg:flex-nowrap justify-center max-w-5xl p-10 xl:p-0 mx-auto gap-10">
         <div className="lg:w-1/2 flex items-center">
           <img
