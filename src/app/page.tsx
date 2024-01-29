@@ -81,7 +81,7 @@ export default function Home() {
         title="titolo2 left"
         subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
           atto ma un’abitudine” (Aristotele)"
-        imagePosition="left"
+        imagePosition=""
         images={["hand-made-green-click.jpg"]}
       />
       <TextImgcomponent
