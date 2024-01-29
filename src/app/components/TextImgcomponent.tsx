@@ -13,8 +13,8 @@ function TextImgcomponent({
 }) {
   return (
     <div className="flex  justify-center p-10 xl:p-0 ">
-      <div className="grid  grid-cols-1   lg:grid-cols-2 gap-20 max-w-5xl py-28 ">
-        <div className={imagePosition == "left" ? "order-last " : " "}>
+      <div className="grid grid-cols-2 gap-20 max-w-5xl py-28 ">
+        <div className={imagePosition == "left" ? "order-last " : ""}>
           <h1 className="  font-bold text-5xl leading-snug">{title}</h1>
 
           <h4 className="  fontHead text-lg text-clip pt-5">{subtitle}</h4>
@@ -28,7 +28,7 @@ function TextImgcomponent({
 
         <div>
           {images && images.length == 1 && (
-            <div className="lg:w-full flex items-center md:flex-col">
+            <div className="lg:w-full flex items-center">
               <img src={images} className=" min-h-2 w-full" alt="" />
             </div>
           )}
@@ -48,18 +48,13 @@ function TextImgcomponent({
                 ))}
               </div>
               <div className=" justify-start flex w-full py-2 gap-3">
-                <a>
-                  {images.map((src: any, index: number) => (
-                    <div
-                      key={index}
-                      id={"#item" + index}
-                      className="carousel-item h-2 w-2 bg-black rounded-full"
-                    >
-                      {" "}
-                      <img src={src} alt="" />
-                    </div>
-                  ))}
-                </a>
+                {images.map((src: any, index: number) => (
+                  <a
+                    key={index}
+                    href={"#item" + index}
+                    className="carousel-item h-2 w-2 bg-black rounded-full"
+                  ></a>
+                ))}
               </div>
             </div>
           )}
