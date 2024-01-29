@@ -34,8 +34,8 @@ function TextImgcomponent({
           )}
 
           {images && images.length > 1 && (
-            <div className=" w-full flex justify-center">
-              <div className="carousel lg:max-w-[500px] max-h-[500px] pt-32 gap-2">
+            <div className=" w-full justify-center">
+              <div className="carousel lg:max-w-[500px] max-h-[500px]  gap-2">
                 {images.map((src: any, index: number) => (
                   <div
                     key={index}
