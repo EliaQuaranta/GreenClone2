@@ -17,7 +17,20 @@ const config: Config = {
     },
   },
   daisyui: {
-    themes: ["light"],
+    themes: [
+      {
+        alsafi: {
+          primary: "#4366c9",
+          secondary: "#0a1e49",
+          accent: "#ffb178",
+          neutral: "#0a1e49",
+          "base-100": "#ffffff",
+
+          "--rounded-box": "0rem",
+          "--rounded-btn": "0rem",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };

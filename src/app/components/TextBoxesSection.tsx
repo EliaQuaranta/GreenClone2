@@ -21,7 +21,7 @@ function TextBoxesSection({
             {textBoxes.map((textBox: any, index: number) => (
               <div
                 key={index}
-                className=" md:flex flex-col border-l-2  border-cyan-400 pb-8"
+                className=" md:flex flex-col border-l-2  border-primary pb-8"
               >
                 <div className="pl-7 fontHead font-bold text-xl">
                   {textBox.title}

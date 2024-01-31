@@ -1,13 +1,9 @@
 export const CheckUpForm = () => {
   return (
     <div>
-      <h2 className="text-center">""loghi""</h2>
-      <div className="pt-20">
-        <img src="/green-click-sala-riunioni.jpg" className="" alt="" />
-      </div>
       <div className="w-full flex justify-center  bg-[#F5F1EE]">
         <div className="w-full max-w-5xl">
-          <h2 className="text-4xl font-bold pt-32 pb-20">
+          <h2 className="text-4xl font-bold pt-32 pb-20 px-10">
             {" "}
             Richiedi una <span>consulenza gratuita</span>
           </h2>
@@ -16,8 +12,8 @@ export const CheckUpForm = () => {
       <div className="bg-[#F5F1EE] flex justify-center pb-32">
         <form className="w-full max-w-5xl ">
           <div className="  grid lg:grid-cols-2 gap-20 mb-4">
-            <div className="flex flex-col gap-4">
-              <div>
+            <div className="flex flex-col gap-4 px-10">
+              <div className="">
                 <input
                   type="text"
                   className="py-2 px-0 border-b-2 border-black bg-transparent w-full rounded-t-lg focus:bg-white focus:outline-none placeholder:text-black"
@@ -72,7 +68,7 @@ export const CheckUpForm = () => {
                 />
               </div>
             </div>
-            <div className="">
+            <div className="px-10 ">
               <textarea
                 className="textarea w-full h-full lg:h-1/2  rounded-none "
                 placeholder="Scrivi qui le informazioni principali del tuo progetto online (tipo di prodotto, canali utilizzati, budget investito,target)..."
@@ -91,10 +87,7 @@ export const CheckUpForm = () => {
                   className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   I agree with the{" "}
-                  <a
-                    href="#"
-                    className="text-blue-600 hover:underline dark:text-blue-500"
-                  >
+                  <a href="#" className="text-primary hover:underline">
                     terms and conditions
                   </a>
                   .
@@ -102,7 +95,7 @@ export const CheckUpForm = () => {
               </div>
               <button
                 type="submit"
-                className="text-white  mb-20  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm lg:w-2/5 sm:w-auto px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className=" mb-20 btn btn-primary   text-sm lg:w-2/5 sm:w-auto "
               >
                 Submit
               </button>

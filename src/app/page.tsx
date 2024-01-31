@@ -2,7 +2,7 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import TextBoxesSection from "./components/TextBoxesSection";
-import Checkup from "./components/checkup";
+import Checkup from "./components/Checkup";
 import Footer from "./components/Footer";
 import { CheckUpForm } from "./components/CheckUpForm";
 
@@ -18,7 +18,7 @@ export default function Home() {
           <>
             {" "}
             La Tua{" "}
-            <span className="text-cyan-400 font-bold text-4xl">
+            <span className="text-primary font-bold text-4xl">
               Digital Performance
             </span>{" "}
             Agency{" "}
@@ -70,32 +70,42 @@ export default function Home() {
         ]}
       />
       <Checkup />
-      <TextImgcomponent
-        title="titolo1"
-        subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
+      <div className="py-10">
+        <TextImgcomponent
+          title="titolo1"
+          subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
           atto ma un’abitudine” (Aristotele)"
-        imagePosition=""
-        images={["hand-made-green-click.jpg"]}
-      />
-      <TextImgcomponent
-        title="titolo2 left"
-        subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
+          imagePosition=""
+          images={["hand-made-green-click.jpg"]}
+        />
+        <TextImgcomponent
+          title="titolo2 left"
+          subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
           atto ma un’abitudine” (Aristotele)"
-        imagePosition=""
-        images={["hand-made-green-click.jpg"]}
-      />
-      <TextImgcomponent
-        title="titolo3 carosello"
-        subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
+          imagePosition="left"
+          images={["hand-made-green-click.jpg"]}
+        />
+      </div>
+      <div className="">
+        <img src="/green-click-sala-riunioni.jpg" className="" alt="" />
+      </div>
+      <div className="py-10">
+        <TextImgcomponent
+          title="titolo3 carosello"
+          subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
           atto ma un’abitudine” (Aristotele)"
-        imagePosition=""
-        images={[
-          "/green-click-case-history-brand-lusso-2-800x600.jpg",
-          "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
-        ]}
-      />
+          imagePosition=""
+          images={[
+            "/green-click-case-history-brand-lusso-2-800x600.jpg",
+            "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
+            "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
+            "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
+          ]}
+        />
+      </div>
 
       <CheckUpForm />
+
       <Footer />
     </div>
   );

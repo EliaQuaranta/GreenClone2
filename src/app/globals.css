@@ -28,6 +28,10 @@ body {
 
 .fontHead {
   font-family: "Courier Prime", monospace;
+  letter-spacing: 1.3px;
+}
+.fontHead2 {
+  font-family: "Courier Prime", monospace;
 }
 
 .fontnav {

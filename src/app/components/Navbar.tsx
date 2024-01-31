@@ -6,7 +6,7 @@ function Navbar() {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar pt-0 pr-0 lg:fixed flex justify-between top-0 z-50 bg-white">
+        <div className="w-full navbar pt-0 pr-0 pb-1 sticky flex justify-between top-1 z-40 bg-white">
           <a href="">
             <img
               src="/logo-alsafi-payoff.png"
@@ -16,14 +16,14 @@ function Navbar() {
           </a>
 
           <div className="flex   text-center ">
-            <ul className="menu menu-horizontal  hidden md:flex  menu-sm  fontnav items-center  lg:gap-4 text-xs  md:shrink-0  ">
+            <ul className="menu menu-horizontal   hidden md:flex  menu-sm  fontnav items-center  lg:gap-4 text-xs  md:shrink-0  ">
               {/* Navbar menu content here */}
 
               <li>
                 <a>SEO</a>
               </li>
               <li>
-                <a>FACEBOOK</a>
+                <a href="/Blog">BLOG</a>
               </li>
               <li>
                 <a>SERVIZI</a>
@@ -35,13 +35,13 @@ function Navbar() {
             <label
               htmlFor="my-drawer-3"
               aria-label="open sidebar"
-              className="btn bg-cyan-400 py-3 h-20 w-20  rounded-bl-full"
+              className="btn bg-primary py-3 h-20 w-20   rounded-bl-full"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                className="inline-block w-6 h-6 stroke-current"
+                className="inline-block w-6 h-6 stroke-current text-white"
               >
                 <path
                   strokeLinecap="round"
