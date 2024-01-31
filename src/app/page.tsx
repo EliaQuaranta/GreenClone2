@@ -11,7 +11,6 @@ import TextImgcomponent from "./components/TextImgcomponent";
 export default function Home() {
   return (
     <div className="page">
-      <Navbar />
       <Header />
       <TextBoxesSection
         title={
@@ -105,8 +104,6 @@ export default function Home() {
       </div>
 
       <CheckUpForm />
-
-      <Footer />
     </div>
   );
 }

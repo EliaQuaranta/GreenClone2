@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 function MainComponent() {
   return (
-    <div className="flex justify-center">
-      <div className="pt-10  max-w-5xl ">
+    <div className="flex w-full justify-center">
+      <div className="pt-10   w-full max-w-5xl ">
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img
