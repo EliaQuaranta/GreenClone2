@@ -6,8 +6,14 @@ export default function Blog() {
   return (
     <div className="blog">
       <MainBlog></MainBlog>
-      <ArticlesSlider />
-      <MainComponent></MainComponent>
+      <ArticlesSlider
+        section={"Test Slider"}
+        linkarticle={"https://www.youtube.com/"}
+        image={["/foto-def-logo.jpg"]}
+        title={"Test Slider"}
+        imageprofile={["/hand-made-green-click.jpg"]}
+        subtitle={"Test Slider"}
+      />
     </div>
   );
 }

@@ -1,4 +1,18 @@
-export default function ArticlesSlider() {
+function ArticlesSlider({
+  section,
+  linkarticle,
+  image,
+  title,
+  imageprofile,
+  subtitle,
+}: {
+  section: string;
+  linkarticle: any;
+  image: any;
+  title: string;
+  imageprofile: any;
+  subtitle: string;
+}) {
   return (
     <div className="flex justify-center">
       <div
@@ -12,12 +26,11 @@ export default function ArticlesSlider() {
             href="/it/blog/10-prompt-per-generare-immagini-ia-con-risultati-garantiti"
           >
             <img
-              className="h-full w-full object-cover rounded-2xl opacity-80"
-              src="https://storage.googleapis.com/alsafi-files/asktoai.com/art-10-prompt.jpg"
+              className="h-full w-full object-cover rounded-xl opacity-80"
+              src={image}
               alt="Art 10 prompt"
               height={800}
               width={1200}
-              srcSet="https://storage.googleapis.com/alsafi-files/asktoai.com/googlecloud/17067/art-10-prompt_5f28a37dfffeac17d8504dfc1bc3d34b.webp 200w, https://storage.googleapis.com/alsafi-files/asktoai.com/googlecloud/17067/art-10-prompt_616b2c32fb7bb9679ad560fc61635847.webp 400w, https://storage.googleapis.com/alsafi-files/asktoai.com/googlecloud/17067/art-10-prompt_5472332afa344033d2bf9e7b6b9d883e.webp 600w"
               loading="eager"
               decoding="async"
             />
@@ -30,33 +43,23 @@ export default function ArticlesSlider() {
                   href="/it/blog/intelligenza-artificiale"
                 >
                   <span className="block text-inherit w-full h-full rounded-[50px] text-xs font-bold font-chivo ">
-                    Intelligenza Artificiale
+                    {section}
                   </span>
                 </a>
               </div>
               <h2 className="font-bold font-chivo text-[25px] leading-[30px] md:text-heading-3 mb-5">
-                <a href="/it/blog/10-prompt-per-generare-immagini-ia-con-risultati-garantiti">
-                  10 prompt per generare immagini IA con risultati garantiti
-                </a>
+                <a href={linkarticle}>{title}</a>
               </h2>
               <div className="text-text text-gray-500 mb-[44px]">
-                <p>
-                  Questo articolo si propone come una guida per chiunque voglia
-                  sfruttare al meglio le capacità di{" "}
-                  <strong>ASKtoAI Image</strong>. Non un semplice elenco, ma{" "}
-                  <strong>una collezione di prompt</strong>{" "}
-                  <strong>testati</strong> e <strong>garantiti</strong> per
-                  produrre risultati visivi strepitosi.
-                </p>
+                <p>{subtitle}</p>
               </div>
               <div className="flex items-center gap-[15px]">
                 <img
                   className="h-full w-full object-cover rounded-full max-w-[55px]"
-                  src="https://storage.googleapis.com/alsafi-files/asktoai.com/logo-round-web.png"
+                  src={imageprofile}
                   alt="Logo round web"
                   height={2304}
                   width={2305}
-                  srcSet="https://storage.googleapis.com/alsafi-files/asktoai.com/googlecloud/15086/logo-round-web_5f28a37dfffeac17d8504dfc1bc3d34b.webp 200w, https://storage.googleapis.com/alsafi-files/asktoai.com/googlecloud/15086/logo-round-web_616b2c32fb7bb9679ad560fc61635847.webp 400w, https://storage.googleapis.com/alsafi-files/asktoai.com/googlecloud/15086/logo-round-web_5472332afa344033d2bf9e7b6b9d883e.webp 600w"
                   loading="eager"
                   decoding="async"
                 />
@@ -77,3 +80,5 @@ export default function ArticlesSlider() {
     </div>
   );
 }
+
+export default ArticlesSlider;
