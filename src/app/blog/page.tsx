@@ -218,7 +218,7 @@ export default function Blog() {
 
       <MiddlPart />
 
-      <ArticlesGrid articles={gridArticles} />
+      <Articles Grid articles={gridArticles} />
     </div>
   );
 }
