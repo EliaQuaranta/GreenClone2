@@ -2,8 +2,6 @@ import Navbar from "../components/Navbar";
 import MainBlog from "../BlogComponents/MainBlog";
 import MainComponent from "../BlogComponents/MainComponent";
 import ArticlesSlider from "../BlogComponents/ArticlesSlider";
-import ArticlesGrid from "../BlogComponents/ArticlesGrid";
-import MiddlPart from "../BlogComponents/MiddlePart";
 export default function Blog() {
   const pageArticles = [
     {
