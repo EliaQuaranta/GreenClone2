@@ -38,18 +38,18 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
     //revArrow: <ArrowLeft />,
   };
   return (
-    <div className="flex justify-center">
-      <div className="max-w-[360px] lg:max-w-5xl px-5">
+    <div className="flex justify-center w-screen max-w-5xl">
+      <div className="max-w-full lg:max-w-5xl px-5">
         <Slider {...settings}>
           {articles.map((article: any, i: number) => (
-            <div key={i}>
+            <div key={i} className="w-full px-3">
               <div className="rounded-2xl p-0 flex items-center bg-white z-10 flex-col lg:gap-[50px] lg:flex-row ">
                 <a
                   className=" max-w-5xl w-full lg:1/2 self-stretch flex-1 aspect-auto flex items-center"
                   href="/it/blog/10-prompt-per-generare-immagini-ia-con-risultati-garantiti"
                 >
                   <img
-                    className="  rounded-xl opacity-80"
+                    className="  rounded-xl opacity-80 w-full"
                     src={article.image}
                     alt="Art 10 prompt"
                     height={800}
