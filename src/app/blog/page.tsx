@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar";
 import MainBlog from "../BlogComponents/MainBlog";
 import MainComponent from "../BlogComponents/MainComponent";
 import ArticlesSlider from "../BlogComponents/ArticlesSlider";
+import ArticlesGrid from "../BlogComponents/ArticlesGrid";
+import MiddlePart from "../BlogComponents/MiddlePart";
 export default function Blog() {
   const pageArticles = [
     {
@@ -216,7 +218,7 @@ export default function Blog() {
         </div>
       </div>
 
-      <MiddlPart />
+      <MiddlePart />
 
       <Articles Grid articles={gridArticles} />
     </div>
