@@ -4,7 +4,7 @@ import React, { Component } from "react";
 function Navbar() {
   return (
     <>
-      <div className="w-full navbar pt-0 pr-0 pb-1  flex justify-between top-0 z-40 bg-white sticky top-0">
+      <div className="w-full navbar pt-0 pr-0 pb-1  flex justify-between z-40 bg-white sticky top-0">
         <Link href="/">
           <img
             src="/logo-alsafi-payoff.png"

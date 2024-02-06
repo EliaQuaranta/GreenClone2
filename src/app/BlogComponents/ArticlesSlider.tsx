@@ -38,11 +38,11 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
     //revArrow: <ArrowLeft />,
   };
   return (
-    <div className="flex justify-center w-screen max-w-5xl">
+    <div className="flex justify-center w-screen max-w-5xl ">
       <div className="max-w-full lg:max-w-5xl px-5">
         <Slider {...settings}>
           {articles.map((article: any, i: number) => (
-            <div key={i} className="w-full px-3">
+            <div key={i} className="w-full px-3 py-5">
               <div className="rounded-2xl p-0 flex items-center bg-white z-10 flex-col lg:gap-[50px] lg:flex-row ">
                 <a
                   className=" max-w-5xl w-full lg:1/2 self-stretch flex-1 aspect-auto flex items-center"
