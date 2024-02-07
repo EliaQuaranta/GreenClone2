@@ -10,6 +10,7 @@ const pageArticles = [
     category: {
       title: "text catergory",
       url: "/blog/category-url",
+      slug: "category-1",
     },
     author: {
       name: "Autore test",
@@ -25,10 +26,11 @@ const pageArticles = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
     image: "https://storage.googleapis.com/alsafi-files/asktoai.com/3.jpg",
     url: "/blog/articolo-2",
+    slug: "articolo-2",
     category: {
       title: "text catergory",
       url: "/blog/category-url",
-      slug: "articolo-2",
+      slug: "category-2",
     },
     author: {
       name: "Autore test",
@@ -44,10 +46,11 @@ const pageArticles = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
     image: "https://storage.googleapis.com/alsafi-files/asktoai.com/6.jpg",
     url: "/blog/articolo-1",
+    slug: "articolo-3",
     category: {
       title: "text catergory",
       url: "/blog/category-url",
-      slug: "articolo-3",
+      slug: "category-1",
     },
     author: {
       name: "Autore test",
@@ -66,7 +69,7 @@ const pageArticles = [
     category: {
       title: "text catergory",
       url: "/blog/category-url",
-      slug: "articolo-4",
+      slug: "category-1",
     },
     author: {
       name: "Autore test",
