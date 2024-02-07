@@ -7,10 +7,11 @@ const pageArticles = [
     image: "https://storage.googleapis.com/alsafi-files/asktoai.com/6.jpg",
     url: "/blog/articolo-1",
     slug: "articolo-1",
+
     category: {
-      title: "text catergory",
-      url: "/blog/category-url",
-      slug: "category-1",
+      title: "tutorial",
+      url: "/blog/tutorial",
+      slug: "tutorial",
     },
     author: {
       name: "Autore test",
@@ -28,10 +29,11 @@ const pageArticles = [
     url: "/blog/articolo-2",
     slug: "articolo-2",
     category: {
-      title: "text catergory",
-      url: "/blog/category-url",
-      slug: "category-2",
+      title: "intelligenza artificiale",
+      url: "/blog/AI",
+      slug: "AI",
     },
+
     author: {
       name: "Autore test",
       url: "/pagina-autore",
@@ -48,9 +50,14 @@ const pageArticles = [
     url: "/blog/articolo-1",
     slug: "articolo-3",
     category: {
-      title: "text catergory",
-      url: "/blog/category-url",
-      slug: "category-1",
+      title: "Seo",
+      url: "/blog/Seo",
+      slug: "Seo",
+    },
+    category2: {
+      title: "AI",
+
+      slug: "AI",
     },
     author: {
       name: "Autore test",

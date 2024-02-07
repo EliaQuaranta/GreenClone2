@@ -1,14 +1,48 @@
 const Categories = [
   {
-    title: "Test category-1",
-    shortDescription: "ciao",
-    slug: "category-1",
+    title: "tutorial",
+
+    slug: "tutorial",
   },
   {
-    title: "Test category-2",
-    shortDescription: "ciao",
-    slug: "category-2",
+    title: "AI",
+
+    slug: "AI",
+  },
+  {
+    title: "Seo",
+
+    slug: "Seo",
+  },
+  {
+    title: "AI image",
+
+    slug: "AI image",
+  },
+];
+
+const Categories2 = [
+  {
+    title: "tutorial",
+
+    slug: "tutorial",
+  },
+  {
+    title: "AI",
+
+    slug: "AI",
+  },
+  {
+    title: "Seo",
+
+    slug: "Seo",
+  },
+  {
+    title: "AI image",
+
+    slug: "AI image",
   },
 ];
 
 export default Categories;
+Categories2;

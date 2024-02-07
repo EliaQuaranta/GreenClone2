@@ -1,30 +1,15 @@
 import React, { Component } from "react";
 
-function MiddlPart() {
+function MiddlPart({ articles }: { articles: any }) {
   return (
     <div className="flex justify-center">
       <div className="max-w-5xl w-full px-10">
         <ul className="flex flex-wrap justify-center gap-7 py-10 ">
-          <li>
-            <button className="btn btn-md px-7 btn-primary rounded-md text-white">
-              tutorial
+          {articles.map((articles: any) => (
+            <button className="btn btn-primary ">
+              <a href={articles.category.url}>{articles.category.title}</a>
             </button>
-          </li>
-          <li>
-            <button className="btn btn-md px-7 btn-primary rounded-md text-white">
-              intelligenza artificiale
-            </button>
-          </li>
-          <li>
-            <button className="btn btn-md px-7 btn-primary rounded-md text-white">
-              Seo & copywriting
-            </button>
-          </li>
-          <li>
-            <button className="btn btn-md px-7 btn-primary rounded-md text-white ">
-              AI image
-            </button>
-          </li>
+          ))}
         </ul>
         <div className="flex justify-center text-5xl font-bold py-2">
           NEWS AND TUTORIAL
@@ -37,5 +22,8 @@ function MiddlPart() {
     </div>
   );
 }
+
+//articoli con più categorie
+//articoli con altri articoli collegati sotto con le stesse categorie
 
 export default MiddlPart;

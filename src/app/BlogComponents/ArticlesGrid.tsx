@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 
 function ArticlesGrid({ articles }: { articles: any[] }) {
+  console.log(typeof articles);
   return (
     <div className="flex justify-center">
       <div className="relative grid-cols-1 px-10 md:px-0 lg:px-0 lg:grid-cols-3 grid gap-3 w-full max-w-5xl min-h-[auto]">
