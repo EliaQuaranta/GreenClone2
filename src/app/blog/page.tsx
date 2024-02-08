@@ -18,7 +18,7 @@ export default function Blog() {
         </div>
       </div>
 
-      <MiddlePart articles={pageArticles} />
+      <MiddlePart />
 
       <ArticlesGrid articles={gridArticles} />
     </div>

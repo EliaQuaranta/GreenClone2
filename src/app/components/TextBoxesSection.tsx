@@ -15,6 +15,23 @@ function TextBoxesSection({
         <h1 className="text-center pt-40 font-extrabold text-4xl ">{title}</h1>
         <h3 className="text-center pt-3 text-md fontHead ">{subtitle}</h3>
       </div>
+      {textBoxes && textBoxes.length > 0 && (
+        <div className="bg-[#F5F1EE] flex justify-center">
+          <div className="grid md:grid-cols-3 gap-20 pt-20 pb-32 max-w-5xl px-7 lg:px-0 ">
+            {textBoxes.map((textBox: any, index: number) => (
+              <div
+                key={index}
+                className=" md:flex flex-col border-l-2  border-primary  pb-8"
+              >
+                <div className="pl-7 fontHead font-bold text-xl">
+                  {textBox.title}
+                </div>
+                <div className="pl-7 pt-6">{textBox.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* <h3 className=' text-center font-bold'>Crediamo nella trasparenza,
         in un rapporto di confronto
