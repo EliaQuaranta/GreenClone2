@@ -63,10 +63,10 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
                     <div className="flex mb-3">
                       <a
                         className=" ml-1 items-center z-10 relative transition-all duration-200 group px-[8px] py-[6px] lg:px-[10px] lg:py-[6px] rounded-[50px] bg-white text-gray-900 hover:text-green-900 white ring-2 ring-black"
-                        href={article.category.url}
+                        href={article.category}
                       >
                         <span className="block text-inherit w-full h-full rounded-[50px] text-xs font-bold font-chivo ">
-                          {article.category.title}
+                          {article.category}
                         </span>
                       </a>
                     </div>
@@ -79,7 +79,7 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
                     <div className="flex items-center gap-[15px]">
                       <img
                         className="h-full w-full object-cover rounded-full max-w-[55px]"
-                        src={article.author.image}
+                        src={article.author}
                         alt="Logo round web"
                         height={2304}
                         width={2305}
@@ -88,7 +88,7 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
                       />
                       <div>
                         <p className="line-clamp-2 font-bold mb-[3px] text-gray-900 text-heading-6 capitalize">
-                          {article.author.name}
+                          {article.author}
                         </p>
                         <p className="text-sm font-bold">
                           {dayjs(article.date).format("DD/MM/YYYY")}

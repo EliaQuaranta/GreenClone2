@@ -7,7 +7,7 @@ function MiddlPart({ articles }: { articles: any }) {
         <ul className="flex flex-wrap justify-center gap-7 py-10 ">
           {articles.map((articles: any) => (
             <button className="btn btn-primary ">
-              <a href={articles.category.url}>{articles.category.title}</a>
+              <a href={articles.categories}>{articles.categories}</a>
             </button>
           ))}
         </ul>

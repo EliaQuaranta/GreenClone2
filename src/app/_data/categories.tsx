@@ -1,48 +1,24 @@
 const Categories = [
   {
     title: "tutorial",
-
+    url: "/blog/tutorial",
     slug: "tutorial",
   },
   {
     title: "AI",
-
+    url: "/blog/AI",
     slug: "AI",
   },
   {
     title: "Seo",
-
+    url: "/blog/Seo",
     slug: "Seo",
   },
   {
-    title: "AI image",
-
-    slug: "AI image",
-  },
-];
-
-const Categories2 = [
-  {
-    title: "tutorial",
-
-    slug: "tutorial",
-  },
-  {
-    title: "AI",
-
-    slug: "AI",
-  },
-  {
-    title: "Seo",
-
-    slug: "Seo",
-  },
-  {
-    title: "AI image",
-
-    slug: "AI image",
+    title: "Traduttore",
+    url: "/blog/Traduttore",
+    slug: "Traduttore",
   },
 ];
 
 export default Categories;
-Categories2;

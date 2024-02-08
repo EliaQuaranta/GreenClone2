@@ -1,11 +1,11 @@
 import createContext from "react";
 import { title } from "process";
-import pageArticles from "../../_data/articles";
 import Categories from "@/app/_data/categories";
 import ArticlesGrid from "@/app/BlogComponents/ArticlesGrid";
 import BlogCategory from "@/app/BlogComponents/BlogCategory";
 import dayjs from "dayjs";
 import MiddlPart from "@/app/BlogComponents/MiddlePart";
+import pageArticles from "../_data/articles";
 
 export default function Page({ params }: { params: { slug: any } }) {
   //cerca se esiste un articolo con lo slug ricevuto
@@ -13,8 +13,6 @@ export default function Page({ params }: { params: { slug: any } }) {
     if (params.slug == checkArticle.slug) return true;
     else return false;
   });
-
-  //se trovato ritorna il layout del dettaglio del articolo
 
   if (article)
     return (
@@ -82,33 +80,4 @@ export default function Page({ params }: { params: { slug: any } }) {
         </div>
       </div>
     );
-
-  //cerca se esiste 1 categoria con lo slug
-
-  const category: any = Categories.find(
-    (checkCategory) => params.slug == checkCategory.slug
-  );
-
-  //se esiste la categoria cerca tutti gli articoli collegati a questa categoria
-  // e ritorna il layout articlesgrid passando gli articoli
-
-  if (category && category.lenght == 1) {
-    const categoryArticles = pageArticles.filter(
-      (checkarticle) => category.slug == checkarticle.categories
-    );
-    return <BlogCategory articles={undefined} category={undefined} />;
-
-    category && category > 1;
-
-    // const categoryArticles2 = pageArticles.filter(
-    //(checkarticle2) => category2.slug == checkarticle2.category.slug
-    //);
-  } else return <BlogCategory articles={article} category={category} />;
-
-  return;
 }
-
-//if (category && category2 == 1 && ()) {
-//const categoryArticles = pageArticles.filter(
-// (checkarticle) => category.slug == checkarticle.category.slug
-// );

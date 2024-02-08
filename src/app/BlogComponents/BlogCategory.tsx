@@ -9,7 +9,6 @@ function BlogCategory({
 }: {
   articles: any;
   category: any;
-  category2: any;
 }) {
   return (
     <div className="flex justify-center">
