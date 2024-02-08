@@ -1,23 +1,13 @@
 const Categories = [
   {
-    title: "tutorial",
-    url: "/blog/tutorial",
-    slug: "tutorial",
+    title: "Test category-1",
+    shortDescription: "ciao",
+    slug: "category-1",
   },
   {
-    title: "AI",
-    url: "/blog/AI",
-    slug: "AI",
-  },
-  {
-    title: "Seo",
-    url: "/blog/Seo",
-    slug: "Seo",
-  },
-  {
-    title: "Traduttore",
-    url: "/blog/Traduttore",
-    slug: "Traduttore",
+    title: "Test category-2",
+    shortDescription: "ciao",
+    slug: "category-2",
   },
 ];
 

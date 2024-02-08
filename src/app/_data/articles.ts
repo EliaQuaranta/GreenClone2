@@ -41,7 +41,7 @@ const pageArticles = [
     image: "https://storage.googleapis.com/alsafi-files/asktoai.com/6.jpg",
     url: "/blog/articolo-1",
     slug: "articolo-3",
-<<<<<<< HEAD
+
     categories: [
       {
         title: "tutorial",
@@ -57,6 +57,8 @@ const pageArticles = [
     ],
 
 =======
+=======
+>>>>>>> parent of 33a82c8... problema .map in articlesgrid, tentativo di mettere 2 categofie in un articolo ancora non riuscito
     category: {
       title: "text catergory",
       url: "/blog/category-url",
