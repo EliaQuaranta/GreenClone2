@@ -1,14 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 
-function MiddlPart({ articles }: { articles: any }) {
+function MiddlPart({ articles }: { articles: any[0] }) {
   return (
     <div className="flex justify-center">
       <div className="max-w-5xl w-full px-10">
-        <ul className="flex flex-wrap justify-center gap-7 py-10 ">
-          {articles.map((articles: any) => (
-            <button className="btn btn-primary ">
-              <a href={articles.category.url}>{articles.category.title}</a>
-            </button>
+        <ul className="flex flex-wrap justify-center gap-7 py-10">
+          {articles.map((article: any) => (
+            <div key={article.slug}>
+              {article.categories.map((category: any) => (
+                <div key={category.slug}>
+                  <button className="btn btn-primary">
+                    <a href={category.url}>{category.title}</a>
+                  </button>
+                </div>
+              ))}
+            </div>
           ))}
         </ul>
         <div className="flex justify-center text-5xl font-bold py-2">

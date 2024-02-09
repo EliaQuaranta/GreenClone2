@@ -9,7 +9,6 @@ function BlogCategory({
 }: {
   articles: any;
   category: any;
-  category2: any;
 }) {
   return (
     <div className="flex justify-center">
@@ -17,9 +16,9 @@ function BlogCategory({
         <div className="text-center text-3xl py-10 font-bold">
           {category.title}
         </div>
-
         <ArticlesGrid articles={articles} />
         <hr />
+
         <MiddlePart articles={pageArticles} />
       </div>
     </div>

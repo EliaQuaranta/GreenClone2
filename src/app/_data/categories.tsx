@@ -1,48 +1,19 @@
-const Categories = [
+const Category = [
   {
     title: "tutorial",
-
+    url: "/blog/tutorial",
     slug: "tutorial",
   },
   {
-    title: "AI",
-
-    slug: "AI",
+    title: "sesso",
+    url: "/blog/sesso",
+    slug: "sesso",
   },
   {
-    title: "Seo",
-
-    slug: "Seo",
-  },
-  {
-    title: "AI image",
-
-    slug: "AI image",
+    title: "erbafree",
+    url: "/blog/erbafree",
+    slug: "erbafree",
   },
 ];
 
-const Categories2 = [
-  {
-    title: "tutorial",
-
-    slug: "tutorial",
-  },
-  {
-    title: "AI",
-
-    slug: "AI",
-  },
-  {
-    title: "Seo",
-
-    slug: "Seo",
-  },
-  {
-    title: "AI image",
-
-    slug: "AI image",
-  },
-];
-
-export default Categories;
-Categories2;
+export default Category;

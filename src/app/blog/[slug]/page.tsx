@@ -2,10 +2,8 @@ import createContext from "react";
 import { title } from "process";
 import pageArticles from "../../_data/articles";
 import Categories from "@/app/_data/categories";
-import ArticlesGrid from "@/app/BlogComponents/ArticlesGrid";
 import BlogCategory from "@/app/BlogComponents/BlogCategory";
 import dayjs from "dayjs";
-import MiddlPart from "@/app/BlogComponents/MiddlePart";
 
 export default function Page({ params }: { params: { slug: any } }) {
   //cerca se esiste un articolo con lo slug ricevuto
@@ -40,7 +38,7 @@ export default function Page({ params }: { params: { slug: any } }) {
                     <a href={article.url}>{article.title}</a>
                   </h2>
                   <div className="text-text text-gray-500 ">
-                    <p>{article.shortDescription}</p>
+                    {article.shortDescription}
                   </div>
                   <div className="flex items-center gap-[15px]">
                     <img
@@ -73,8 +71,6 @@ export default function Page({ params }: { params: { slug: any } }) {
                   <div className="my-10 text-xl font-mono">
                     {article.shortDescription}
                   </div>
-                  <hr />
-                  <MiddlPart articles={pageArticles}></MiddlPart>
                 </div>
               </div>
             </div>
@@ -88,43 +84,20 @@ export default function Page({ params }: { params: { slug: any } }) {
   const category: any = Categories.find(
     (checkCategory) => params.slug == checkCategory.slug
   );
-  const category2: any = Categories.find(
-    (checkCategory2) => params.slug == checkCategory2.slug
-  );
 
   //se esiste la categoria cerca tutti gli articoli collegati a questa categoria
   // e ritorna il layout articlesgrid passando gli articoli
 
-  if (category && category2 == 1) {
-    const categoryArticles = pageArticles.filter(
-      (checkarticle) => category.slug == checkarticle.category.slug
-    );
-    return (
-      <BlogCategory
-        articles={categoryArticles}
-        category={category}
-        category2={category2}
-      />
+  if (category) {
+    const categoryArticles = pageArticles.filter((checkarticle) =>
+      checkarticle.categories.some(
+        (categories) => categories.slug == category.slug
+      )
     );
 
-    category && category2 > 1;
+    return <BlogCategory articles={categoryArticles} category={category} />;
+  }
 
-    // const categoryArticles2 = pageArticles.filter(
-    //(checkarticle2) => category2.slug == checkarticle2.category.slug
-    //);
-  } else
-    return (
-      <BlogCategory
-        articles={category}
-        category={category}
-        category2={category2}
-      />
-    );
-
-  return;
+  //altrimenti ritorna not found
+  else return <div>not found</div>;
 }
-
-//if (category && category2 == 1 && ()) {
-//const categoryArticles = pageArticles.filter(
-// (checkarticle) => category.slug == checkarticle.category.slug
-// );
