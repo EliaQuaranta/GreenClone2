@@ -3,7 +3,7 @@ import React, { Component } from "react";
 function Footer() {
   return (
     <>
-      <footer className=" pt-32 bg-neutral">
+      <footer className=" pt-20 bg-neutral ">
         <div className="grid lg:grid-cols-2  grid-cols-1">
           <div className="footer g p-10  text-neutral-content">
             <img

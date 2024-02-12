@@ -17,6 +17,7 @@ function BlogCategory({
           {category.title}
         </div>
         <ArticlesGrid articles={articles} />
+
         <hr />
         <MiddlePart articles={pageArticles} />
       </div>

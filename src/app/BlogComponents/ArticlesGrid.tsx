@@ -25,21 +25,22 @@ function ArticlesGrid({ articles }: { articles: any[] }) {
 
   return (
     <div className="flex justify-center  ">
-      <div className="relative grid-cols-1 px-10  md:px-6 lg:px-6 lg:grid-cols-3 grid gap-6 w-full max-w-5xl min-h-[auto]">
+      <div className="relative grid-cols-1  lg:grid-cols-3 grid gap-6 w-full max-w-5xl min-h-[auto]">
         {filteredArticles.map((article: any) => (
-          <div key={article.slug}>
+          <div key={article.slug} className="">
             <a href={article.url}>
-              <div className="flex items-center">
+              <div className="flex items-center ">
                 <div className="bg-gray-500 rounded-full w-[3px] h-[3px] mr-[6px]" />
                 <span className="uppercase text-gray-500 text-xs">
                   {/* Mostro solo la prima categoria */}
                   {article.categories[0].title}
                 </span>
               </div>
-              <p className="text-3xl font-chivo font-bold text-pretty max-w-[310px] max-h-[30px] mb-[10px]">
+              <p className=" overflow-hidden hover:overflow-auto  hover:whitespace-normal whitespace-nowrap text-ellipsis   text-3xl font-chivo font-bold text-pretty  mb-[10px]">
                 {article.title}
+                <div className="absolute"></div>
               </p>
-              <div className="relative mb-16">
+              <div className="relative mb-16 ">
                 <div className="relative">
                   <div className="aspect-auto">
                     <img

@@ -23,7 +23,7 @@ function BlogDetails({ articles }: { articles: any }) {
 
   return (
     <div className="flex justify-center">
-      <div className="relative grid-cols-1 px-10  md:px-6 lg:px-6 lg:grid-cols-3 grid gap-3 w-full max-w-5xl min-h-[auto]">
+      <div className="relative grid-cols-1  lg:grid-cols-3 grid gap-6 w-full max-w-5xl min-h-[auto]">
         {ultimi3.map((article: any) => (
           <div key={article.slug}>
             <a href={article.url}>
@@ -34,9 +34,11 @@ function BlogDetails({ articles }: { articles: any }) {
                   {article.categories[0].title}
                 </span>
               </div>
-              <p className="text-3xl font-chivo font-bold inline-block mb-[10px]">
+
+              <p className="text-3xl font-chivo font-bold text-pretty max-w-[310px] max-h-[30px]  mb-[10px]">
                 {article.title}
               </p>
+
               <div className="relative mb-16">
                 <div className="relative">
                   <div className="aspect-auto">
@@ -48,6 +50,7 @@ function BlogDetails({ articles }: { articles: any }) {
                       loading="eager"
                       decoding="async"
                     />
+                    <div></div>
                   </div>
                 </div>
               </div>

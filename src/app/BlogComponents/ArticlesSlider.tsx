@@ -67,7 +67,7 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
                         href={article.categories.url}
                       >
                         <span className="block text-inherit w-full h-full rounded-[50px] text-xs font-bold font-chivo ">
-                          {article.categories.title}
+                          {article.categories[0].slug}
                         </span>
                       </a>
                     </div>

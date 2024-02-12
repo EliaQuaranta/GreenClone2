@@ -4,7 +4,7 @@ function MiddlPart({ articles }: { articles: any[0] }) {
   return (
     <div className="flex justify-center">
       <div className="max-w-5xl w-full px-10">
-        <ul className="flex flex-wrap shrink justify-center gap-7 py-10 ">
+        <ul className="flex flex-wrap shrink justify-center truncate  gap-7 py-10 overflow-hidden hover:overflow-visible ">
           {articles.map((article: any) => (
             <div key={article.slug}>
               {article.categories.map((category: any) => (

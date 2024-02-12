@@ -73,6 +73,32 @@ export default function Page({ params }: { params: { slug: any } }) {
                   ></img>
                   <div className="my-10 text-xl font-mono">
                     {article.shortDescription}
+                    <div className="font-sans text-3xl ">
+                      <p className="py-10">
+                        Oggi, archeologi hanno annunciato una scoperta
+                        straordinaria nelle remote regioni delle Pirenei. Mentre
+                        esploravano una caverna nascosta, gli esperti hanno
+                        trovato una serie di antichi manufatti che sembrano
+                        provenire da una civiltà extraterrestre sconosciuta. Le
+                        strane strutture metalliche e i simboli intricati incisi
+                        sui manufatti hanno stupito gli studiosi, che ritengono
+                        che questi reperti possano essere la prova di un
+                        incontro tra antiche civiltà terrestri e visitatori
+                        alieni. Gli archeologi stanno attualmente lavorando per
+                        decifrare il significato dei simboli e determinare
+                        l'origine di questi misteriosi manufatti. Le prime
+                        analisi preliminari indicano che i manufatti risalgono a
+                        migliaia di anni fa e potrebbero essere collegati a una
+                        cultura sconosciuta che aveva conoscenze avanzate e
+                        tecnologie oltre la comprensione umana dell'epoca.
+                        Questa scoperta sta attirando l'attenzione della
+                        comunità scientifica internazionale, aprendo nuove
+                        prospettive sulla storia del nostro pianeta e sul
+                        possibile coinvolgimento di entità extraterrestri nella
+                        nostra evoluzione.
+                      </p>
+                      <hr />
+                    </div>
                   </div>
                 </div>
                 <div>
