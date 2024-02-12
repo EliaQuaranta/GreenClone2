@@ -17,27 +17,26 @@ function ArticlesGrid({ articles }: { articles: any[] }) {
   // Filtra gli articoli in base alla categoria attiva
   const filteredArticles = activeCategory
     ? articles.filter((article: any) =>
-        article.categories.some(
+        article.categories.filter(
           (category: any) => category.slug === activeCategory
         )
       )
     : articles;
 
   return (
-    <div className="flex justify-center">
-      <div className="relative grid-cols-1 px-10 md:px-0 lg:px-0 lg:grid-cols-3 grid gap-3 w-full max-w-5xl min-h-[auto]">
+    <div className="flex justify-center  ">
+      <div className="relative grid-cols-1 px-10  md:px-6 lg:px-6 lg:grid-cols-3 grid gap-6 w-full max-w-5xl min-h-[auto]">
         {filteredArticles.map((article: any) => (
           <div key={article.slug}>
             <a href={article.url}>
               <div className="flex items-center">
                 <div className="bg-gray-500 rounded-full w-[3px] h-[3px] mr-[6px]" />
                 <span className="uppercase text-gray-500 text-xs">
-                  {/* Mostro solo la prima categoria per semplicità,
-                  puoi adattare questa parte in base alle tue esigenze */}
+                  {/* Mostro solo la prima categoria */}
                   {article.categories[0].title}
                 </span>
               </div>
-              <p className="text-3xl font-chivo font-bold inline-block mb-[10px]">
+              <p className="text-3xl font-chivo font-bold text-pretty max-w-[310px] max-h-[30px] mb-[10px]">
                 {article.title}
               </p>
               <div className="relative mb-16">

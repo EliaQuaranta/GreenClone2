@@ -58,6 +58,7 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
                     decoding="async"
                   ></img>
                 </a>
+
                 <div className="flex-1">
                   <div className="my-[60px] mr-[50px]">
                     <div className="flex mb-3">

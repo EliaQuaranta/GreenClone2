@@ -3,7 +3,10 @@ import { title } from "process";
 import pageArticles from "../../_data/articles";
 import Categories from "@/app/_data/categories";
 import BlogCategory from "@/app/BlogComponents/BlogCategory";
+import BlogDetails from "@/app/BlogComponents/BlogDetails";
 import dayjs from "dayjs";
+import ArticlesGrid from "@/app/BlogComponents/ArticlesGrid";
+import Category from "@/app/_data/categories";
 
 export default function Page({ params }: { params: { slug: any } }) {
   //cerca se esiste un articolo con lo slug ricevuto
@@ -72,12 +75,17 @@ export default function Page({ params }: { params: { slug: any } }) {
                     {article.shortDescription}
                   </div>
                 </div>
+                <div>
+                  <BlogDetails articles={pageArticles}></BlogDetails>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     );
+
+  //sort e splice e ordinare in base alla data ultimi 3 usciti
 
   //cerca se esiste 1 categoria con lo slug
 

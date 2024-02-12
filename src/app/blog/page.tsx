@@ -17,9 +17,9 @@ export default function Blog() {
           <ArticlesSlider articles={sliderArticles} />
         </div>
       </div>
-
-      <MiddlePart articles={pageArticles} />
-
+      <div>
+        <MiddlePart articles={pageArticles} />
+      </div>
       <ArticlesGrid articles={gridArticles} />
     </div>
   );

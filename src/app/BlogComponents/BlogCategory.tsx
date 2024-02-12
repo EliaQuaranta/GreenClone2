@@ -18,7 +18,6 @@ function BlogCategory({
         </div>
         <ArticlesGrid articles={articles} />
         <hr />
-
         <MiddlePart articles={pageArticles} />
       </div>
     </div>
