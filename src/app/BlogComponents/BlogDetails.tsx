@@ -34,16 +34,15 @@ function BlogDetails({ articles }: { articles: any }) {
                   {article.categories[0].title}
                 </span>
               </div>
-
-              <p className="text-3xl font-chivo font-bold text-pretty max-w-[310px] max-h-[30px]  mb-[10px]">
-                {article.title}
-              </p>
+              <div className=" min-h-8 lg:min-h-[80px] md:min-h-8">
+                <p className="text-3xl font-bold mt-auto ">{article.title}</p>
+              </div>
 
               <div className="relative mb-16">
-                <div className="relative">
+                <div className="">
                   <div className="aspect-auto">
                     <img
-                      className="w-full object-cover rounded-2xl z-10 relative"
+                      className="hover:opacity-80 w-full object-cover rounded-2xl z-10 relative"
                       src={article.image}
                       height={500}
                       width={300}

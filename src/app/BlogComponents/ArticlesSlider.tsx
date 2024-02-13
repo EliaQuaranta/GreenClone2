@@ -46,7 +46,7 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
               <div className="rounded-2xl p-0 flex items-center bg-white z-10 flex-col lg:gap-[50px] lg:flex-row ">
                 <a
                   className=" max-w-5xl w-full lg:1/2 self-stretch flex-1 aspect-auto flex items-center"
-                  href="/it/blog/10-prompt-per-generare-immagini-ia-con-risultati-garantiti"
+                  href={article.url}
                 >
                   <img
                     className="  rounded-xl opacity-80 w-full"
@@ -64,17 +64,17 @@ function ArticlesSlider({ articles }: { articles: any[] }) {
                     <div className="flex mb-3">
                       <a
                         className=" ml-1 items-center z-10 relative transition-all duration-200 group px-[8px] py-[6px] lg:px-[10px] lg:py-[6px] rounded-[50px] bg-white text-gray-900 hover:text-green-900 white ring-2 ring-black"
-                        href={article.categories.url}
+                        href={article.categories[0].url}
                       >
                         <span className="block text-inherit w-full h-full rounded-[50px] text-xs font-bold font-chivo ">
                           {article.categories[0].slug}
                         </span>
                       </a>
                     </div>
-                    <h2 className="font-bold font-chivo text-[25px] leading-[30px] md:text-heading-3 mb-5">
+                    <h2 className=" font-bold font-chivo text-[38px] leading-[30px] md:text-heading-3 mb-5">
                       <a href={article.url}>{article.title}</a>
                     </h2>
-                    <div className="text-text text-gray-500 mb-[44px]">
+                    <div className="text-lg text-gray-500 mb-[44px]">
                       <p>{article.shortDescription}</p>
                     </div>
                     <div className="flex items-center gap-[15px]">

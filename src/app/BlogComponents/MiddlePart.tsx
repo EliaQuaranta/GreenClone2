@@ -1,33 +1,43 @@
 import React from "react";
+import pageArticles from "../_data/articles";
+import categories from "../_data/categories";
 
 function MiddlPart({ articles }: { articles: any[0] }) {
+  // Estrai tutte le categorie uniche dagli articoli
+  const CategorieUniche = Array.from(
+    new Set(
+      articles.flatMap((article: any) =>
+        article.categories.map((category: any) => category.title)
+      )
+    )
+  );
   return (
     <div className="flex justify-center">
       <div className="max-w-5xl w-full px-10">
-        <ul className="flex flex-wrap shrink justify-center truncate  gap-7 py-10 overflow-hidden hover:overflow-visible ">
-          {articles.map((article: any) => (
-            <div key={article.slug}>
-              {article.categories.map((category: any) => (
-                <button className="btn btn-primary">
-                  <a href={category.url}>{category.title}</a>
-                </button>
-              ))}
-            </div>
-          ))}
+        <ul className="flex flex-wrap justify-center gap-7 py-10">
+          {CategorieUniche.map((categoryTitle: any) => {
+            // Trova l'oggetto category associato a categoryTitle
+            const category = categories.find(
+              (c: any) => c.title === categoryTitle
+            );
+
+            // Se l'oggetto category è trovato, crea il pulsante con il link
+            if (category) {
+              return (
+                <li key={category.title}>
+                  <button className="btn rounded-md btn-primary">
+                    <a href={category.url}>{category.title}</a>
+                  </button>
+                </li>
+              );
+            }
+
+            return null;
+          })}
         </ul>
-        <div className="flex justify-center text-5xl font-bold py-2">
-          NEWS AND TUTORIAL
-        </div>
-        <div className="flex justify-center text-xl py-10">
-          Scopri come utilizzare al meglio i nostri strumenti ed esercitati con
-          i tutorial
-        </div>
       </div>
     </div>
   );
 }
-
-//articoli con più categorie
-//articoli con altri articoli collegati sotto con le stesse categorie
 
 export default MiddlPart;

@@ -13,13 +13,11 @@ function BlogCategory({
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-5xl">
-        <div className="text-center text-3xl py-10 font-bold">
+        <MiddlePart articles={pageArticles} />
+        <div className="text-center text-4xl py-10 font-bold">
           {category.title}
         </div>
         <ArticlesGrid articles={articles} />
-
-        <hr />
-        <MiddlePart articles={pageArticles} />
       </div>
     </div>
   );
