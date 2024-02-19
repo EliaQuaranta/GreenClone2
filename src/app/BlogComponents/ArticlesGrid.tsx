@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 
 function ArticlesGrid({ articles }: { articles: any[] }) {
-  // Stato per tenere traccia della categoria attiva
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   // Estrae tutte le categorie singole dagli articoli

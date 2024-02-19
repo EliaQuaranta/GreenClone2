@@ -5,25 +5,74 @@ import Categories from "@/app/_data/categories";
 import BlogCategory from "@/app/BlogComponents/BlogCategory";
 import BlogDetails from "@/app/BlogComponents/BlogDetails";
 import dayjs from "dayjs";
-import ArticlesGrid from "@/app/BlogComponents/ArticlesGrid";
-import Category from "@/app/_data/categories";
 import MiddlPart from "@/app/BlogComponents/MiddlePart";
 
-export default function Page({ params }: { params: { slug: any } }) {
-  //cerca se esiste un articolo con lo slug ricevuto
-  const article: any = pageArticles.find(function (checkArticle) {
-    if (params.slug == checkArticle.slug) return true;
-    else return false;
+async function Blogpost(slug: string) {
+  let results = await fetch("https://my-craft-project.ddev.site/api", {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/graphql",
+    },
+
+    body: `
+
+
+    query MyQuery2 {
+      entry(slug: "${slug}") {
+        id
+        ... on blog_blogArticle_Entry {
+          id
+          title
+          shortDescription
+          fullPostContent
+          url
+          slug
+          author {
+            fullName
+            photo {
+              url
+              title
+            }
+          }
+          postCategories {
+            slug
+            title
+            url
+          }
+          featureImage {
+            url
+            title
+          }
+        }
+      }
+    
+    }
+    `,
   });
+  let blogPost = await results.json();
+  console.log("blogPost", blogPost.data);
+  return blogPost;
+}
+
+export default async function Page({ params }: { params: { slug: any } }) {
+  //cerca se esiste un articolo con lo slug ricevuto
+
+  //const article: any = pageArticles.find(function (checkArticle) {
+  /* if (params.slug == checkArticle.slug) return true;
+    else return false;
+  });*/
 
   //se trovato ritorna il layout del dettaglio del articolo
+
+  const article = await Blogpost(params.slug);
 
   if (article)
     return (
       <div className="w-full top-0 z-50">
         <div className="flex justify-center">
           <img
-            src={article.image}
+            src={article.featureImage}
             alt="Descrizione dell'immagine"
             className=" object-cover w-full opacity-80 h-[500px]"
           />
@@ -50,7 +99,7 @@ export default function Page({ params }: { params: { slug: any } }) {
               ></a>
               <div className="flex-1">
                 <div className="">
-                  <div className="flex my-10"></div>
+                  <div className="flex my-6"></div>
 
                   <div className="text-lg text-gray font-semibold  ">
                     {article.shortDescription}
@@ -58,7 +107,7 @@ export default function Page({ params }: { params: { slug: any } }) {
                   <div className="flex items-center gap-[15px]">
                     <img
                       className="h-full w-full my-10 object-cover rounded-full max-w-[55px]"
-                      src={article.author.image}
+                      src={article.author.photo}
                       alt="Logo round web"
                       height={2304}
                       width={2305}
@@ -67,7 +116,7 @@ export default function Page({ params }: { params: { slug: any } }) {
                     />
                     <div>
                       <p className="line-clamp-2 font-bold mb-[3px] text-gray-900 text-heading-6 capitalize">
-                        {article.author.name}
+                        {article.author.fullName}
                       </p>
                       <p className="text-sm font-bold">
                         {dayjs(article.date).format("DD/MM/YYYY")}
@@ -76,7 +125,7 @@ export default function Page({ params }: { params: { slug: any } }) {
                   </div>
                   <img
                     className="  rounded-xl opacity-80 w-full"
-                    src={article.image}
+                    src={article.featureImage}
                     alt="Art 10 prompt"
                     height={800}
                     width={1000}
@@ -84,9 +133,9 @@ export default function Page({ params }: { params: { slug: any } }) {
                     decoding="async"
                   ></img>
                   <div className=" pt-10 text-2xl text-black font-semibold ">
-                    {article.shortDescription}
+                    {article.fullPostContent}
                     <div className=" ">
-                      <p className="py-7 text-start text-[16px] text-gray-600">
+                      <p className="py-[30px] text-start text-[16px] text-gray-600">
                         Oggi, archeologi hanno annunciato una scoperta
                         straordinaria nelle remote regioni delle Pirenei. <br />{" "}
                         Mentre esploravano una caverna nascosta, gli esperti
@@ -119,7 +168,7 @@ export default function Page({ params }: { params: { slug: any } }) {
                   </div>
                   <hr />
                 </div>
-                <div className=" text-start ">
+                <div className=" text-start pt-[40px] ">
                   <BlogDetails articles={pageArticles}></BlogDetails>
                 </div>
               </div>

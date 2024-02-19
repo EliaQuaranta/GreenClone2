@@ -13,7 +13,7 @@ export default function Blog() {
     <div className="blog">
       <MainBlog></MainBlog>
       <div className="flex justify-center">
-        <div className="relative max-w-5xl border-b pb-[55px] ">
+        <div className="relative max-w-5xl border-b pb-[57px] ">
           <ArticlesSlider articles={sliderArticles} />
         </div>
       </div>

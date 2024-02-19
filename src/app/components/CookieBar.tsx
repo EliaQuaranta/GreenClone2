@@ -1,11 +1,18 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CookieBar = () => {
-  const [cookieConsent, setCookieConsent] = useState(() => {
-    // Controlla se il cookie di consenso è già presente
-    return localStorage.getItem("cookieConsent") === "true";
-  });
+  const [cookieConsent, setCookieConsent] = useState(false);
+
+  useEffect(() => {
+    // Check if localStorage is available
+    if (
+      typeof window !== "undefined" &&
+      localStorage.getItem("cookieConsent") === "true"
+    ) {
+      setCookieConsent(true);
+    }
+  }, []);
 
   const acceptCockies = () => {
     // Imposta il consenso e salva nel localStorage
