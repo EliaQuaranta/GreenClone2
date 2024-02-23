@@ -300,7 +300,7 @@ export default function Servizi() {
         imagePosition=""
         images={["/green-click-case-history-brand-lusso-2-800x600.jpg"]}
       />
-      <div className="flex justify-center">
+      <div className="flex justify-cente">
         <div className="w-full max-w-5xl">
           <img
             src="/green-click-case-history-brand-lusso-2-800x600.jpg"

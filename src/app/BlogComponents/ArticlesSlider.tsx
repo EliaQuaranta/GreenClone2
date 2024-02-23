@@ -62,7 +62,6 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
 
                 <div className="flex-1">
                   <div className="my-[60px] mr-[50px]">
-<<<<<<< HEAD
                     {article.postCategories &&
                       article.postCategories.length > 0 && (
                         <div className="flex mb-3">
@@ -77,19 +76,6 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
                         </div>
                       )}
                     <h2 className=" font-bold font-chivo text-[38px] leading-[30px] md:text-heading-3 mb-5">
-=======
-                    <div className="flex mb-3">
-                      <a
-                        className=" ml-1 items-center z-10 relative transition-all duration-200 group px-[8px] py-[6px] lg:px-[10px] lg:py-[6px] rounded-[50px] bg-white text-gray-900 hover:text-green-900 white ring-2 ring-black"
-                        href={article.category}
-                      >
-                        <span className="block text-inherit w-full h-full rounded-[50px] text-xs font-bold font-chivo ">
-                          {article.category}
-                        </span>
-                      </a>
-                    </div>
-                    <h2 className="font-bold font-chivo text-[25px] leading-[30px] md:text-heading-3 mb-5">
->>>>>>> 0e518e4a3f0a78c010bcfdd2212167cb8040f1e2
                       <a href={article.url}>{article.title}</a>
                     </h2>
                     <div className="text-lg text-gray-500 mb-[44px]">
@@ -98,11 +84,7 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
                     <div className="flex items-center gap-[15px]">
                       <img
                         className="h-full w-full object-cover rounded-full max-w-[55px]"
-<<<<<<< HEAD
                         src={article.author.photo.url}
-=======
-                        src={article.author}
->>>>>>> 0e518e4a3f0a78c010bcfdd2212167cb8040f1e2
                         alt="Logo round web"
                         height={2304}
                         width={2305}
@@ -111,11 +93,7 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
                       />
                       <div>
                         <p className="line-clamp-2 font-bold mb-[3px] text-gray-900 text-heading-6 capitalize">
-<<<<<<< HEAD
                           {article.author.fullName}
-=======
-                          {article.author}
->>>>>>> 0e518e4a3f0a78c010bcfdd2212167cb8040f1e2
                         </p>
                         <p className="text-sm font-bold">
                           {dayjs(article.date).format("DD/MM/YYYY")}
