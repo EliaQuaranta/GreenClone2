@@ -32,6 +32,16 @@ function TextBoxesSection({
           </div>
         </div>
       )}
+<<<<<<< HEAD
+=======
+
+      {/* <h3 className=' text-center font-bold'>Crediamo nella trasparenza,
+        in un rapporto di confronto
+        e collaborazione continua con il cliente.</h3> */}
+
+      {/* <h3>Ad ogni progetto diamo presenza, attenzione e cura.</h3>
+    <h3>Da noi trovi sempre qualcuno che ti risponde quando chiami!</h3> */}
+>>>>>>> 0e518e4a3f0a78c010bcfdd2212167cb8040f1e2
     </div>
   );
 }

@@ -75,6 +75,7 @@ export default async function Blog() {
           <ArticlesSlider articoli={articless} />
         </div>
       </div>
+<<<<<<< HEAD
       <div>
         {/* Assicurati di avere un array di articoli da passare come prop */}
         <MiddlePart categories={categories}></MiddlePart>
@@ -87,6 +88,12 @@ export default async function Blog() {
         </div>
         <ArticlesGrid articles={articlesss} />
       </div>
+=======
+
+      <MiddlePart />
+
+      <ArticlesGrid articles={gridArticles} />
+>>>>>>> 0e518e4a3f0a78c010bcfdd2212167cb8040f1e2
     </div>
   );
 }
