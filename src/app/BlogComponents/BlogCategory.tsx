@@ -1,23 +1,25 @@
-import dayjs from "dayjs";
 import ArticlesGrid from "./ArticlesGrid";
 import MiddlePart from "./MiddlePart";
-import pageArticles from "../_data/articles";
 
 function BlogCategory({
   articles,
-  category,
+  categorie,
 }: {
   articles: any;
-  category: any;
+  categorie: any;
 }) {
+  console.log("fwfwfwwfwwfwfw", categorie);
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-5xl">
-        <MiddlePart articles={pageArticles} />
+        <MiddlePart categories={categorie} />
+
         <div className="text-center text-4xl py-10 font-bold">
-          {category.title}
+          articoli proposti:{categorie.title}
         </div>
-        <ArticlesGrid articles={articles} />
+        <div>
+          <ArticlesGrid articles={articles} />
+        </div>
       </div>
     </div>
   );
