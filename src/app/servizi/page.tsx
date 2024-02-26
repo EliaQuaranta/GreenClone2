@@ -323,6 +323,10 @@ export default function Servizi() {
           ]}
         />
       </div>
+
+      <div>
+        <CheckUpForm></CheckUpForm>
+      </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ function TextBoxesService({
       </div>
       {textBoxes && textBoxes.length > 0 && (
         <div className="bg-white flex justify-center">
-          <div className="grid md:grid-cols-3 gap-20 pt-20 pb-32 max-w-5xl px-7 lg:px-0 ">
+          <div className="grid sm:grid-cols-3 gap-20 pt-20 pb-32 max-w-5xl px-7 lg:px-0 ">
             {textBoxes.map((textBox: any, index: number) => (
               <div
                 key={index}
