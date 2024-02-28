@@ -300,7 +300,7 @@ export default function Servizi() {
         imagePosition=""
         images={["/green-click-case-history-brand-lusso-2-800x600.jpg"]}
       />
-      <div className="flex justify-cente">
+      <div className="flex justify-center py-4">
         <div className="w-full max-w-5xl">
           <img
             src="/green-click-case-history-brand-lusso-2-800x600.jpg"
@@ -314,7 +314,7 @@ export default function Servizi() {
           subtitle="“Vuoi dare valore ai tuoi soldi e al tuo business? Scegli Green.Click Specializzati in Pubblicità online
         Vuoi dare valore ai tuoi soldi e al tuo business? Scegli Green.Click
         Da noi parli sempre con tecnici specializzati e hai il tuo team di riferimento. Ascoltiamo  le tue esigenze e sviluppiamo insieme a te la strategia più adeguata ai tuoi obiettivi e al tuo brand. Lavoriamo sempre negli account del cliente perchè tutto quello che viene fatto rimanga sempre di sua proprietà!"
-          imagePosition=""
+          imagePosition="left"
           images={[
             "/green-click-case-history-brand-lusso-2-800x600.jpg",
             "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
