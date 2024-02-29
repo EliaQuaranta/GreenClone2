@@ -49,22 +49,46 @@ function SearchBar({ Search }: { Search: any }) {
           onChange={(Change) => setQuery(Change.target.value)}
         />
 
-        <button onClick={Research}>Search</button>
+        <button onClick={Research}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </button>
       </div>
 
       <div className="w-full max-w-5xl ">
         <div className="flex justify-center  ">
-          <ul className="rounded-lg bg-primary px-[120px] ">
+          <ul className="w-full py-2 ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300 ">
             {filteredArticles.map((article: any) => (
-              <div className="flex justify-start">
+              <div className="flex justify-center ">
                 <li key={article.id}>
                   <Link
                     href={article.url}
-                    className="btn rounded-md btn-primary"
+                    className="btn rounded-md btn-primary w-[300px] h-[60px] mt-[3px]  "
                   >
-                    {article.title}
-
-                    <div className="">{article.shortDescription}</div>
+                    <div className="flex flex-col items-center ">
+                      {article.title}
+                      <div className="line-clamp-1 max-w-32 mt-2 ">
+                        <hr />
+                        <div className="mt-2">{article.shortDescription}</div>
+                      </div>
+                    </div>
+                    <img
+                      src={article.featureImage[0].url}
+                      alt=""
+                      className="w-[72px] max-h-16 rounded-md  "
+                    />
                   </Link>
                 </li>
               </div>
