@@ -8,7 +8,7 @@ function CheckUpServizi() {
           <div className="font-bold text-3xl items-center  pl-7 lg:pl-0  lg:flex aling-items lg:py-11 ">
             Contattaci per un CheckUp{" "}
             <span className="text-primary p-2 "> Gratuito</span>
-            <button className="blocked btn btn-lg btn-primary text-lg flex lg:mt-0 mt-4  ">
+            <button className="blocked ml-72 btn btn-lg btn-primary text-lg flex lg:mt-0 mt-4  ">
               Scrivici{" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"

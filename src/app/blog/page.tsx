@@ -14,42 +14,44 @@ async function getCmsArticlesAndCategories() {
     },
     body: `
     query MyQuery {
-      entries(search: "") {
-        author {
-          id
-          fullName
-          photo {
-            url
-          }
-        }
-        title
-        url
+      entries(section: "blog") {
         ... on blog_blogArticle_Entry {
           id
-          fullPostContent
-          slug
+          title
           url
-          shortDescription
+          slug
+          featureImage {
+                url
+                ... on hardDisk2_Asset {
+                  id
+                  url
+                }
+              }
+         author {
+              id
+              fullName
+              photo {
+                url
+              }
+          }
           featureImage {
             url
-            ... on hardDisk2_Asset {
-              id
-              url
-            }
+            id
           }
           postCategories {
+            url
             title
             slug
-            url
           }
         }
       }
       categories {
         title
-        slug
         url
+        slug
       }
     }
+    
     
     
       `,
@@ -57,7 +59,7 @@ async function getCmsArticlesAndCategories() {
   });
 
   let blogPosts = await results.json();
-  console.log("blogPost", blogPosts.data);
+  console.log("blogPostPAZZO", blogPosts.data);
   return blogPosts.data;
 }
 
@@ -69,7 +71,7 @@ export default async function Blog() {
 
   const articless = articles.slice(0, 3);
   const articlesss = articles.slice(3);
-
+  //console.log("fwfwfefefwfwfwfw", articless);
   return (
     <div className="blog">
       <MainBlog></MainBlog>

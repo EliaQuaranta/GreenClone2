@@ -85,9 +85,7 @@ export default function Home() {
           images={["hand-made-green-click.jpg"]}
         />
       </div>
-      <div className="">
-        <img src="/green-click-sala-riunioni.jpg" className="" alt="" />
-      </div>
+
       <div className="py-10">
         <TextImgcomponent
           title="titolo3 carosello"

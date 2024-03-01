@@ -1,6 +1,9 @@
 export const CheckUpForm = () => {
   return (
     <div>
+      <div>
+        <img src="/green-click-sala-riunioni.jpg" alt="" />
+      </div>
       <div className="w-full flex justify-center  bg-[#F5F1EE]">
         <div className="w-full max-w-5xl">
           <h2 className="text-4xl font-bold pt-32 pb-20 px-10">

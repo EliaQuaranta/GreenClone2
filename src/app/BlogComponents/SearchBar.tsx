@@ -6,31 +6,58 @@ function SearchBar({ Search }: { Search: any }) {
   const [query, setQuery] = useState("");
   const [filteredArticles, setFilteredArticles] = useState([]);
 
-  const Research = () => {
-    // Filtra gli articoli in base alla query
+  // Debounce function
+  const debounce = (func: any, delay: number) => {
+    let timeoutId: NodeJS.Timeout;
+    return function () {
+      const context = null;
+      const args = arguments;
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func.apply(context, args), delay);
+    };
+  };
+
+  // Debounced version of the Research function
+  const debouncedResearch = debounce(() => {
     const filteredResults = Search.filter((item: any) =>
       item.title.toLowerCase().includes(query.toLowerCase())
     );
 
-    // Aggiorna lo stato con gli articoli filtrati
+    // Update state with filtered articles
     setFilteredArticles(filteredResults);
-  };
+  }, 100); // Adjust the delay as needed
+
   const resetSearch = () => {
-    // Resetta la query e gli articoli filtrati quando si preme il pulsante di reset
     setQuery("");
     setFilteredArticles([]);
   };
+
   return (
-    <div className="w-full max-w-5xl pb-10">
-      <div className="flex justify-center ">
-        <button onClick={resetSearch}>
+    <div className="w-full max-w-5xl pb-10 ">
+      <div className="flex justify-center  sm:px-[29px] ">
+        <input
+          type="text"
+          name=""
+          id=""
+          className="p-4 bg-slate-200 rounded-l-lg ingrandisciti   "
+          placeholder="cerca..."
+          value={query}
+          onChange={(Change) => {
+            setQuery(Change.target.value);
+            debouncedResearch(); // Call the debounced function on input change
+          }}
+        />
+        <button
+          onClick={resetSearch}
+          className="bg-slate-200 rounded-r-lg pr-3 "
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
-            className="w-6 h-6"
+            className="w-10 h-10 text-black  "
           >
             <path
               stroke-linecap="round"
@@ -39,62 +66,37 @@ function SearchBar({ Search }: { Search: any }) {
             />
           </svg>
         </button>
-        <input
-          type="text"
-          name=""
-          id=""
-          className="p-4 bg-primary rounded-lg "
-          placeholder="cerca..."
-          value={query}
-          onChange={(Change) => setQuery(Change.target.value)}
-        />
-
-        <button onClick={Research}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            className="w-5 h-5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-            />
-          </svg>
-        </button>
       </div>
 
-      <div className="w-full max-w-5xl ">
-        <div className="flex justify-center  ">
-          <ul className="w-full py-2 ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300 ">
-            {filteredArticles.map((article: any) => (
-              <div className="flex justify-center ">
-                <li key={article.id}>
-                  <Link
-                    href={article.url}
-                    className="btn rounded-md btn-primary w-[300px] h-[60px] mt-[3px]  "
-                  >
-                    <div className="flex flex-col items-center ">
+      <div className="w-full max-w-5xl  px-0 md:px-3 sm:px-3  ">
+        <ul className="flex-col flex items-start ">
+          {filteredArticles.map((article: any) => (
+            <div className=" w-full " key={article.id}>
+              <li className="w-full px-3 sm:px-4 lg:px-4 ">
+                <Link
+                  href={article.url}
+                  className=" rounded-md  btn bg-slate-200 w-full flex justify-start sm:flex-wrap  h-[60px] mt-[3px]  "
+                >
+                  <img
+                    src={article.featureImage[0].url}
+                    alt=""
+                    className=" w-[64px] mb-3 mr-2 ml-[-5px]  rounded-md  "
+                  />
+                  <div className="grid grid-rows-2 ">
+                    <div className="flex flex-col items-start pb-2 text-lg ">
                       {article.title}
-                      <div className="line-clamp-1 max-w-32 mt-2 ">
-                        <hr />
-                        <div className="mt-2">{article.shortDescription}</div>
+                    </div>
+                    <div className="line-clamp-1 sm:max-w-sm ">
+                      <div className="!truncate ">
+                        {article.shortDescription}
                       </div>
                     </div>
-                    <img
-                      src={article.featureImage[0].url}
-                      alt=""
-                      className="w-[72px] max-h-16 rounded-md  "
-                    />
-                  </Link>
-                </li>
-              </div>
-            ))}
-          </ul>
-        </div>
+                  </div>
+                </Link>
+              </li>
+            </div>
+          ))}
+        </ul>
       </div>
     </div>
   );

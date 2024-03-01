@@ -16,6 +16,50 @@
   }
 }
 
+.ingrandisciti:focus {
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+  animation-name: ingrandimento;
+}
+
+.ingrandisciti {
+  outline: none;
+  animation-duration: 0.3s;
+  animation-name: smallino;
+}
+.ingrandisciti2 {
+  animation-duration: 0.3s;
+  animation-name: smallino;
+}
+.ingrandisciti2:first-child {
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+  animation-name: ingrandimento;
+}
+@keyframes ingrandimento {
+  from {
+    border: none;
+    width: 300px;
+  }
+
+  to {
+    border: none;
+    width: 100%;
+  }
+}
+
+@keyframes smallino {
+  from {
+    border: none;
+    width: 110%;
+  }
+
+  to {
+    border: none;
+    width: 300px;
+  }
+}
+
 body {
   background-color: white;
 }
