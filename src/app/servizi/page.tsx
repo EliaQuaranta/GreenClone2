@@ -24,6 +24,7 @@ async function getCmsText() {
             ... on pageBlocks_textBlock_BlockType {
               textBlockInfos {
                 ... on textBlockInfos_BlockType {
+                   textBoxLink
                   textBoxText
                   textBoxTitle
                   textBoxIcon {

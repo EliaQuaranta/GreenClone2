@@ -1,4 +1,5 @@
 import { info } from "console";
+import Link from "next/link";
 import React from "react";
 
 function TextBoxesService({ Info }: { Info: any }) {
@@ -29,6 +30,9 @@ function TextBoxesService({ Info }: { Info: any }) {
                     {info.textBoxTitle}
                   </div>
                   <div className="pl-7 pt-6">{info.textBoxText}</div>
+                  <div className="pl-7 pt-6">
+                    <a href={info.textBoxLink}>ciao</a>
+                  </div>
                 </div>
               </div>
             </div>
