@@ -27,7 +27,7 @@ function Navbar() {
               <Link href="/servizi">SERVIZI</Link>
             </li>
             <li>
-              <a>ANALISI</a>
+              <Link href="/analisi">ANALISI</Link>
             </li>
           </ul>
           <label

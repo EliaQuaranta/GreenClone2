@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-function TextImgcomponent({ infos }: { infos: any }) {
+function TextImgServizi({ infos }: { infos: any }) {
   return (
     <div className="flex  lg:flex-row justify-center  mt-16">
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:mx-0 md:mx-[2/4] sm:px-[50px]">
@@ -63,35 +63,4 @@ function TextImgcomponent({ infos }: { infos: any }) {
     </div>
   );
 }
-export default TextImgcomponent;
-{
-  /*
-<div className="flex justify-center ">
-{infos.pageBlocks.map((infos: any) => (
-  <div className="w-full max-w-5xl grid grid-cols-2 ">
-    <div className="gap-15 max-w-5xl md:py-4">
-      <h1 className="  font-bold text-5xl ">
-        {infos[0].pageBlocks[0].blockTitle}
-      </h1>
-
-      <h4 className="  fontHead2 text-lg max-w-xl pt-5 shrink-1">
-        {infos[0].pageBlocks[0].subtitle}
-      </h4>
-
-      <div>
-        <button className="btn btn-primary btn-lg p-6 mb-16   mt-7">
-          TUTTI I SERVIZI
-        </button>
-      </div>
-    </div>
-
-    <div>
-      <div className="lg:w-full flex items-center">
-        <img
-          src={infos[0].pageBlocks[0].img[0].url}
-          className=" min-h-2 w-full"
-          alt=""
-        />
-      </div>
-    </div>*/
-}
+export default TextImgServizi;

@@ -7,48 +7,10 @@ import CheckUpServizi from "./ComponentsServizi/CheckUpServizi";
 import TextBoxesService from "./ComponentsServizi/TextBoxesService";
 import TextImgServizi from "./ComponentsServizi/TextImgServizi";
 import util from "util";
-async function getCmsInfo() {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: `
-    query MyQuery {
-      serviziEntries {
-        ... on servizi_default_Entry {
-          id
-          slug
-          title
-          url
-          featureImage {
-            id
-          }
-          author {
-            fullName
-            photo {
-              ... on hardDisk2_Asset {
-                id
-                url
-              }
-            }
-          }
-          fullPostContent
-          shortDescription
-        }
-      }
-    }
-    
-    
-      `,
-    cache: "no-cache",
-  });
+import TextImgServizi2 from "./ComponentsServizi/TextImgServizi2";
+import WorkSpacee from "./ComponentsServizi/WorkSpace";
 
-  let blogPosts = await results.json();
-  console.log("blogPost", blogPosts.data);
-  return blogPosts.data;
-}
-async function getCmsTextImg() {
+async function getCmsText() {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
     method: "POST",
     headers: {
@@ -57,84 +19,106 @@ async function getCmsTextImg() {
     body: `
     query MyQuery {
       entries(section: "pages") {
-        ... on pages_default_Entry {
+        ... on pages_certificatoPages_Entry {
           pageBlocks {
+            ... on pageBlocks_textBlock_BlockType {
+              textBlockInfos {
+                ... on textBlockInfos_BlockType {
+                  textBoxText
+                  textBoxTitle
+                  textBoxIcon {
+                    url
+                  }
+                }
+              }
+            }
             ... on pageBlocks_textImg_BlockType {
               blockTitle
-              subtitle
-              img {
+              blockSubtitle
+              blockImg {
+                url
+              }
+            }
+            ... on pageBlocks_checkUpButton_BlockType {
+              CheckUpButtonText
+              checkUptext
+            }
+            ... on pageBlocks_certificato_BlockType {
+              firstSponsorText
+              secondSponsorText
+              mainTitle
+              firstSponsorImage {
+                url
+              }
+              secondSponsorImage {
+                url
+              }
+            }
+            ... on pageBlocks_workSpaceImage_BlockType {
+              id
+              WorkSpaceImage {
                 url
               }
             }
           }
-          url
-          title
-          slug
         }
       }
     }
-    
     
       `,
     cache: "no-cache",
   });
 
   let blogPosts = await results.json();
-  console.log("blogPostttttttttttt", blogPosts);
-  return blogPosts.data.entries;
-}
-async function getCmsCertificato() {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: `
-    query MyQuery {
-      pagesEntries {
-        ... on pages_certificatoPages_Entry {
-          id
-          title
-          fullPostContent
-        }
-      }
-    }
-    
-    
-    
-      `,
-    cache: "no-cache",
-  });
 
-  let blogPosts = await results.json();
-  console.log("blogPostttttttttttt", blogPosts);
+  console.dir(blogPosts, { depth: null });
   return blogPosts.data;
 }
+
 export default async function Servizi() {
-  const Info = await getCmsInfo();
-  const Certificato = await getCmsCertificato();
-  const TextImg = await getCmsTextImg();
-  console.table(JSON.stringify(TextImg, null, 2));
+  const CMS = await getCmsText();
+  const TextBlock = CMS.entries;
+  const textBlocks = TextBlock[0].pageBlocks;
+  const firstPageBlock = textBlocks[0];
+  const secondPageBlock = textBlocks[1];
+  const thirdPageBlock = textBlocks[2];
+  const certificato = textBlocks[3];
+  const TexImg = textBlocks[4];
+  const WorkSpace = textBlocks[5];
   return (
     <div>
       <div>
         <div className="flex justify-center">
-          <div className="max-w-5xl w-full ">
-            <TextBoxesService Info={Info}></TextBoxesService>
+          <div className="">
+            <div className="text-center font-bold text-2xl">
+              I nostri servizi
+            </div>
+            <div className="text-center font-bold text-3xl">
+              "<span className="text-primary">Alsafi </span>is the way"
+            </div>
+            <TextBoxesService Info={firstPageBlock} />;
+            <CheckUpServizi Info={secondPageBlock}></CheckUpServizi>
+            <TextImgServizi infos={thirdPageBlock}></TextImgServizi>
+            <CertificatoServizi Info={certificato}></CertificatoServizi>
+            <TextImgServizi2 infos={TexImg}></TextImgServizi2>
+            <WorkSpacee Info={WorkSpace}></WorkSpacee>
           </div>
         </div>
-        <CheckUpServizi></CheckUpServizi>
       </div>
-
-      <TextImgServizi infos={TextImg}></TextImgServizi>
-      <CertificatoServizi certificato={Certificato}></CertificatoServizi>
-      <TextImgServizi infos={TextImg}></TextImgServizi>
-      <CheckUpForm></CheckUpForm>
     </div>
   );
 }
 
 /* const 
+--------------------------------------------------------------------
+
+      
+      <TextImgServizi2 infos={TextImg}></TextImgServizi2>
+      <CheckUpForm></CheckUpForm>
+      ----------------------------------------------------------------
+
+     <TextImgServizi2 infos={TextImg}></TextImgServizi2>
+      <CheckUpForm></CheckUpForm>
 <TextImgServizi infos={TextImg}></TextImgServizi>
   
   <div className="flex justify-center"                      >
