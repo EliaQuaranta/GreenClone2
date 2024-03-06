@@ -8,8 +8,8 @@ function CheckUpServizi({ Info }: { Info: any }) {
         <div className="font-bold text-3xl items-center pt-20 pb-20 pl-7 lg:pl-0   aling-items lg:py-11 ">
           <div className="text-bold p-2 lg:flex items-center ">
             {Info.checkUptext}
-            <Link href="./">
-              <button className="blocked btn btn-lg btn-primary text-lg flex lg:mt-0 mt-4 lg:ml-72   ">
+            <a href={Info.checkUpLink} className="lg:ml-72 ">
+              <button className="blocked btn btn-lg btn-primary text-lg flex lg:mt-0 mt-4   ">
                 {Info.CheckUpButtonText}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +26,7 @@ function CheckUpServizi({ Info }: { Info: any }) {
                   />
                 </svg>
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 
 function TextImgcomponent({ infos }: { infos: any }) {
+  console.log("trimone", infos);
   return (
     <div className="flex  lg:flex-row justify-center  mt-16">
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:mx-0 md:mx-[2/4] sm:px-[50px]">
-        <div className=" gap-15 max-w-5xl md:py-4  lg:text-start md:text-start sm:text-center text-center">
+        <div
+          className={
+            infos.imagePosition == "left"
+              ? "order-last gap-15 max-w-5xl md:py-4 lg:text-start md:text-start sm:text-center text-center"
+              : "gap-15 max-w-5xl md:py-4 lg:text-start md:text-start sm:text-center text-center"
+          }
+        >
           <h1 className="  font-bold text-5xl ">{infos.blockTitle}</h1>
 
           <h4 className="  fontHead2 text-lg text-clip pt-5">
@@ -12,9 +19,11 @@ function TextImgcomponent({ infos }: { infos: any }) {
           </h4>
 
           <div>
-            <button className="btn btn-primary btn-lg p-6 mb-16   mt-7">
-              TUTTI I SERVIZI
-            </button>
+            <a href={infos.blockLink}>
+              <button className="btn btn-primary btn-lg p-6 mb-16   mt-7">
+                {infos.blockButtonText}
+              </button>
+            </a>
           </div>
         </div>
 
@@ -28,7 +37,6 @@ function TextImgcomponent({ infos }: { infos: any }) {
               />
             </div>
           )}
-
           {infos.blockImg.url && infos.blockImg.length > 1 && (
             <div className=" w-full justify-center pb-16 px-10 md:px-0 lg:px-0">
               <div className="carousel lg:max-w-[500px] lg:max-h-[500px] max-h-[300px] gap-2 items-center  lg:items-baseline overflow-scroll">

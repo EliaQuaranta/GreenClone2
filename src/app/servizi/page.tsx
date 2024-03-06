@@ -24,7 +24,8 @@ async function getCmsText() {
             ... on pageBlocks_textBlock_BlockType {
               textBlockInfos {
                 ... on textBlockInfos_BlockType {
-                   textBoxLink
+                  
+                  textBoxLink
                   textBoxText
                   textBoxTitle
                   textBoxIcon {
@@ -34,13 +35,17 @@ async function getCmsText() {
               }
             }
             ... on pageBlocks_textImg_BlockType {
+              blockButtonText
+              blockLink
               blockTitle
               blockSubtitle
               blockImg {
                 url
               }
+              imagePosition(label: false)
             }
             ... on pageBlocks_checkUpButton_BlockType {
+              checkUpLink
               CheckUpButtonText
               checkUptext
             }
@@ -65,6 +70,7 @@ async function getCmsText() {
         }
       }
     }
+    
     
       `,
     cache: "no-cache",

@@ -21,38 +21,13 @@ async function sottoServiziCMS(slug: string) {
                   }
                 }
               }
-              ... on pageBlocks_textImg_BlockType {
-                blockTitle
-                blockSubtitle
-                blockImg {
-                  url
-                }
+              
               }
-              ... on pageBlocks_checkUpButton_BlockType {
-                CheckUpButtonText
-                checkUptext
-              }
-              ... on pageBlocks_certificato_BlockType {
-                firstSponsorText
-                secondSponsorText
-                mainTitle
-                firstSponsorImage {
-                  url
-                }
-                secondSponsorImage {
-                  url
-                }
-              }
-              ... on pageBlocks_workSpaceImage_BlockType {
-                id
-                WorkSpaceImage {
-                  url
-                }
-              }
+
             }
           }
         }
-      }
+      
       
         `,
     cache: "no-cache",
@@ -69,8 +44,10 @@ export default async function sottoServizi({
   params: { slug: any };
 }) {
   const link = await sottoServiziCMS(params.slug);
-  if (link) {
-    return <div className=""></div>;
+  const SottoPagina = link.entries;
+
+  if (SottoPagina) {
+    return <div className="">ciao</div>;
   } else {
     // Return "not found" message if category is not found
     return <div>Category not found</div>;

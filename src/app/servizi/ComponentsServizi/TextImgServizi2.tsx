@@ -12,9 +12,11 @@ function TextImgcomponent2({ infos }: { infos: any }) {
           </h4>
 
           <div>
-            <button className="btn btn-primary btn-lg p-6 mb-16    mt-7">
-              TUTTI I SERVIZI
-            </button>
+            <a href={infos.blockLink}>
+              <button className="btn btn-primary btn-lg p-6 mb-16   mt-7">
+                {infos.blockButtonText}
+              </button>
+            </a>
           </div>
         </div>
 
