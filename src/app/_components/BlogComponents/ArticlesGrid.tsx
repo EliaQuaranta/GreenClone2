@@ -1,6 +1,4 @@
 function ArticlesGrid({ articles }: { articles: any }) {
-  console.log("fwfcazzocazzo", articles);
-
   return (
     <div className="flex justify-center px-7 ">
       <div className="relative grid-cols-1  lg:grid-cols-3 grid gap-6 w-full max-w-5xl min-h-[auto]">

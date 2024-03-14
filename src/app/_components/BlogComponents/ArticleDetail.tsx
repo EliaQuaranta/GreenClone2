@@ -1,6 +1,4 @@
 import React from "react";
-import MiddlPart from "./MiddlePart";
-import RelatedArticles from "./RelatedArticles.";
 import dayjs from "dayjs";
 
 function ArticleDetail({ articles }: { articles: any }) {
@@ -37,7 +35,7 @@ function ArticleDetail({ articles }: { articles: any }) {
               <div className="">
                 <div className="flex my-6"></div>
 
-                <div className="text-xl text-start text-gray-800 font-semibold overflow-clip   ">
+                <div className="text-xl text-start text-black font-semibold overflow-clip   ">
                   {articles.shortDescription}
                 </div>
                 <div className="flex items-center gap-[15px]">
@@ -60,7 +58,7 @@ function ArticleDetail({ articles }: { articles: any }) {
                   </div>
                 </div>
                 <img
-                  className="  rounded-xl opacity-80 w-full"
+                  className="  rounded-xl opacity-80 w-full "
                   src={articles.featureImage[0].url}
                   alt="Art 10 prompt"
                   height={800}
@@ -70,7 +68,7 @@ function ArticleDetail({ articles }: { articles: any }) {
                 ></img>
 
                 <div
-                  className=" pt-10 pb-10  text-xl text-start  text-gray-500 font-semibold "
+                  className=" pt-10 pb-10  text-xl text-start items-center text-black font-semibold "
                   dangerouslySetInnerHTML={{
                     __html: articles.fullPostContent,
                   }}

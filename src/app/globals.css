@@ -77,6 +77,10 @@ body {
 .fontHead2 {
   font-family: "Courier Prime", monospace;
 }
+.fontHead3 {
+  font-family: "Courier Prime", monospace;
+  letter-spacing: 0.2px;
+}
 
 .fontnav {
   font-family: "Poppins", sans-serif;

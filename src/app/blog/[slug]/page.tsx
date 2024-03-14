@@ -1,7 +1,7 @@
-import RelatedArticles from "@/app/BlogComponents/RelatedArticles.";
-import ArticleDetail from "@/app/BlogComponents/ArticleDetail";
-import MiddlPart from "@/app/BlogComponents/MiddlePart";
-import BlogCategory from "@/app/BlogComponents/BlogCategory";
+import RelatedArticles from "../../_components/BlogComponents/RelatedArticles.";
+import ArticleDetail from "../../_components/BlogComponents/ArticleDetail";
+import MiddlPart from "../../_components/BlogComponents/CategoryButtons";
+import BlogCategory from "../../_components/BlogComponents/BlogCategory";
 
 async function getBlogPost(slug: string) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
@@ -52,7 +52,6 @@ async function getBlogPost(slug: string) {
     `,
   });
   let blogPost = await results.json();
-  console.log("blogPost", blogPost.data);
   return blogPost.data;
 }
 async function getRelatedArticles() {
@@ -104,7 +103,6 @@ async function getRelatedArticles() {
     `,
   });
   let blogPost = await results.json();
-  console.log("blogPost", blogPost.data);
   return blogPost.data.entries;
 }
 async function getCategory(slug: any) {
@@ -128,7 +126,6 @@ async function getCategory(slug: any) {
     `,
   });
   let blogPost = await results.json();
-  console.log("blogPost", blogPost.data);
   return blogPost.data.category;
 }
 async function getCategorizedArticle(slug: any) {
@@ -166,21 +163,21 @@ async function getCategorizedArticle(slug: any) {
   console.log("blogPost1111", blogPost.data);
   return blogPost.data.entries;
 }
-export default async function page({ params }: { params: { slug: any } }) {
-  const Articoloni = await getBlogPost(params.slug);
-  const article = Articoloni.entry;
-  const categorie = Articoloni.categories;
+export default async function pageBlog({ params }: { params: { slug: any } }) {
+  const data = await getBlogPost(params.slug);
+  const articles = data.entry;
+  const categories = data.categories;
 
-  if (article) {
+  if (articles) {
     const relatedArticles = await getRelatedArticles();
-    console.log("wwfdwwdqdqw", relatedArticles);
+
     return (
       <div className="">
         <div className="">
-          <ArticleDetail articles={article}></ArticleDetail>
+          <ArticleDetail articles={articles}></ArticleDetail>
         </div>
         <div>
-          <MiddlPart categories={categorie}></MiddlPart>
+          <MiddlPart categories={categories}></MiddlPart>
         </div>
         <div className="flex justify-center">
           <div className="max-w-5xl w-full">
@@ -197,22 +194,16 @@ export default async function page({ params }: { params: { slug: any } }) {
       </div>
     );
   }
-  const category = await getCategory(params.slug);
+  const articleCategory = await getCategory(params.slug);
 
-  // If category esiste
-
-  if (category) {
-    //categoria
-
+  if (articleCategory) {
     const categorizedArticles = await getCategorizedArticle(params.slug);
-    console.log("fwfwwfw", categorizedArticles);
     return (
       <div>
-        <BlogCategory articles={categorizedArticles} categorie={categorie} />
+        <BlogCategory articles={categorizedArticles} categorie={categories} />
       </div>
     );
   } else {
-    // Return "not found" message if category is not found
     return <div>Category not found</div>;
   }
 }

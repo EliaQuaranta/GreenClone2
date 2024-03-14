@@ -1,16 +1,15 @@
-import Link from "next/link";
 import React, { Component } from "react";
 
-function CheckUpServizi({ Info }: { Info: any }) {
+function Checkup({ info }: { info: any }) {
   return (
     <div className="bg-[#E3DCD7] flex justify-center">
       <div className=" container md:flex-row  max-w-5xl">
         <div className="font-bold text-3xl items-center pt-20 pb-20 pl-7 lg:pl-0   aling-items lg:py-11 ">
           <div className="text-bold p-2 lg:flex items-center ">
-            {Info.checkUptext}
-            <a href={Info.checkUpLink} className="lg:ml-72 ">
+            {info.checkupText}
+            <a href={info.checkupLink} className="lg:ml-72 ">
               <button className="blocked btn btn-lg btn-primary text-lg flex lg:mt-0 mt-4   ">
-                {Info.CheckUpButtonText}
+                {info.checkupButtonText}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -34,4 +33,4 @@ function CheckUpServizi({ Info }: { Info: any }) {
   );
 }
 
-export default CheckUpServizi;
+export default Checkup;

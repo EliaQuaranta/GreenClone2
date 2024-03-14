@@ -1,49 +1,48 @@
-import { info } from "console";
-import Link from "next/link";
 import React from "react";
 
 function TextBoxesService({ Info }: { Info: any }) {
+  console.log("AOOOROOMMAAAAA", Info);
   return (
     <div className="main">
       <div className="bg-white flex justify-center">
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-20 pt-20 pb-32 max-w-5xl px-7 lg:px-0">
+        <div className="grid  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-20 pt-7 pb-20 max-w-5xl px-7 lg:px-0">
           {Info.textBlockInfos.map((info: any, index: number) => (
-            <div key={index} className="">
-              <div className="md:flex flex-col border-l-2 border-primary pb-8">
+            <div key={index} className="max-h-fit">
+              <div className="md:flex flex-col border-l-2 border-primary min-h-max pb-2">
                 <div className="">
-                  <div className="flex text-primary lg:pl-10 ">
-                    <svg
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-9 h-9"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"
-                      />
-                    </svg>
+                  <div className="flex pl-[26px]  ">
+                    <img src={info.textBoxIcon.url} alt="" className="w-8" />
                   </div>
                   <div className="pl-7 fontHead font-bold text-xl">
                     {info.textBoxTitle}
                   </div>
-                  <div className="pl-7 pt-6">{info.textBoxText}</div>
-                  <div className="pl-7 pt-6">
-                    <a href={info.textBoxLink}>
+                  <div
+                    className="pl-7 pt-6 "
+                    dangerouslySetInnerHTML={{
+                      __html: info.textBoxText,
+                    }}
+                  ></div>
+                  <div
+                    className={
+                      info.textBoxLink == null
+                        ? "hidden"
+                        : "pt-4 pl-7 underline font-bold flex "
+                    }
+                  >
+                    <a href={info.textBoxLink} className="flex">
+                      Scopri di più!
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        strokeWidth={1.5}
+                        strokeWidth="1.5"
                         stroke="currentColor"
-                        className="w-8 h-8 "
+                        className="w-6 h-6"
                       >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                          d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                         />
                       </svg>
                     </a>
@@ -60,7 +59,8 @@ function TextBoxesService({ Info }: { Info: any }) {
 
 export default TextBoxesService;
 {
-  /*
+  /*<div 
+  
       <div className="bg-white flex justify-center">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-20 pt-20 pb-32 max-w-5xl px-7 lg:px-0">
           {Info.map((info: any, index: number) => (

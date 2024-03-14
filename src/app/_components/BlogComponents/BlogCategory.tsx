@@ -1,5 +1,5 @@
 import ArticlesGrid from "./ArticlesGrid";
-import MiddlePart from "./MiddlePart";
+import MiddlePart from "./CategoryButtons";
 
 function BlogCategory({
   articles,

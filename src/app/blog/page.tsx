@@ -1,10 +1,8 @@
-import MainBlog from "../BlogComponents/MainBlog";
-import ArticlesSlider from "../BlogComponents/ArticlesSlider";
-import ArticlesGrid from "../BlogComponents/ArticlesGrid";
-import MiddlePart from "../BlogComponents/MiddlePart";
-
-import { useState } from "react";
-import SearchBar from "../BlogComponents/SearchBar";
+import ArticlesSlider from "../_components/BlogComponents/ArticlesSlider";
+import ArticlesGrid from "../_components/BlogComponents/ArticlesGrid";
+import MiddlePart from "../_components/BlogComponents/CategoryButtons";
+import SearchBar from "../_components/BlogComponents/SearchBar";
+import BlogHeader from "../_components/BlogComponents/BlogHeader";
 
 async function getCmsArticlesAndCategories() {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
@@ -51,33 +49,29 @@ async function getCmsArticlesAndCategories() {
         slug
       }
     }
-    
-    
-    
       `,
     cache: "no-cache",
   });
 
   let blogPosts = await results.json();
-  console.log("blogPostPAZZO", blogPosts.data);
   return blogPosts.data;
 }
 
 export default async function Blog() {
-  const cmsData = await getCmsArticlesAndCategories();
+  const data = await getCmsArticlesAndCategories();
 
-  const articles = cmsData.entries;
-  const categories = cmsData.categories;
+  const articles = data.entries;
+  const categories = data.categories;
 
-  const articless = articles.slice(0, 3);
-  const articlesss = articles.slice(3);
-  //console.log("fwfwfefefwfwfwfw", articless);
+  const sliderArticles = articles.slice(0, 3);
+  const gridArticles = articles.slice(3);
+
   return (
     <div className="blog">
-      <MainBlog></MainBlog>
+      <BlogHeader></BlogHeader>
       <div className="flex justify-center">
         <div className="relative max-w-5xl border-b pb-[57px] ">
-          <ArticlesSlider articoli={articless} />
+          <ArticlesSlider articoli={sliderArticles} />
         </div>
       </div>
 
@@ -99,7 +93,7 @@ export default async function Blog() {
           </div>
         </div>
 
-        <ArticlesGrid articles={articlesss} />
+        <ArticlesGrid articles={gridArticles} />
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ function Navbar() {
             {/* Navbar menu content here */}
 
             <li>
-              <a>SEO</a>
+              <Link href="/servizi/seo">SEO</Link>
             </li>
             <li>
               <Link href="/blog">BLOG</Link>
@@ -68,7 +68,7 @@ function Navbar() {
           <ul className="menu p-4 w-80 min-h-full bg-base-200 ">
             {/* Sidebar content here */}
             <li>
-              <a href="">
+              <a href="#">
                 <img
                   src="/logo-alsafi-payoff.png"
                   className=" px-3 py-3"
@@ -77,10 +77,16 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a className=" px-7 py-3">AskToAI</a>
+              <Link href="/servizi/seo">SEO</Link>
             </li>
             <li>
-              <a className=" px-7 py-3">GitHub</a>
+              <Link href="/blog">BLOG</Link>
+            </li>
+            <li>
+              <Link href="/servizi">SERVIZI</Link>
+            </li>
+            <li>
+              <Link href="/analisi">ANALISI</Link>
             </li>
           </ul>
         </div>

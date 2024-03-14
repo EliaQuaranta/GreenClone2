@@ -1,107 +1,102 @@
-import Image from "next/image";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import TextBoxesSection from "./components/TextBoxesSection";
-import Checkup from "./components/Checkup";
-import Footer from "./components/Footer";
-import { CheckUpForm } from "./components/CheckUpForm";
+import Header from "./_components/HomeComponents/Header";
+import TextBoxesSection from "./_components/HomeComponents/TextBoxes";
+import Checkup from "./_components/HomeComponents/CheckUp";
+import { CheckUpForm } from "./_components/HomeComponents/FooterForm";
+import TextImgcomponent from "./_components/HomeComponents/TextImg";
+import TextBoxes from "./_components/HomeComponents/TextBoxes";
+import TextImg from "./_components/HomeComponents/TextImg";
+import TeamImage from "./_components/HomeComponents/TeamImage";
 
-import TextImgcomponent from "./components/TextImgcomponent";
+import WorkSpaceImage from "./_components/HomeComponents/WorkSpaceImage";
 
-export default function Home() {
-  return (
-    <div className="page">
-      <Header />
-      <TextBoxesSection
-        title={
-          <>
-            {" "}
-            La Tua{" "}
-            <span className="text-primary font-bold text-4xl">
-              Digital Performance
-            </span>{" "}
-            Agency{" "}
-          </>
+async function homeInfos() {
+  let results = await fetch("https://my-craft-project.ddev.site/api", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/graphql",
+    },
+    body: `query MyQuery {
+      entry(section: "home") {
+        ... on home_Home_Entry {
+          homeComponents {
+            ... on homeComponents_textBoxesHome_BlockType {
+              textboxesMainTitle
+              textboxesMainSubtitle
+              textBoxesInfos {
+                ... on textBoxesInfos_BlockType {
+                  textboxesContent
+                  textboxesContentTitle
+                }
+              }
+              typeHandle
+            }
+            ... on homeComponents_checkupSection_BlockType {
+              checkupLink
+              checkupText
+              checkupButtonText
+              typeHandle
+            }
+            ... on homeComponents_textImgHome_BlockType {
+              id
+              textimgTitle
+              textimgSubtitle
+              textimgImagePosition(label: false)
+              textimgImage {
+                url
+              }
+              typeHandle
+            }
+            ... on homeComponents_teamimageHome_BlockType {
+              teamImage {
+                url
+              }
+              typeHandle
+            }
+            ... on homeComponents_headerHome_BlockType {
+              homeTitle
+              homeSubTitle
+              homeImage {
+                url
+              }
+              typeHandle
+            }
+            ... on homeComponents_workspaceimage_BlockType {
+              workspaceHomeImage {
+                url
+              }
+              typeHandle
+            }
+          }
+          typeHandle
         }
-        subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
-          atto ma un’abitudine” (Aristotele)"
-        textBoxes={[
-          {
-            title: "Cosa",
-            description: (
-              <>
-                Troviamo la strategia online più efficace per ogni business e la
-                rendiamo scalabile.
-                <div className="mt-6">
-                  Il tuo obiettivo è il nostro obiettivo.
-                </div>
-              </>
-            ),
-          },
-          {
-            title: "Come",
-            description: (
-              <>
-                <b>
-                  Formazione, aggiornamento ed esperienza sono nel nostro DNA.
-                </b>
+      }
+    }
+    
+      `,
+    cache: "no-cache",
+  });
 
-                <div className="mt-6">
-                  Non sono i settori di mercato o le piattaforme pubblicitarie a
-                  fare la differenza ma la nostra competenza.
-                </div>
-              </>
-            ),
-          },
-          {
-            title: "Perchè",
-            description: (
-              <>
-                Crediamo nella trasparenza, in un rapporto di confronto e
-                collaborazione continua con il cliente.
-                <div className="mt-6">
-                  Ad ogni progetto diamo presenza, attenzione e cura. Da noi
-                  trovi sempre qualcuno che ti risponde quando chiami!
-                </div>
-              </>
-            ),
-          },
-        ]}
-      />
-      <Checkup />
-      <div className="py-10">
-        <TextImgcomponent
-          title="titolo1"
-          subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
-          atto ma un’abitudine” (Aristotele)"
-          imagePosition=""
-          images={["hand-made-green-click.jpg"]}
-        />
-        <TextImgcomponent
-          title="titolo2 left"
-          subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
-          atto ma un’abitudine” (Aristotele)"
-          imagePosition="left"
-          images={["hand-made-green-click.jpg"]}
-        />
-      </div>
+  let blogPosts = await results.json();
+  console.log("wfefwfewfw", blogPosts);
+  return blogPosts.data.entry;
+}
 
-      <div className="py-10">
-        <TextImgcomponent
-          title="titolo3 carosello"
-          subtitle="“Siamo quello che facciamo ripetutamente. L’eccellenza dunque non è un
-          atto ma un’abitudine” (Aristotele)"
-          imagePosition=""
-          images={[
-            "/green-click-case-history-brand-lusso-2-800x600.jpg",
-            "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
-            "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
-            "/ecommerce-costumi-da-bagno-greenclick-1-800x600.jpg",
-          ]}
-        />
-      </div>
-
-      <CheckUpForm />
+export default async function Home() {
+  const homeInfo = await homeInfos();
+  return (
+    <div>
+      {homeInfo.homeComponents.map((block: any) => {
+        if (block.typeHandle == "textBoxesHome")
+          return <TextBoxes info={block} />;
+        if (block.typeHandle == "textImgHome") return <TextImg infos={block} />;
+        if (block.typeHandle == "checkupSection")
+          return <Checkup info={block} />;
+        if (block.typeHandle == "teamimageHome")
+          return <TeamImage info={block} />;
+        if (block.typeHandle == "headerHome") return <Header info={block} />;
+        if (block.typeHandle == "workspaceimage")
+          return <WorkSpaceImage info={block} />;
+      })}
     </div>
   );
 }
