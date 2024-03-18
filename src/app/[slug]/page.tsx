@@ -12,17 +12,19 @@ async function getData() {
       "Content-Type": "application/graphql",
     },
     body: `query MyQuery {
-      entries(section: "Pages") {
+      entries(section: "Pages", level: 1) {
         slug
+        children {
+          slug
+          }
       }
     }
- 
 `,
   });
 
   let cmsData = await results.json();
 
-  return cmsData.data.entries;
+  return cmsData.data;
 }
 
 async function getPages(slug: any) {
@@ -116,8 +118,10 @@ async function getPages(slug: any) {
 export async function generateStaticParams() {
   const data = await getData();
 
-  return data.map((post: any) => {
-    return { slug: post.slug };
+  return data.entries.map((post: any) => {
+    return {
+      slug: post.slug,
+    };
   });
 }
 

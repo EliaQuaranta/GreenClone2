@@ -12,8 +12,11 @@ async function getData() {
       "Content-Type": "application/graphql",
     },
     body: `query MyQuery {
-      entries(level: 2) {
+      entries(section: "pages", level: 2) {
         slug
+        ancestors {
+        slug
+        }
       }
     }
  
@@ -22,7 +25,7 @@ async function getData() {
 
   let cmsData = await results.json();
 
-  return cmsData.data.entries;
+  return cmsData.data;
 }
 
 async function getSubPages(slug: any) {
@@ -114,8 +117,11 @@ async function getSubPages(slug: any) {
 export async function generateStaticParams() {
   const data = await getData();
 
-  return data.map((post: any) => {
-    return { slug: post.slug };
+  return data.entries.map((post: any) => {
+    return {
+      subSlug: post.slug,
+      slug: post.ancestors[0].slug,
+    };
   });
 }
 
