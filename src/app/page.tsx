@@ -81,7 +81,7 @@ async function homeInfos() {
   return blogPosts.data.entry;
 }
 
-export default async function Home() {
+export default async function generateStaticParams() {
   const homeInfo = await homeInfos();
   return (
     <div>
