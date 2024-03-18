@@ -97,7 +97,11 @@ async function getPages(slug: any) {
   return cmsData.data.entry;
 }
 
-export default async function Servizi({ params }: { params: { slug: any } }) {
+export default async function generateStaticParams({
+  params,
+}: {
+  params: { slug: any };
+}) {
   const pages = await getPages(params.slug);
 
   return (

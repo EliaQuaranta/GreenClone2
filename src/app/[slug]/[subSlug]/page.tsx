@@ -91,7 +91,7 @@ async function getSubPages(slug: any) {
   return blogPosts.data.entry;
 }
 
-export default async function sottoServizi({
+export default async function generateStaticParams({
   params,
 }: {
   params: { subSlug: any };

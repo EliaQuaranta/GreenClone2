@@ -2,6 +2,7 @@ import RelatedArticles from "../../_components/BlogComponents/RelatedArticles.";
 import ArticleDetail from "../../_components/BlogComponents/ArticleDetail";
 import MiddlPart from "../../_components/BlogComponents/CategoryButtons";
 import BlogCategory from "../../_components/BlogComponents/BlogCategory";
+import React from "react";
 
 async function getBlogPost(slug: string) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
@@ -163,7 +164,12 @@ async function getCategorizedArticle(slug: any) {
   console.log("blogPost1111", blogPost.data);
   return blogPost.data.entries;
 }
-export default async function pageBlog({ params }: { params: { slug: any } }) {
+
+export default async function generateStaticParams({
+  params,
+}: {
+  params: { slug: any };
+}) {
   const data = await getBlogPost(params.slug);
   const articles = data.entry;
   const categories = data.categories;
