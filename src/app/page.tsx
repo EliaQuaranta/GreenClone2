@@ -1,12 +1,8 @@
 import Header from "./_components/HomeComponents/Header";
-import TextBoxesSection from "./_components/HomeComponents/TextBoxes";
 import Checkup from "./_components/HomeComponents/CheckUp";
-import { CheckUpForm } from "./_components/HomeComponents/FooterForm";
-import TextImgcomponent from "./_components/HomeComponents/TextImg";
 import TextBoxes from "./_components/HomeComponents/TextBoxes";
 import TextImg from "./_components/HomeComponents/TextImg";
 import TeamImage from "./_components/HomeComponents/TeamImage";
-
 import WorkSpaceImage from "./_components/HomeComponents/WorkSpaceImage";
 
 async function homeInfos() {
@@ -81,7 +77,7 @@ async function homeInfos() {
   return blogPosts.data.entry;
 }
 
-export default async function generateStaticParams() {
+export default async function Home() {
   const homeInfo = await homeInfos();
   return (
     <div>

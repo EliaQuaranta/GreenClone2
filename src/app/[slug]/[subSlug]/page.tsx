@@ -5,6 +5,26 @@ import TextBoxesService from "../../_components/PagesComponents/TextBoxesPages";
 import TextImgServizi from "../../_components/PagesComponents/TextImgPages";
 import WorkSpacee from "../../_components/PagesComponents/ImageSpace";
 
+async function getData() {
+  const results = await fetch("https://my-craft-project.ddev.site/api", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/graphql",
+    },
+    body: `query MyQuery {
+      entries(level: 2) {
+        slug
+      }
+    }
+ 
+`,
+  });
+
+  let cmsData = await results.json();
+
+  return cmsData.data.entries;
+}
+
 async function getSubPages(slug: any) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
     method: "POST",
@@ -91,7 +111,15 @@ async function getSubPages(slug: any) {
   return blogPosts.data.entry;
 }
 
-export default async function generateStaticParams({
+export async function generateStaticParams() {
+  const data = await getData();
+
+  return data.map((post: any) => {
+    return { slug: post.slug };
+  });
+}
+
+export default async function SubPages({
   params,
 }: {
   params: { subSlug: any };

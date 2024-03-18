@@ -4,6 +4,26 @@ import MiddlPart from "../../_components/BlogComponents/CategoryButtons";
 import BlogCategory from "../../_components/BlogComponents/BlogCategory";
 import React from "react";
 
+async function getData() {
+  const results = await fetch("https://my-craft-project.ddev.site/api", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/graphql",
+    },
+    body: `query MyQuery {
+      entries(section: "Blog") {
+        slug
+      }
+    }
+    
+ 
+`,
+  });
+
+  let cmsData = await results.json();
+
+  return cmsData.data.entries;
+}
 async function getBlogPost(slug: string) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
     method: "POST",
@@ -165,11 +185,15 @@ async function getCategorizedArticle(slug: any) {
   return blogPost.data.entries;
 }
 
-export default async function generateStaticParams({
-  params,
-}: {
-  params: { slug: any };
-}) {
+export async function generateStaticParams() {
+  const data = await getData();
+
+  return data.map((post: any) => {
+    return { slug: post.slug };
+  });
+}
+
+export default async function SubBlog({ params }: { params: { slug: any } }) {
   const data = await getBlogPost(params.slug);
   const articles = data.entry;
   const categories = data.categories;
