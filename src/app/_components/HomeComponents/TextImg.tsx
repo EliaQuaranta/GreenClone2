@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 function TextImgcomponent({ infos }: { infos: any }) {
-  console.log("infoinfoinfo", infos);
+  //console.log("infoinfoinfo", infos);
   return (
     <div className="flex  lg:flex-row justify-center  mt-7 lg:px-0 px-7">
       <div className="w-full max-w-5xl grid  items-center grid-cols-1 md:grid-cols-2  lg:grid-cols-2 lg:mx-0 md:mx-[2/4] sm:px-[50px]">

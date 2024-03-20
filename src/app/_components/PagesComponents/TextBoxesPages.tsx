@@ -1,7 +1,7 @@
 import React from "react";
 
 function TextBoxesService({ Info }: { Info: any }) {
-  console.log("AOOOROOMMAAAAA", Info);
+  //console.log("AOOOROOMMAAAAA", Info);
   return (
     <div className="main">
       <div className="bg-white flex justify-center">

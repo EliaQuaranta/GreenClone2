@@ -181,7 +181,7 @@ async function getCategorizedArticle(slug: any) {
     `,
   });
   let blogPost = await results.json();
-  console.log("blogPost1111", blogPost.data);
+  //console.log("blogPost1111", blogPost.data);
   return blogPost.data.entries;
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 function Banner({ Info }: { Info: any }) {
-  console.log;
+  //console.log;
   return (
     <div className="flex justify-center  mb-10">
       <img

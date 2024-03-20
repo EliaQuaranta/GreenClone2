@@ -1,9 +1,10 @@
-import Banner from "../../_components/PagesComponents/Banner";
-import CertificatoServizi from "../../_components/PagesComponents/SponsorBanner";
-import CheckUpServizi from "../../_components/PagesComponents/CheckUpServizi";
-import TextBoxesService from "../../_components/PagesComponents/TextBoxesPages";
-import TextImgServizi from "../../_components/PagesComponents/TextImgPages";
-import WorkSpacee from "../../_components/PagesComponents/ImageSpace";
+import Banner from "../_components/PagesComponents/Banner";
+import CertificatoServizi from "../_components/PagesComponents/SponsorBanner";
+import CheckUpServizi from "../_components/PagesComponents/CheckUpServizi";
+import TextBoxesService from "../_components/PagesComponents/TextBoxesPages";
+import TextImgServizi from "../_components/PagesComponents/TextImgPages";
+import WorkSpacee from "../_components/PagesComponents/ImageSpace";
+import React from "react";
 
 async function getData() {
   const results = await fetch("https://my-craft-project.ddev.site/api", {
@@ -25,7 +26,17 @@ async function getData() {
 
   let cmsData = await results.json();
 
-  return cmsData.data;
+  return cmsData.data.entries;
+}
+
+export async function generateStaticParams() {
+  const data = await getData();
+  const slugs = data.map((post: any) => ({
+    subSlug: post.slug,
+    slug: post.ancestors[0].slug,
+  }));
+
+  return slugs;
 }
 
 async function getSubPages(slug: any) {
@@ -114,39 +125,31 @@ async function getSubPages(slug: any) {
   return blogPosts.data.entry;
 }
 
-export async function generateStaticParams() {
-  const data = await getData();
-
-  return data.entries.map((post: any) => {
-    return {
-      subSlug: post.slug,
-      slug: post.ancestors[0].slug,
-    };
-  });
-}
-
-export default async function SubPages({
+export default async function Page({
   params,
 }: {
-  params: { subSlug: any };
+  params: { slug: string; subSlug: string };
 }) {
+  console.log("params", params);
   const subPages = await getSubPages(params.subSlug);
 
   return (
     <div>
-      {subPages.pageBlocks.map((block: any) => {
-        if (block.typeHandle == "textBlock")
-          return <TextBoxesService Info={block} />;
-        if (block.typeHandle == "checkUpButton")
-          return <CheckUpServizi Info={block} />;
-        if (block.typeHandle == "textImg")
-          return <TextImgServizi infos={block} />;
-        if (block.typeHandle == "certificato")
-          return <CertificatoServizi Info={block} />;
-        if (block.typeHandle == "workSpaceImage")
-          return <WorkSpacee Info={block} />;
-        if (block.typeHandle == "banner") return <Banner Info={block} />;
-      })}
+      {subPages && subPages.pageBlocks
+        ? subPages.pageBlocks.map((block: any) => {
+            if (block.typeHandle == "textBlock")
+              return <TextBoxesService Info={block} />;
+            if (block.typeHandle == "checkUpButton")
+              return <CheckUpServizi Info={block} />;
+            if (block.typeHandle == "textImg")
+              return <TextImgServizi infos={block} />;
+            if (block.typeHandle == "certificato")
+              return <CertificatoServizi Info={block} />;
+            if (block.typeHandle == "workSpaceImage")
+              return <WorkSpacee Info={block} />;
+            if (block.typeHandle == "banner") return <Banner Info={block} />;
+          })
+        : ""}
     </div>
   );
 }

@@ -73,7 +73,7 @@ async function homeInfos() {
   });
 
   let blogPosts = await results.json();
-  console.log("wfefwfewfw", blogPosts);
+  //console.log("wfefwfewfw", blogPosts);
   return blogPosts.data.entry;
 }
 

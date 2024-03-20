@@ -8,7 +8,7 @@ function BlogCategory({
   articles: any;
   categorie: any;
 }) {
-  console.log("fwfwfwwfwwfwfw", categorie);
+  //console.log("fwfwfwwfwwfwfw", categorie);
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-5xl">

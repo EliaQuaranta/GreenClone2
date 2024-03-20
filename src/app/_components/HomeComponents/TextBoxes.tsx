@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 function TextBoxesSection({ info }: { info: any }) {
-  console.log("infoinfoinfo", info);
+  //console.log("infoinfoinfo", info);
   return (
     <div className="main">
       <div className=" bg-[#F5F1EE] px-7 lg:px-0 ">

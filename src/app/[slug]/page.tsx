@@ -4,6 +4,7 @@ import TextBoxesService from "../_components/PagesComponents/TextBoxesPages";
 import TextImgServizi from "../_components/PagesComponents/TextImgPages";
 import WorkSpacee from "../_components/PagesComponents/ImageSpace";
 import Banner from "../_components/PagesComponents/Banner";
+import React from "react";
 
 async function getData() {
   const results = await fetch("https://my-craft-project.ddev.site/api", {
@@ -24,7 +25,7 @@ async function getData() {
 
   let cmsData = await results.json();
 
-  return cmsData.data;
+  return cmsData.data.entries;
 }
 
 async function getPages(slug: any) {
@@ -115,34 +116,26 @@ async function getPages(slug: any) {
   return cmsData.data.entry;
 }
 
-export async function generateStaticParams() {
-  const data = await getData();
-
-  return data.entries.map((post: any) => {
-    return {
-      slug: post.slug,
-    };
-  });
-}
-
-export default async function pages({ params }: { params: { slug: any } }) {
+export default async function Page({ params }: { params: { slug: any } }) {
   const pages = await getPages(params.slug);
 
   return (
     <div>
-      {pages.pageBlocks.map((block: any) => {
-        if (block.typeHandle == "banner") return <Banner Info={block} />;
-        if (block.typeHandle == "textBlock")
-          return <TextBoxesService Info={block} />;
-        if (block.typeHandle == "checkUpButton")
-          return <CheckUpServizi Info={block} />;
-        if (block.typeHandle == "textImg")
-          return <TextImgServizi infos={block} />;
-        if (block.typeHandle == "certificato")
-          return <CertificatoServizi Info={block} />;
-        if (block.typeHandle == "workSpaceImage")
-          return <WorkSpacee Info={block} />;
-      })}
+      {pages && pages.pageBlocks
+        ? pages.pageBlocks.map((block: any) => {
+            if (block.typeHandle == "banner") return <Banner Info={block} />;
+            if (block.typeHandle == "textBlock")
+              return <TextBoxesService Info={block} />;
+            if (block.typeHandle == "checkUpButton")
+              return <CheckUpServizi Info={block} />;
+            if (block.typeHandle == "textImg")
+              return <TextImgServizi infos={block} />;
+            if (block.typeHandle == "certificato")
+              return <CertificatoServizi Info={block} />;
+            if (block.typeHandle == "workSpaceImage")
+              return <WorkSpacee Info={block} />;
+          })
+        : ""}
     </div>
   );
 }
