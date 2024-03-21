@@ -108,6 +108,7 @@ async function getData() {
       }
     }
 `,
+    cache: "default",
   });
 
   let cmsData = await results.json();

@@ -20,6 +20,7 @@ async function getData() {
       }
     }
 `,
+    cache: "reload",
   });
 
   let cmsData = await results.json();
@@ -73,6 +74,7 @@ async function getBlogPost(slug: string) {
     }
     
     `,
+    cache: "default",
   });
   let blogPost = await results.json();
   return blogPost.data;

@@ -21,6 +21,7 @@ async function getData() {
       }
     }
 `,
+    cache: "no-store",
   });
 
   let cmsData = await results.json();
@@ -118,6 +119,7 @@ async function getSubPages(slug: any) {
     }
     
         `,
+    cache: "default",
   });
 
   let blogPosts = await results.json();
