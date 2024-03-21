@@ -5,29 +5,7 @@ import TextImgServizi from "../_components/PagesComponents/TextImgPages";
 import WorkSpacee from "../_components/PagesComponents/ImageSpace";
 import Banner from "../_components/PagesComponents/Banner";
 import React from "react";
-
-async function getData() {
-  const results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: `query MyQuery {
-      entries(section: "Pages", level: 1) {
-        slug
-        children {
-          slug
-          }
-      }
-    }
-`,
-  });
-
-  let cmsData = await results.json();
-
-  return cmsData.data.entries;
-}
-
+export const revalidate = 10; // revalidate at most every hour
 async function getPages(slug: any) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
     method: "POST",
@@ -108,12 +86,41 @@ async function getPages(slug: any) {
     }
     
       `,
-    cache: "no-cache",
   });
 
   let cmsData = await results.json();
 
   return cmsData.data.entry;
+}
+
+async function getData() {
+  const results = await fetch("https://my-craft-project.ddev.site/api", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/graphql",
+    },
+    body: `query MyQuery {
+      entries(section: "Pages", level: 1) {
+        slug
+        children {
+          slug
+          }
+      }
+    }
+`,
+  });
+
+  let cmsData = await results.json();
+
+  return cmsData.data.entries;
+}
+
+export async function generateStaticParams() {
+  const data = await getData();
+
+  return data.map((post: any) => {
+    return { slug: post.slug };
+  });
 }
 
 export default async function Page({ params }: { params: { slug: any } }) {

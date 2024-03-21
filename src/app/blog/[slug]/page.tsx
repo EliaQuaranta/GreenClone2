@@ -13,16 +13,18 @@ async function getData() {
     body: `query MyQuery {
       entries(section: "Blog") {
         slug
+        
+      }
+      categories {
+        slug
       }
     }
-    
- 
 `,
   });
 
   let cmsData = await results.json();
 
-  return cmsData.data.entries;
+  return [...cmsData.data.entries, ...cmsData.data.categories];
 }
 async function getBlogPost(slug: string) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
@@ -119,8 +121,6 @@ async function getRelatedArticles() {
       }
     }
   }
-  
-    
     `,
   });
   let blogPost = await results.json();
@@ -181,7 +181,6 @@ async function getCategorizedArticle(slug: any) {
     `,
   });
   let blogPost = await results.json();
-  //console.log("blogPost1111", blogPost.data);
   return blogPost.data.entries;
 }
 

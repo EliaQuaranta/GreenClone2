@@ -5,7 +5,7 @@ import SearchBar from "../_components/BlogComponents/SearchBar";
 import BlogHeader from "../_components/BlogComponents/BlogHeader";
 import React from "react";
 
-async function getCmsArticlesAndCategories() {
+async function getBlogData() {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
     method: "POST",
     headers: {
@@ -51,7 +51,6 @@ async function getCmsArticlesAndCategories() {
       }
     }
       `,
-    cache: "no-cache",
   });
 
   let blogPosts = await results.json();
@@ -67,21 +66,34 @@ async function getData() {
     body: `query MyQuery {
       entries(section: "Blog") {
         slug
-        
+      }
+      categories {
+        slug
       }
     }
+  
     
- 
 `,
   });
 
   let cmsData = await results.json();
 
-  return cmsData.data.entries;
+  return cmsData.data;
+}
+
+export async function generateStaticParams() {
+  const data = await getData();
+
+  const slugs = data.map((post: any) => ({
+    slug: post.entries.slug,
+    categories: post.categories[0].slug,
+  }));
+
+  return slugs;
 }
 
 export default async function Page() {
-  const data = await getCmsArticlesAndCategories();
+  const data = await getBlogData();
 
   const articles = data.entries;
   const categories = data.categories;
@@ -120,11 +132,4 @@ export default async function Page() {
       </div>
     </div>
   );
-}
-export async function generateStaticParams() {
-  const data = await getData();
-
-  return data.map((post: any) => {
-    return { slug: post.slug };
-  });
 }

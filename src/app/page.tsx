@@ -69,7 +69,6 @@ async function homeInfos() {
     }
     
       `,
-    cache: "no-cache",
   });
 
   let blogPosts = await results.json();
@@ -77,7 +76,7 @@ async function homeInfos() {
   return blogPosts.data.entry;
 }
 
-export default async function Home() {
+export default async function Page() {
   const homeInfo = await homeInfos();
   return (
     <div>

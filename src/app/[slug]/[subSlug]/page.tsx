@@ -1,9 +1,9 @@
-import Banner from "../_components/PagesComponents/Banner";
-import CertificatoServizi from "../_components/PagesComponents/SponsorBanner";
-import CheckUpServizi from "../_components/PagesComponents/CheckUpServizi";
-import TextBoxesService from "../_components/PagesComponents/TextBoxesPages";
-import TextImgServizi from "../_components/PagesComponents/TextImgPages";
-import WorkSpacee from "../_components/PagesComponents/ImageSpace";
+import Banner from "../../_components/PagesComponents/Banner";
+import CertificatoServizi from "../../_components/PagesComponents/SponsorBanner";
+import CheckUpServizi from "../../_components/PagesComponents/CheckUpServizi";
+import TextBoxesService from "../../_components/PagesComponents/TextBoxesPages";
+import TextImgServizi from "../../_components/PagesComponents/TextImgPages";
+import WorkSpacee from "../../_components/PagesComponents/ImageSpace";
 import React from "react";
 
 async function getData() {
@@ -15,12 +15,11 @@ async function getData() {
     body: `query MyQuery {
       entries(section: "pages", level: 2) {
         slug
-        ancestors {
+        ancestors { 
         slug
         }
       }
     }
- 
 `,
   });
 
@@ -31,6 +30,7 @@ async function getData() {
 
 export async function generateStaticParams() {
   const data = await getData();
+
   const slugs = data.map((post: any) => ({
     subSlug: post.slug,
     slug: post.ancestors[0].slug,
@@ -118,7 +118,6 @@ async function getSubPages(slug: any) {
     }
     
         `,
-    cache: "no-cache",
   });
 
   let blogPosts = await results.json();
@@ -130,7 +129,6 @@ export default async function Page({
 }: {
   params: { slug: string; subSlug: string };
 }) {
-  console.log("params", params);
   const subPages = await getSubPages(params.subSlug);
 
   return (
