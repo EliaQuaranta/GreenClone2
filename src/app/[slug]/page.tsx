@@ -5,7 +5,7 @@ import TextImgServizi from "../_components/PagesComponents/TextImgPages";
 import WorkSpacee from "../_components/PagesComponents/ImageSpace";
 import Banner from "../_components/PagesComponents/Banner";
 import React from "react";
-export const revalidate = 10; // revalidate at most every hour
+
 async function getPages(slug: any) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
     method: "POST",
