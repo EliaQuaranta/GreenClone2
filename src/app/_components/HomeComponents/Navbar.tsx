@@ -29,6 +29,9 @@ function Navbar() {
             <li>
               <Link href="/analisi">ANALISI</Link>
             </li>
+            <li>
+              <Link href="/blog-sanity">ee</Link>
+            </li>
           </ul>
           <label
             htmlFor="my-drawer-3"

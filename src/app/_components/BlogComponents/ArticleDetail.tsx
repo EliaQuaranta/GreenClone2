@@ -2,11 +2,12 @@ import React from "react";
 import dayjs from "dayjs";
 
 function ArticleDetail({ articles }: { articles: any }) {
+  console.log("articleDatailCMSsanity", articles);
   return (
     <div className="w-full top-0 z-50">
       <div className="flex justify-center">
         <img
-          src={articles.featureImage[0].url}
+          src={articles.imageUrl}
           alt="Descrizione dell'immagine"
           className=" object-cover w-full opacity-80 h-[500px]"
         />
@@ -41,7 +42,7 @@ function ArticleDetail({ articles }: { articles: any }) {
                 <div className="flex items-center gap-[15px]">
                   <img
                     className="h-full w-full  my-10 object-cover rounded-full max-w-[55px]"
-                    src={articles.author.photo.url}
+                    src={articles.authorImage}
                     alt="Logo round web"
                     height={2304}
                     width={2305}
@@ -59,7 +60,7 @@ function ArticleDetail({ articles }: { articles: any }) {
                 </div>
                 <img
                   className="  rounded-xl opacity-80 w-full "
-                  src={articles.featureImage[0].url}
+                  src={articles.imageUrl}
                   alt="Art 10 prompt"
                   height={800}
                   width={1000}

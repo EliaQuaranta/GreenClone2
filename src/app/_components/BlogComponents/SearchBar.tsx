@@ -60,8 +60,8 @@ function SearchBar({ Search }: { Search: any }) {
             className="w-10 h-10 text-black  "
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
             />
           </svg>
@@ -71,14 +71,14 @@ function SearchBar({ Search }: { Search: any }) {
       <div className="w-full max-w-5xl  px-0 md:px-3 sm:px-3  ">
         <ul className="flex-col flex items-start ">
           {filteredArticles.map((article: any) => (
-            <div className=" w-full " key={article.id}>
+            <div className=" w-full " key={article.postUrl}>
               <li className="w-full px-3 sm:px-4 lg:px-4 ">
-                <Link
-                  href={article.url}
+                <a
+                  href={article._id}
                   className=" rounded-md  btn bg-slate-200 w-full flex justify-start sm:flex-wrap  h-[60px] mt-[3px]  "
                 >
                   <img
-                    src={article.featureImage[0].url}
+                    src={article.imageUrl}
                     alt=""
                     className=" w-[64px] mb-3 mr-2 ml-[-5px]  rounded-md  "
                   />
@@ -92,7 +92,7 @@ function SearchBar({ Search }: { Search: any }) {
                       </div>
                     </div>
                   </div>
-                </Link>
+                </a>
               </li>
             </div>
           ))}

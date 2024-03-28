@@ -26,6 +26,7 @@ function ArrowRight(props: any) {
 }
 
 function ArticlesSlider({ articoli }: { articoli: any[] }) {
+  console.log("SliderArticoliCMS", articoli);
   const settings = {
     dots: true,
     infinite: true,
@@ -34,7 +35,7 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
     slidesToScroll: 1,
     //dotsClass: "slick-dots slick-thumb  ",
     //nextArrow: <ArrowRight />,
-    //revArrow: <ArrowLeft />,
+    //revArrow: <ArrowLeft />;
   };
 
   return (
@@ -46,11 +47,11 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
               <div className="rounded-2xl p-0 flex items-center bg-white z-10 flex-col lg:gap-[50px] lg:flex-row ">
                 <a
                   className=" max-w-5xl w-full lg:1/2 self-stretch flex-1 aspect-auto flex items-center"
-                  href={"/blog/" + article.slug}
+                  href={article.postUrl}
                 >
                   <img
                     className="  rounded-xl opacity-80 w-full"
-                    src={article.featureImage[0].url}
+                    src={article.imageUrl}
                     alt="Art 10 prompt"
                     height={800}
                     width={1000}
@@ -61,21 +62,20 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
 
                 <div className="flex-1">
                   <div className="my-[60px] mr-[50px]">
-                    {article.postCategories &&
-                      article.postCategories.length > 0 && (
-                        <div className="flex mb-3">
-                          <a
-                            className=" ml-1 items-center z-10 relative transition-all duration-200 group px-[8px] py-[6px] lg:px-[10px] lg:py-[6px] rounded-[50px] bg-white text-gray-900 hover:text-green-900 white ring-2 ring-black"
-                            href={article.postCategories[0].url}
-                          >
-                            <span className="block text-inherit w-full h-full rounded-[50px] text-xs font-bold font-chivo ">
-                              {article.postCategories[0].title}
-                            </span>
-                          </a>
-                        </div>
-                      )}
+                    {article.categories && article.categories.length > 0 && (
+                      <div className="flex mb-3">
+                        <a
+                          className=" ml-1 items-center z-10 relative transition-all duration-200 group px-[8px] py-[6px] lg:px-[10px] lg:py-[6px] rounded-[50px] bg-white text-gray-900 hover:text-green-900 white ring-2 ring-black"
+                          href={article.postUrl}
+                        >
+                          <span className="block text-inherit w-full h-full rounded-[50px] text-xs font-bold font-chivo ">
+                            {article.categories.title}
+                          </span>
+                        </a>
+                      </div>
+                    )}
                     <h2 className=" font-bold font-chivo text-[38px] leading-[30px] md:text-heading-3 mb-5">
-                      <a href={article.url}>{article.title}</a>
+                      <a href={article.postUrl}>{article.title}</a>
                     </h2>
                     <div className="text-lg text-gray-500 mb-[44px]">
                       <p>{article.shortDescription}</p>
@@ -83,7 +83,7 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
                     <div className="flex items-center gap-[15px]">
                       <img
                         className="h-full w-full object-cover rounded-full max-w-[55px]"
-                        src={article.author.photo.url}
+                        src={article.author.imageUrl}
                         alt="Logo round web"
                         height={2304}
                         width={2305}
@@ -92,7 +92,7 @@ function ArticlesSlider({ articoli }: { articoli: any[] }) {
                       />
                       <div>
                         <p className="line-clamp-2 font-bold mb-[3px] text-gray-900 text-heading-6 capitalize">
-                          {article.author.fullName}
+                          {article.author.name}
                         </p>
                         <p className="text-sm font-bold">
                           {dayjs(article.date).format("DD/MM/YYYY")}

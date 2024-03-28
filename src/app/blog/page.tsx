@@ -1,103 +1,47 @@
+import React from "react";
+import { SanityDocument } from "next-sanity";
+import { client } from "../../sanity/lib/client";
+import image from "next/image";
 import ArticlesSlider from "../_components/BlogComponents/ArticlesSlider";
 import ArticlesGrid from "../_components/BlogComponents/ArticlesGrid";
 import MiddlePart from "../_components/BlogComponents/CategoryButtons";
+
 import SearchBar from "../_components/BlogComponents/SearchBar";
 import BlogHeader from "../_components/BlogComponents/BlogHeader";
-import React from "react";
 
-async function getBlogData() {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: `
-    query MyQuery {
-      entries(section: "blog") {
-        ... on blog_blogArticle_Entry {
-          id
-          title
-          url
-          slug
-          featureImage {
-                url
-                ... on hardDisk2_Asset {
-                  id
-                  url
-                }
-              }
-         author {
-              id
-              fullName
-              photo {
-                url
-              }
-          }
-          featureImage {
-            url
-            id
-          }
-          postCategories {
-            url
-            title
-            slug
-          }
-        }
-      }
-      categories {
-        title
-        url
-        slug
-      }
-    }
-      `,
-  });
+const getData = `*[_type == "post" && defined(slug.current) && !(_id in path('drafts.**'))] {
+  _id,
+  title,
+  fullPostContent,
+  shortDescription,
+  "author": {
+    "name": author->name,
+    "imageUrl": author->image.asset->url
+  },
+  categories[]->{
+    title
+  },
+  slug,
+  "imageUrl": mainImage.asset->url,
+  "authorImage": author->image.asset->url,
+  "postUrl": "/blog/" + slug.current
+}`;
 
-  let blogPosts = await results.json();
-  return blogPosts.data;
-}
+const getCategory = `*[_type == "category"] {
+  ...,
+  "posts": *[_type == "posts" && references(^._id)],
+  "url": title
+}`;
 
-async function getData() {
-  const results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: `query MyQuery {
-      entries(section: "Blog") {
-        slug
-      }
-      categories {
-        slug
-      }
-    }
-  
-    
-`,
-    cache: "default",
-  });
+export default async function IndexPage() {
+  const pages = await client.fetch<SanityDocument[]>(getData);
+  const getCategories = await client.fetch<SanityDocument[]>(getCategory);
+  console.log("cmssanity", pages);
 
-  let cmsData = await results.json();
+  const post = pages;
 
-  return cmsData.data;
-}
-
-export async function generateStaticParams() {
-  const data = await getData();
-
-  const slugs = data.map((post: any) => ({
-    slug: post.entries.slug,
-    categories: post.categories[0].slug,
-  }));
-
-  return slugs;
-}
-
-export default async function Page() {
-  const data = await getBlogData();
-
-  const articles = data.entries;
-  const categories = data.categories;
+  const articles = post;
+  const categories = getCategories;
 
   const sliderArticles = articles.slice(0, 3);
   const gridArticles = articles.slice(3);
@@ -129,7 +73,7 @@ export default async function Page() {
           </div>
         </div>
 
-        <ArticlesGrid articles={gridArticles} />
+        <ArticlesGrid articles={gridArticles} category={categories} />
       </div>
     </div>
   );

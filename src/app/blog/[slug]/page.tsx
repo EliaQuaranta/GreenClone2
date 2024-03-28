@@ -1,240 +1,104 @@
-import RelatedArticles from "../../_components/BlogComponents/RelatedArticles.";
-import ArticleDetail from "../../_components/BlogComponents/ArticleDetail";
-import MiddlPart from "../../_components/BlogComponents/CategoryButtons";
-import BlogCategory from "../../_components/BlogComponents/BlogCategory";
 import React from "react";
+import { client } from "../../../sanity/lib/client"; // Assumi che sia il percorso corretto al tuo client di Sanity
+import ArticleDetail from "../../../../src/app/_components/BlogComponents/ArticleDetail";
+import MiddlePart from "../../../../src/app/_components/BlogComponents/CategoryButtons";
 
-async function getData() {
-  const results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
+import BlogCategory from "../../../../src/app/_components/BlogComponents/BlogCategory";
+import ArticlesGrid from "@/app/_components/BlogComponents/ArticlesGrid";
+
+const getBlogPost = async (slug: any) => {
+  const query = `*[_type == "post" && slug.current == $slug] {
+    _id,
+    title,
+    fullPostContent,
+    shortDescription,
+    "author": {
+      "name": author->name,
+      "imageUrl": author->image.asset->url
     },
-    body: `query MyQuery {
-      entries(section: "Blog") {
-        slug
-        
-      }
-      categories {
-        slug
-      }
-    }
-`,
-    cache: "reload",
-  });
-
-  let cmsData = await results.json();
-
-  return [...cmsData.data.entries, ...cmsData.data.categories];
-}
-async function getBlogPost(slug: string) {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-
-    headers: {
-      "Content-Type": "application/graphql",
+    categories[]->{
+      title,
+      _id
     },
+    slug,
+    "imageUrl": mainImage.asset->url,
+    "authorImage": author->image.asset->url,
+    "postUrl": "/blog/" + slug.current
+  }`;
 
-    body: `
-    query MyQuery($slug: [String] = "${slug}") {
-      entry(slug: $slug) {
-        author {
-          id
-          fullName
-          photo {
-            url
-          }
-        }
-        title
-        url
-        ... on blog_blogArticle_Entry {
-          id
-          fullPostContent
-          slug
-          url
-          shortDescription
-          featureImage {
-            url
-          
-          }
-          postCategories {
-            ... on topics_Category {
-              title
-              slug
-              url
-            }
-          }
-        }
-      }
-      categories {
-        title
-        slug
-        url
-      }
-    }
-    
-    `,
-    cache: "default",
-  });
-  let blogPost = await results.json();
-  return blogPost.data;
-}
-async function getRelatedArticles() {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
+  const params = { slug };
+  const blogPost = await client.fetch(query, params);
+  return blogPost[0];
+};
 
-    headers: {
-      "Content-Type": "application/graphql",
-    },
+const getRelatedArticles = async (categoryId: any) => {
+  const query = `*[_type == "post" && references($categoryId)] | order(_createdAt desc) [0...3] {
+    _id,
+    title,
+    "imageUrl": mainImage.asset->url,
+  
+  }`;
+  const params = { categoryId };
+  const relatedArticles = await client.fetch(query, params);
+  return relatedArticles;
+};
 
-    body: `
-    query MyQuery {
-    entries(orderBy: "postDate", limit: 3) {
-      id
-      author {
-        id
-        fullName
-        photo {
-          url
-        }
-      }
-      title
-      url
-      ... on blog_blogArticle_Entry {
-        id
-        fullPostContent
-        slug
-        url
-        shortDescription
-        featureImage {
-          url
-          ... on hardDisk2_Asset {
-            id
-            url
-          }
-        }
-        postCategories {
-          ... on topics_Category {
-            title
-            slug
-            url
-          }
-        }
-      }
-    }
-  }
-    `,
-  });
-  let blogPost = await results.json();
-  return blogPost.data.entries;
-}
-async function getCategory(slug: any) {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
+const getCategory = async (slug: any) => {
+  const query = `*[_type == "category" && slug.current == $slug] {
+    title,
+    description,
+    _id,
+    slug
+    "postUrl": "/blog/" + slug.current
+  }`;
+  const params = { slug };
+  const category = await client.fetch(query, params);
+  return category[0];
+};
 
-    headers: {
-      "Content-Type": "application/graphql",
-    },
+const getCategorizedArticle = async (slug: any) => {
+  const query = `*[_type == "post" && references($slug)] {
+    _id,
+    title,
+    "imageUrl": mainImage.asset->url,
+    "postUrl": "/blog/" + slug.current
+  }`;
+  const params = { slug };
+  const articles = await client.fetch(query, params);
+  return articles;
+};
 
-    body: `
-    query MyQuery {
-      category(slug: "${slug}") {
-        title
-        url
-        slug
-      }
-      
-    }
-    
-    `,
-  });
-  let blogPost = await results.json();
-  return blogPost.data.category;
-}
-async function getCategorizedArticle(slug: any) {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
+export default async function SubBlog({ params }: any) {
+  let content;
+  const blogPost = await getBlogPost(params.slug);
 
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-
-    body: `query MyQuery {
-      entries(relatedToCategories: {slug: "${slug}"}) {
-        title
-        url
-        slug
-        uri
-        ... on blog_blogArticle_Entry {
-          id
-          featureImage {
-            url
-            title
-          }
-          postCategories {
-            title
-            slug
-            url
-          }
-        }
-      }
-    }
-    
-    `,
-  });
-  let blogPost = await results.json();
-  return blogPost.data.entries;
-}
-
-export async function generateStaticParams() {
-  const data = await getData();
-
-  return data.map((post: any) => {
-    return { slug: post.slug };
-  });
-}
-
-export default async function SubBlog({ params }: { params: { slug: any } }) {
-  const data = await getBlogPost(params.slug);
-  const articles = data.entry;
-  const categories = data.categories;
-
-  if (articles) {
-    const relatedArticles = await getRelatedArticles();
-
-    return (
-      <div className="">
-        <div className="">
-          <ArticleDetail articles={articles}></ArticleDetail>
-        </div>
-        <div>
-          <MiddlPart categories={categories}></MiddlPart>
-        </div>
-        <div className="flex justify-center">
-          <div className="max-w-5xl w-full">
-            <hr />
-          </div>
-        </div>
-        <div className="mt-12 ">
-          <div className="text-center text-2xl font-semibold pb-10">
-            {" "}
-            I nostri articoli più recenti
-          </div>
-          <RelatedArticles articles={relatedArticles}></RelatedArticles>
-        </div>
-      </div>
-    );
-  }
-  const articleCategory = await getCategory(params.slug);
-
-  if (articleCategory) {
-    const categorizedArticles = await getCategorizedArticle(params.slug);
-    return (
-      <div>
-        <BlogCategory articles={categorizedArticles} categorie={categories} />
-      </div>
+  if (blogPost && blogPost._id) {
+    // Se abbiamo trovato un post, mostralo con i suoi articoli correlati
+    const relatedArticles = await getRelatedArticles(blogPost.categories);
+    content = (
+      <>
+        <ArticleDetail articles={blogPost} />
+        <MiddlePart categories={blogPost.categories} />
+        <hr className="max-w-5xl w-full" />
+        <ArticlesGrid
+          articles={relatedArticles}
+          category={blogPost.categories}
+        ></ArticlesGrid>
+      </>
     );
   } else {
-    return <div>Category not found</div>;
+    // Se il post non è stato trovato, prova con le categorie
+    const category = await getCategory(params.slug);
+    if (category && category._id) {
+      const categorizedArticles = await getCategorizedArticle(category._id);
+      content = (
+        <BlogCategory articles={categorizedArticles} categorie={category} />
+      );
+    } else {
+      // Se non abbiamo trovato né un post né una categoria, mostra un messaggio
+      content = <div>Categoria non trovata o contenuto non disponibile.</div>;
+    }
   }
+
+  return <div className="container mx-auto p-4">{content}</div>;
 }

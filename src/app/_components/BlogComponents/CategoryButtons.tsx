@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 function MiddlPart({ categories }: { categories: any }) {
+  console.log("CategoryButtonCMS", categories);
   return (
     <div className="flex justify-center">
       <div className="max-w-5xl w-full px-10">
@@ -10,12 +11,9 @@ function MiddlPart({ categories }: { categories: any }) {
             Array.isArray(categories) &&
             categories.map((category: any) => (
               <li key={category.title}>
-                <Link
-                  href={category.url}
-                  className="btn rounded-md btn-primary"
-                >
+                <a href={category.url} className="btn rounded-md btn-primary">
                   {category.title}
-                </Link>
+                </a>
               </li>
             ))}
         </ul>
