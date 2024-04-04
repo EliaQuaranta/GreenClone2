@@ -1,104 +1,170 @@
 import React from "react";
-import { client } from "../../../sanity/lib/client"; // Assumi che sia il percorso corretto al tuo client di Sanity
+import { client } from "../../../sanity/lib/client";
 import ArticleDetail from "../../../../src/app/_components/BlogComponents/ArticleDetail";
 import MiddlePart from "../../../../src/app/_components/BlogComponents/CategoryButtons";
-
 import BlogCategory from "../../../../src/app/_components/BlogComponents/BlogCategory";
-import ArticlesGrid from "@/app/_components/BlogComponents/ArticlesGrid";
+
+import RelatedArticles from "../../../../src/app/_components/BlogComponents/RelatedArticles.";
 
 const getBlogPost = async (slug: any) => {
-  const query = `*[_type == "post" && slug.current == $slug] {
-    _id,
-    title,
-    fullPostContent,
-    shortDescription,
-    "author": {
-      "name": author->name,
-      "imageUrl": author->image.asset->url
-    },
-    categories[]->{
+  const query = `{
+    "posts": *[_type == "post" && slug.current == '${slug}'] {
+      _id,
       title,
-      _id
+      fullPostContent,
+      shortDescription,
+      "author": {
+        id,
+        "name": author->name,
+        "imageUrl": author->image.asset->url
+         
+      },
+      "categories": categories[]->{
+        title,
+        _id,
+        "slug": slug.current
+      },
+      "slug": slug.current,
+      "imageUrl": mainImage.asset->url,
+      "postUrl": "/blog/" + slug.current
     },
-    slug,
-    "imageUrl": mainImage.asset->url,
-    "authorImage": author->image.asset->url,
-    "postUrl": "/blog/" + slug.current
-  }`;
+    "categories": *[_type == "category" ] {
+      title,
+      "url": slug.current,
+      slug
+    }
+  }
+  `;
 
-  const params = { slug };
-  const blogPost = await client.fetch(query, params);
-  return blogPost[0];
+  const blogPost = await client.fetch(query);
+  return blogPost;
 };
 
-const getRelatedArticles = async (categoryId: any) => {
-  const query = `*[_type == "post" && references($categoryId)] | order(_createdAt desc) [0...3] {
-    _id,
-    title,
-    "imageUrl": mainImage.asset->url,
-  
-  }`;
-  const params = { categoryId };
-  const relatedArticles = await client.fetch(query, params);
+const getRelatedArticles = async () => {
+  const query = `
+  *[_type == "post"] | order(postDate)[0..2] {
+    "id": _id,
+    
+    "author": {
+      "id": author->_id,
+      "fullName": author->fullName,
+      "photo": author->photo.asset->url
+    },
+    "title": title,
+    "url": slug.current,
+      "imageUrl": mainImage.asset->url,
+    "content": {
+      "id": _id,
+      "fullPostContent": fullPostContent,
+      "slug": slug.current,
+      "url": url,
+      "shortDescription": shortDescription,
+      "featureImage": {
+        "url": featureImage.asset->url,
+        "id": featureImage.asset->_id
+      },
+      "postCategories": postCategories[]->{
+        "title": title,
+        "slug": slug.current,
+        "url": "/blog/" + slug.current
+      }
+    }
+  }
+  `;
+
+  const relatedArticles = await client.fetch(query);
   return relatedArticles;
 };
 
 const getCategory = async (slug: any) => {
-  const query = `*[_type == "category" && slug.current == $slug] {
+  const query = `*[_type == "category" && slug.current == "${slug}"] {
     title,
-    description,
-    _id,
+    "url": slug.current,
     slug
-    "postUrl": "/blog/" + slug.current
   }`;
+
   const params = { slug };
   const category = await client.fetch(query, params);
-  return category[0];
+  return category;
 };
 
 const getCategorizedArticle = async (slug: any) => {
-  const query = `*[_type == "post" && references($slug)] {
+  const query = `*[_type == "post" && references(*[_type=="category" && slug.current=="${slug}"]._id)] {
     _id,
     title,
+    fullPostContent,
+     "postUrl": "/blog/" + title,
+    shortDescription,
+    "author": {
+      id,
+      "name": author->name,
+      "imageUrl": author->image.asset->url
+    },
+    "categories": categories[]->{
+      title,
+      _id,
+      "slug": slug.current
+    },
+    "slug": slug.current,
     "imageUrl": mainImage.asset->url,
-    "postUrl": "/blog/" + slug.current
+    "postUrl": "/blog/" + title,
+    "postCategories": postCategories[]->{
+      "title": title,
+      "slug": slug.current,
+      "url": "/blog/" + slug.current
+    }
   }`;
-  const params = { slug };
-  const articles = await client.fetch(query, params);
+
+  const articles = await client.fetch(query);
   return articles;
 };
 
-export default async function SubBlog({ params }: any) {
-  let content;
-  const blogPost = await getBlogPost(params.slug);
+export default async function SubBlog({ params }: { params: { slug: any } }) {
+  const data = await getBlogPost(params.slug);
 
-  if (blogPost && blogPost._id) {
-    // Se abbiamo trovato un post, mostralo con i suoi articoli correlati
-    const relatedArticles = await getRelatedArticles(blogPost.categories);
-    content = (
-      <>
-        <ArticleDetail articles={blogPost} />
-        <MiddlePart categories={blogPost.categories} />
-        <hr className="max-w-5xl w-full" />
-        <ArticlesGrid
-          articles={relatedArticles}
-          category={blogPost.categories}
-        ></ArticlesGrid>
-      </>
+  const articles = data.posts;
+
+  const categories = data.categories;
+  console.log("categorieperibottoni", categories);
+  if (articles.length) {
+    const relatedArticles = await getRelatedArticles();
+
+    return (
+      <div className="">
+        <div className="">
+          <ArticleDetail articles={articles}></ArticleDetail>
+        </div>
+        <div>
+          <MiddlePart categories={categories}></MiddlePart>
+        </div>
+        <div className="flex justify-center">
+          <div className="max-w-5xl w-full">
+            <hr />
+          </div>
+        </div>
+        <div className="mt-12 ">
+          <div className="text-center text-2xl font-semibold pb-10">
+            {" "}
+            I nostri articoli più recenti
+          </div>
+          <RelatedArticles articles={relatedArticles}></RelatedArticles>
+        </div>
+      </div>
+    );
+  }
+  const articleCategory = await getCategory(params.slug);
+
+  if (articleCategory) {
+    const categorizedArticles = await getCategorizedArticle(params.slug);
+
+    return (
+      <div>
+        <div>
+          <BlogCategory articles={categorizedArticles} categorie={categories} />
+        </div>
+      </div>
     );
   } else {
-    // Se il post non è stato trovato, prova con le categorie
-    const category = await getCategory(params.slug);
-    if (category && category._id) {
-      const categorizedArticles = await getCategorizedArticle(category._id);
-      content = (
-        <BlogCategory articles={categorizedArticles} categorie={category} />
-      );
-    } else {
-      // Se non abbiamo trovato né un post né una categoria, mostra un messaggio
-      content = <div>Categoria non trovata o contenuto non disponibile.</div>;
-    }
+    return <div>Categoeery not found</div>;
   }
-
-  return <div className="container mx-auto p-4">{content}</div>;
 }

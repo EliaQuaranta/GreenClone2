@@ -4,6 +4,7 @@ import TextBoxes from "./_components/HomeComponents/TextBoxes";
 import TextImg from "./_components/HomeComponents/TextImg";
 import TeamImage from "./_components/HomeComponents/TeamImage";
 import WorkSpaceImage from "./_components/HomeComponents/WorkSpaceImage";
+import React from "react";
 
 async function homeInfos() {
   let results = await fetch("https://my-craft-project.ddev.site/api", {

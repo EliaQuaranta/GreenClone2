@@ -4,29 +4,6 @@ import MiddlPart from "../../../src/app/_components/BlogComponents/CategoryButto
 import BlogCategory from "../../../src/app/_components/BlogComponents/BlogCategory";
 import React from "react";
 
-async function getData() {
-  const results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: `query MyQuery {
-      entries(section: "Blog") {
-        slug
-        
-      }
-      categories {
-        slug
-      }
-    }
-`,
-    cache: "reload",
-  });
-
-  let cmsData = await results.json();
-
-  return [...cmsData.data.entries, ...cmsData.data.categories];
-}
 async function getBlogPost(slug: string) {
   let results = await fetch("https://my-craft-project.ddev.site/api", {
     method: "POST",
@@ -100,7 +77,7 @@ async function getRelatedArticles() {
       }
       title
       url
-      ... on blog_blogArticle_Entry {
+     {
         id
         fullPostContent
         slug
@@ -114,7 +91,7 @@ async function getRelatedArticles() {
           }
         }
         postCategories {
-          ... on topics_Category {
+           {
             title
             slug
             url
@@ -186,14 +163,6 @@ async function getCategorizedArticle(slug: any) {
   return blogPost.data.entries;
 }
 
-export async function generateStaticParams() {
-  const data = await getData();
-
-  return data.map((post: any) => {
-    return { slug: post.slug };
-  });
-}
-
 export default async function SubBlog({ params }: { params: { slug: any } }) {
   const data = await getBlogPost(params.slug);
   const articles = data.entry;
@@ -235,6 +204,6 @@ export default async function SubBlog({ params }: { params: { slug: any } }) {
       </div>
     );
   } else {
-    return <div>Categoeery not found</div>;
+    return <div>Category not found</div>;
   }
 }

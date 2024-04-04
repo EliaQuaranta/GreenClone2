@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import Slider from "react-slick";
 import "/node_modules/slick-carousel/slick/slick.css";
 import "/node_modules/slick-carousel/slick/slick-theme.css";
+import React from "react";
 
 function ArrowLeft(props: any) {
   return (

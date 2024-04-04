@@ -74,7 +74,7 @@ function SearchBar({ Search }: { Search: any }) {
             <div className=" w-full " key={article.postUrl}>
               <li className="w-full px-3 sm:px-4 lg:px-4 ">
                 <a
-                  href={article._id}
+                  href={article.postUrl}
                   className=" rounded-md  btn bg-slate-200 w-full flex justify-start sm:flex-wrap  h-[60px] mt-[3px]  "
                 >
                   <img

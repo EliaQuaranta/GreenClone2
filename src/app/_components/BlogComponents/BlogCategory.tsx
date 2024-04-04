@@ -1,3 +1,4 @@
+import React from "react";
 import ArticlesGrid from "./ArticlesGrid";
 import MiddlePart from "./CategoryButtons";
 
@@ -8,7 +9,8 @@ function BlogCategory({
   articles: any;
   categorie: any;
 }) {
-  //console.log("fwfwfwwfwwfwfw", categorie);
+  console.log("blogcategoryyyyyeeee", articles);
+  console.log("blogcategoryyyyy", categorie);
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-5xl">
@@ -18,7 +20,7 @@ function BlogCategory({
           articoli proposti:{categorie.title}
         </div>
         <div>
-          <ArticlesGrid articles={articles} />
+          <ArticlesGrid articles={articles} category={categorie} />
         </div>
       </div>
     </div>

@@ -9,17 +9,18 @@ import MiddlePart from "../_components/BlogComponents/CategoryButtons";
 import SearchBar from "../_components/BlogComponents/SearchBar";
 import BlogHeader from "../_components/BlogComponents/BlogHeader";
 
-const getData = `*[_type == "post" && defined(slug.current) && !(_id in path('drafts.**'))] {
+const getData = `*[_type == "post" ] {
   _id,
   title,
-  fullPostContent,
+  FullPostContent,
   shortDescription,
   "author": {
     "name": author->name,
     "imageUrl": author->image.asset->url
   },
   categories[]->{
-    title
+    title,
+    "categoryUrl": "/blog/" + slug.current
   },
   slug,
   "imageUrl": mainImage.asset->url,
@@ -30,7 +31,7 @@ const getData = `*[_type == "post" && defined(slug.current) && !(_id in path('dr
 const getCategory = `*[_type == "category"] {
   ...,
   "posts": *[_type == "posts" && references(^._id)],
-  "url": title
+  "url": slug.current
 }`;
 
 export default async function IndexPage() {
@@ -43,8 +44,8 @@ export default async function IndexPage() {
   const articles = post;
   const categories = getCategories;
 
-  const sliderArticles = articles.slice(0, 3);
-  const gridArticles = articles.slice(3);
+  const sliderArticles = articles.slice(0, 2);
+  const gridArticles = articles.slice(2);
 
   return (
     <div className="blog">

@@ -14,14 +14,13 @@ async function getBlogData() {
     body: `
     query MyQuery {
       entries(section: "blog") {
-        ... on blog_blogArticle_Entry {
+              {
           id
           title
           url
           slug
           featureImage {
-                url
-                ... on hardDisk2_Asset {
+                url {
                   id
                   url
                 }

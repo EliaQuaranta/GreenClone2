@@ -25,10 +25,19 @@ export default defineType({
       title: "ShortDescription",
       type: "string",
     }),
+
     defineField({
       name: "fullPostContent",
-      title: "FullPostContent",
-      type: "string",
+      type: "array",
+      title: "Content",
+      of: [
+        {
+          type: "block",
+        },
+        {
+          type: "image",
+        },
+      ],
     }),
 
     defineField({

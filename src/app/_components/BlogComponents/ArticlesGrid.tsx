@@ -1,3 +1,5 @@
+import React from "react";
+
 function ArticlesGrid({
   articles,
   category,
@@ -15,7 +17,7 @@ function ArticlesGrid({
             <a href={article.postUrl} className="">
               <div className="flex items-center ">
                 <div className="bg-gray-500 rounded-full  w-[3px] h-[3px] mr-[6px]" />
-                <div>{category[0].title}</div>
+                <div>{category.title}</div>
                 <span className="uppercase text-gray-500 text-xs ">
                   {category.slug}
                 </span>
