@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
 function TextImgcomponent({ infos }: { infos: any }) {
-  //console.log("trimone", infos);
+  console.log("TEXTIMG", infos);
+
   return (
     <div className="flex  lg:flex-row justify-center  mt-7 lg:px-0 px-7 lg:pt-0 pt-10">
       <div className="w-full max-w-5xl grid  items-center grid-cols-1 md:grid-cols-2  lg:grid-cols-2 lg:mx-0 md:mx-[2/4] sm:px-[50px]">
@@ -36,15 +37,15 @@ function TextImgcomponent({ infos }: { infos: any }) {
         </div>
 
         <div className="">
-          {infos.blockImg[0].url && infos.blockImg.length == 1 && (
+          {infos.images.url && infos.images.url.length == 1 && (
             <div className="lg:w-full flex items-center max-w-fit ">
-              <img src={infos.blockImg[0].url} className=" " alt="" />
+              <img src={infos.images[0].url} className=" " alt="epp" />
             </div>
           )}
-          {infos.blockImg[0].url && infos.blockImg.length > 1 && (
+          {infos.images[0].url && infos.images[0].url.length > 2 && (
             <div className=" w-[400px] justify-center pb-7 px-10 md:px-0 lg:px-0  ">
               <div className="carousel  lg:max-w-[500px] lg:max-h-[500px] max-h-[300px] gap-2 items-center  lg:items-baseline  ">
-                {infos.blockImg.map((info: any, index: number) => (
+                {infos.image.map((info: any, index: number) => (
                   <div
                     key={index}
                     id={"item" + index}
@@ -52,15 +53,15 @@ function TextImgcomponent({ infos }: { infos: any }) {
                   >
                     {" "}
                     <img
-                      src={info.url}
-                      alt="image carousel"
+                      src={infos.images[0].url}
+                      alt="image carousele"
                       className="w-fit"
                     />
                   </div>
                 ))}
               </div>
               <div className=" justify-start flex w-full  gap-2">
-                {infos.blockImg.map((src: any, index: number) => (
+                {infos.image.map((src: any, index: number) => (
                   <a
                     key={index}
                     href={"#item" + index} //href perchè gli "a" hanno bisogno di un link o comunque riferimento e con l'id non riuscivo a specificarlo

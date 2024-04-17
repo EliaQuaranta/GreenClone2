@@ -5,151 +5,64 @@ import TextBoxesService from "../../_components/PagesComponents/TextBoxesPages";
 import TextImgServizi from "../../_components/PagesComponents/TextImgPages";
 import WorkSpacee from "../../_components/PagesComponents/ImageSpace";
 import React from "react";
+import { client } from "../../../sanity/lib/client";
 
-async function getData() {
-  const results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: `query MyQuery {
-      entries(section: "pages", level: 2) {
-        slug
-        ancestors { 
-        slug
-        }
-      }
-    }
-`,
-    cache: "no-store",
-  });
+{
+  /*const getData: any = async (slug: any) => {
+  const query = `*[_type == 'pages' && !(_id in path('drafts.**'))] 
+    
+  
+`;
 
-  let cmsData = await results.json();
-
-  return cmsData.data.entries;
-}
+  const getPages = await client.fetch(query);
+  return getPages;
+};
 
 export async function generateStaticParams() {
   const data = await getData();
 
   const slugs = data.map((post: any) => ({
     subSlug: post.slug,
-    slug: post.ancestors[0].slug,
+    slug: post.ancestors.slug,
   }));
 
   return slugs;
 }
-
-async function getSubPages(slug: any) {
-  let results = await fetch("https://my-craft-project.ddev.site/api", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/graphql",
-    },
-    body: ` query MyQuery($slug: [String] = "${slug}") {
-      entry(slug: $slug) {
-        url
-        title
-        ... on pages_certificatoPages_Entry {
-          title
-          slug
-          pageBlocks {
-            ... on pageBlocks_textBlock_BlockType {
-              typeHandle
-              textBlockInfos {
-                ... on textBlockInfos_BlockType {
-                  textBoxLink
-                  textBoxText
-                  textBoxTitle
-                  slug
-                  textBoxIcon {
-                    url
-                  }
-                }
-              }
-            }
-            ... on pageBlocks_textImg_BlockType {
-              blockText
-              typeHandle
-              blockButtonText
-              blockLink
-              blockTitle
-              blockSubtitle
-              blockImg {
-                url
-                slug
-              }
-              imagePosition(label: false)
-            }
-            ... on pageBlocks_checkUpButton_BlockType {
-              typeHandle
-              checkUpLink
-              CheckUpButtonText
-              checkUptext
-            }
-            ... on pageBlocks_certificato_BlockType {
-              typeHandle
-              firstSponsorText
-              secondSponsorText
-              mainTitle
-              firstSponsorImage {
-                url
-              }
-              secondSponsorImage {
-                url
-              }
-            }
-            ... on pageBlocks_workSpaceImage_BlockType {
-              typeHandle
-              id
-              WorkSpaceImage {
-                url
-              }
-            }
-            ... on pageBlocks_banner_BlockType {
-              typeHandle
-              bannerTitle
-              banner {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-    
-        `,
-    cache: "default",
-  });
-
-  let blogPosts = await results.json();
-  return blogPosts.data.entry;
+*/
 }
 
-export default async function Page({
-  params,
-}: {
-  params: { slug: string; subSlug: string };
-}) {
-  const subPages = await getSubPages(params.subSlug);
+async function getSubPages(subSlug: any) {
+  const query = `
+    *[_type == 'pages' && slug.current == "${subSlug}" ] 
+  `;
+
+  const params = { subSlug };
+  const page = await client.fetch(query, params);
+  console.log("SubSLUGGONE", page[0]);
+  return page[0]; // Poiché si prevede di tornare una sola pagina.
+}
+
+export default async function Page({ params }: any) {
+  const { slug, subSlug } = params;
+  const subPages = await getSubPages(subSlug);
 
   return (
     <div>
-      {subPages && subPages.pageBlocks
-        ? subPages.pageBlocks.map((block: any) => {
-            if (block.typeHandle == "textBlock")
+      {subPages && subPages.pageBuilder
+        ? subPages.pageBuilder.map((block: any) => {
+            if (block._type == "banner") return <Banner Info={block} />;
+            if (block._type == "textBlocks")
               return <TextBoxesService Info={block} />;
-            if (block.typeHandle == "checkUpButton")
+            if (block._type == "checkUps")
               return <CheckUpServizi Info={block} />;
-            if (block.typeHandle == "textImg")
+            if (block._type == "textImg")
               return <TextImgServizi infos={block} />;
-            if (block.typeHandle == "certificato")
+            if (block._type == "heroType")
               return <CertificatoServizi Info={block} />;
-            if (block.typeHandle == "workSpaceImage")
+            if (block._type == "workSpaceImage")
               return <WorkSpacee Info={block} />;
-            if (block.typeHandle == "banner") return <Banner Info={block} />;
           })
-        : ""}
+        : "sorry, page not found"}
     </div>
   );
 }

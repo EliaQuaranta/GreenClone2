@@ -2,12 +2,40 @@ import { type SchemaTypeDefinition } from "sanity";
 
 import blockContent from "./schemaTypes/blockContent";
 import category from "./schemaTypes/category";
-import post from "./schemaTypes/post";
 import author from "./schemaTypes/author";
-import prova from "./schemaTypes/ServiziBlocks";
-import ServiziBlocks from "./schemaTypes/ServiziBlocks";
+
 import AnalisiBlocks from "./schemaTypes/AnalisiBlocks";
 
+import { formType } from "./components/formType";
+import { heroType } from "./schemaTypes/heroType";
+import { imageGalleryType } from "./schemaTypes/imageGallery";
+import { pageType } from "./schemaTypes/pageType";
+import { videoType } from "./components/videoType";
+import sectionPages from "./schemaTypes/sectionPages";
+import { textBlocks } from "./schemaTypes/textBlocks";
+import { banner } from "./schemaTypes/banner";
+import { checkUps } from "./schemaTypes/checkUps";
+import { textImg } from "./schemaTypes/textImg";
+import { fullPostContent } from "./schemaTypes/fullPostContent";
+import { Post } from "./schemaTypes/post";
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [post, author, category, blockContent, ServiziBlocks, AnalisiBlocks],
+  types: [
+    author,
+    category,
+    blockContent,
+    AnalisiBlocks,
+    sectionPages,
+    banner,
+    checkUps,
+    pageType,
+    heroType,
+    textImg,
+    imageGalleryType,
+    formType,
+    videoType,
+    textBlocks,
+    Post,
+    fullPostContent,
+  ],
 };

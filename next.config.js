@@ -13,4 +13,8 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+
+  images: {
+    domains: ["cdn.sanity.io"],
+  },
 };

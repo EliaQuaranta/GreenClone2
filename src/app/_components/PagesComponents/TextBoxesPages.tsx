@@ -1,35 +1,30 @@
 import React from "react";
 
 function TextBoxesService({ Info }: { Info: any }) {
-  //console.log("AOOOROOMMAAAAA", Info);
+  console.log("AOOOROOMMAAAAA", Info);
   return (
     <div className="main">
       <div className="bg-white flex justify-center">
         <div className="grid  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-20 pt-7 pb-20 max-w-5xl px-7 lg:px-0">
-          {Info.textBlockInfos.map((info: any, index: number) => (
+          {Info.blocks.map((info: any, index: number) => (
             <div key={index} className="max-h-fit">
               <div className="md:flex flex-col border-l-2 border-primary min-h-max pb-2">
                 <div className="">
                   <div className="flex pl-[26px]  ">
-                    <img src={info.textBoxIcon.url} alt="" className="w-8" />
+                    <img src={info} alt="" className="w-8" />
                   </div>
                   <div className="pl-7 fontHead font-bold text-xl">
-                    {info.textBoxTitle}
+                    {info.label}
                   </div>
-                  <div
-                    className="pl-7 pt-6 "
-                    dangerouslySetInnerHTML={{
-                      __html: info.textBoxText,
-                    }}
-                  ></div>
+                  <div className="pl-7">{info.heading}</div>
                   <div
                     className={
-                      info.textBoxLink == null
+                      info.link == null
                         ? "hidden"
                         : "pt-4 pl-7 underline font-bold flex "
                     }
                   >
-                    <a href={info.textBoxLink} className="flex">
+                    <a href={info.link} className="flex">
                       Scopri di più!
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

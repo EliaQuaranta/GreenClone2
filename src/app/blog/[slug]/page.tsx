@@ -50,6 +50,7 @@ const getRelatedArticles = async () => {
       "fullName": author->fullName,
       "photo": author->photo.asset->url
     },
+    
     "title": title,
     "url": slug.current,
       "imageUrl": mainImage.asset->url,
@@ -125,7 +126,7 @@ export default async function SubBlog({ params }: { params: { slug: any } }) {
   const articles = data.posts;
 
   const categories = data.categories;
-  console.log("categorieperibottoni", categories);
+  console.log("categorieperibottoni", data.posts);
   if (articles.length) {
     const relatedArticles = await getRelatedArticles();
 
