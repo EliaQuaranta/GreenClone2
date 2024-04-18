@@ -23,5 +23,13 @@ export const textImg = defineType({
       of: [{ type: "image" }],
       options: { layout: "grid" },
     }),
+    defineField({
+      name: "imagePosition",
+      type: "string",
+      description: "Select where the image will be",
+      options: {
+        list: ["Left", "Right"],
+      },
+    }),
   ],
 });

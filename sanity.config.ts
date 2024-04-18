@@ -29,5 +29,5 @@ export const client = createClient({
   dataset: "production",
   apiVersion: "2024-01-01",
   // unless you have caching for your front end, `useCdn` should be `true` for most production environments
-  useCdn: true,
+  useCdn: false,
 });

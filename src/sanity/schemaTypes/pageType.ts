@@ -38,8 +38,8 @@ export const pageType = defineType({
           type: "textImg",
         }),
         defineArrayMember({
-          name: "gallery",
-          type: "gallery",
+          name: "workSpace",
+          type: "workSpace",
         }),
         defineArrayMember({
           name: "textBlocks",

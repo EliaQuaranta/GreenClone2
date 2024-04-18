@@ -18,7 +18,7 @@ function Navbar() {
             {/* Navbar menu content here */}
 
             <li>
-              <Link href="/servizi/seo">SEO</Link>
+              <Link href="/seo">SEO</Link>
             </li>
             <li>
               <Link href="/blog">BLOG</Link>

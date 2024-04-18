@@ -15,12 +15,8 @@ export const checkUps = defineType({
       type: "string",
     }),
     defineField({
-      name: "form",
-      type: "string",
-      description: "Select form type",
-      options: {
-        list: ["newsletter", "register", "contact"],
-      },
+      name: "link",
+      type: "url",
     }),
   ],
 });

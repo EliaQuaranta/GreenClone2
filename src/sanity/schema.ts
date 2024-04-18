@@ -8,7 +8,6 @@ import AnalisiBlocks from "./schemaTypes/AnalisiBlocks";
 
 import { formType } from "./components/formType";
 import { heroType } from "./schemaTypes/heroType";
-import { imageGalleryType } from "./schemaTypes/imageGallery";
 import { pageType } from "./schemaTypes/pageType";
 import { videoType } from "./components/videoType";
 import sectionPages from "./schemaTypes/sectionPages";
@@ -18,6 +17,7 @@ import { checkUps } from "./schemaTypes/checkUps";
 import { textImg } from "./schemaTypes/textImg";
 import { fullPostContent } from "./schemaTypes/fullPostContent";
 import { Post } from "./schemaTypes/post";
+import { workSpace } from "./schemaTypes/workSpace";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -31,7 +31,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pageType,
     heroType,
     textImg,
-    imageGalleryType,
+    workSpace,
     formType,
     videoType,
     textBlocks,

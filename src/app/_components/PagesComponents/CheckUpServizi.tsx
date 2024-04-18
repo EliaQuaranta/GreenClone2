@@ -1,22 +1,23 @@
 import React, { Component } from "react";
 
 function CheckUpServizi({ Info }: { Info: any }) {
+  console.log("CHECKUPP", Info);
   return (
     <div className="bg-[#E3DCD7] flex justify-center">
       <div className=" container md:flex-row  max-w-5xl">
         <div className="font-bold text-3xl items-center pt-20 pb-20 pl-7 lg:pl-0   aling-items lg:py-11 ">
           <div className="text-bold p-2 lg:flex items-center ">
-            {Info.checkUptext}
+            {Info.label}
             <a href={Info.checkUpLink} className="lg:ml-72 ">
               <button className="blocked btn btn-lg btn-primary text-lg flex lg:mt-0 mt-4   ">
-                {Info.CheckUpButtonText}
+                {Info.heading}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="w-6 h-6 m-0 pt-1"
+                  className="w-6 h-6 m-0 pt-0"
                 >
                   <path
                     strokeLinecap="round"

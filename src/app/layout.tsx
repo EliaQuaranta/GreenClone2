@@ -3,8 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/HomeComponents/Navbar";
 import Footer from "./_components/HomeComponents/Footer";
+
 import CookieBar from "./_components/HomeComponents/CookieBar";
 import React from "react";
+import { FooterForm } from "./_components/HomeComponents/FooterForm";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ export default function RootLayout({
 
         {children}
         <CookieBar></CookieBar>
+        <FooterForm />
         <Footer />
       </body>
     </html>

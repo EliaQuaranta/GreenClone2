@@ -1,16 +1,12 @@
 import { defineField, defineType } from "sanity";
 
-export const banner = defineType({
-  name: "banner",
+export const workSpace = defineType({
+  name: "workSpace",
   type: "object",
   fields: [
     defineField({
       name: "image",
       type: "image",
-    }),
-    defineField({
-      name: "textBanner",
-      type: "text",
     }),
   ],
 });

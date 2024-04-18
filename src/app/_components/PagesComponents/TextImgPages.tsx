@@ -8,8 +8,8 @@ function TextImgcomponent({ infos }: { infos: any }) {
       <div className="w-full max-w-5xl grid  items-center grid-cols-1 md:grid-cols-2  lg:grid-cols-2 lg:mx-0 md:mx-[2/4] sm:px-[50px]">
         <div
           className={
-            infos.imagePosition == "left"
-              ? "order-last gap-15 max-w-5xl  md:py-4 lg:text-start md:text-start sm:text-center text-center"
+            infos.imagePosition == "Left"
+              ? "order-last gap-15 max-w-5xl pl-12  md:py-4 lg:text-start md:text-start sm:text-center text-center"
               : "gap-15 max-w-5xl md:py-4 lg:text-start md:text-start sm:text-center text-center"
           }
         >
@@ -37,12 +37,12 @@ function TextImgcomponent({ infos }: { infos: any }) {
         </div>
 
         <div className="">
-          {infos.images.url && infos.images.url.length == 1 && (
+          {infos.images[0].url && infos.images.length == 1 && (
             <div className="lg:w-full flex items-center max-w-fit ">
               <img src={infos.images[0].url} className=" " alt="epp" />
             </div>
           )}
-          {infos.images[0].url && infos.images[0].url.length > 2 && (
+          {infos.images[0].url && infos.images.length > 1 && (
             <div className=" w-[400px] justify-center pb-7 px-10 md:px-0 lg:px-0  ">
               <div className="carousel  lg:max-w-[500px] lg:max-h-[500px] max-h-[300px] gap-2 items-center  lg:items-baseline  ">
                 {infos.image.map((info: any, index: number) => (

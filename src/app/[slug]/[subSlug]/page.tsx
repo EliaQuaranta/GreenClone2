@@ -7,33 +7,61 @@ import WorkSpacee from "../../_components/PagesComponents/ImageSpace";
 import React from "react";
 import { client } from "../../../sanity/lib/client";
 
-{
-  /*const getData: any = async (slug: any) => {
-  const query = `*[_type == 'pages' && !(_id in path('drafts.**'))] 
-    
-  
-`;
-
-  const getPages = await client.fetch(query);
-  return getPages;
-};
-
-export async function generateStaticParams() {
-  const data = await getData();
-
-  const slugs = data.map((post: any) => ({
-    subSlug: post.slug,
-    slug: post.ancestors.slug,
-  }));
-
-  return slugs;
-}
-*/
-}
-
 async function getSubPages(subSlug: any) {
   const query = `
-    *[_type == 'pages' && slug.current == "${subSlug}" ] 
+  *[_type == "pages" && slug.current == "${subSlug}"] {
+    _id,
+    title,
+    _createdAt,
+    _updatedAt,
+    slug {
+      current
+    },
+    pageBuilder[] {
+      ...,
+      _type == 'textImg' => {
+        blockTitle,
+        blockSubtitle,
+        imagePosition,
+        blockText,
+        "images": image[].asset->{
+          url
+        }
+      },
+      _type == 'textBlocks' => {
+        blocks[] {
+          heading,
+          label,
+          link
+        }
+      },
+      _type == 'workSpace' => {
+        "image": image.asset->{
+         
+          url
+        }
+      },
+      _type == 'hero' => {
+        buttonText,
+        text
+      },
+      _type == 'banner' => {
+        textBanner,
+        "image": image.asset->{
+          _ref,
+          url
+        }
+      },
+      _type == 'checkUps' => {
+        label,
+        form,
+        heading
+      }
+    },
+    "parent": Parent->{
+      title
+    }
+  }
   `;
 
   const params = { subSlug };

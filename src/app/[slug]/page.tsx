@@ -9,11 +9,12 @@ import { client } from "@/sanity/lib/client";
 
 const getPages = async (slug: any) => {
   const query = `
-  *[_type == "pages" && slug.current == "${slug}" ] {
+  *[_type == "pages" && slug.current == "${slug}"] {
     _id,
     title,
     _createdAt,
-    _updatedAt,
+    updatedAt,
+   
     slug {
       current
     },
@@ -22,9 +23,9 @@ const getPages = async (slug: any) => {
       _type == 'textImg' => {
         blockTitle,
         blockSubtitle,
+        imagePosition,
         blockText,
         "images": image[].asset->{
-          
           url
         }
       },
@@ -35,13 +36,20 @@ const getPages = async (slug: any) => {
           link
         }
       },
+      _type == 'workSpace' => {
+        "image": image.asset->{
+          _ref,
+          url
+        }
+      },
       _type == 'hero' => {
         buttonText,
         text
       },
       _type == 'banner' => {
+        textBanner,
         "image": image.asset->{
-          _ref,
+          
           url
         }
       },
@@ -51,10 +59,11 @@ const getPages = async (slug: any) => {
         heading
       }
     },
-    "parent": ^{
-      title,
+    "parent": Parent->{
+      title
     }
   }
+  
   `;
 
   const blogPost = await client.fetch(query);
